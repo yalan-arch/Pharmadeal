@@ -415,6 +415,208 @@ body {
   flex-shrink: 0; font-weight: 700;
 }
 
+/* === ANALYSIS === */
+.analysis-section { margin-bottom: 32px; }
+.analysis-summary {
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-bottom: 20px;
+}
+.analysis-summary .analysis-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+.analysis-summary h4 {
+  font-size: 14px; font-weight: 600; margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.analysis-summary p {
+  font-size: 13px; line-height: 1.8; color: var(--text-secondary);
+}
+.analysis-card {
+  padding: 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.analysis-card h5 {
+  font-size: 12px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.analysis-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 0;
+}
+.analysis-bars { display: flex; flex-direction: column; gap: 10px; }
+.analysis-bar-item { display: flex; align-items: center; gap: 10px; }
+.analysis-bar-label {
+  font-size: 12px; color: var(--text-secondary);
+  width: 70px; flex-shrink: 0; text-align: right;
+}
+.analysis-bar-track {
+  flex: 1; height: 8px; background: var(--border);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.analysis-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.6s ease;
+}
+.analysis-bar-value {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); width: 50px; flex-shrink: 0;
+}
+.trend-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.trend-list li {
+  font-size: 12px; line-height: 1.7; color: var(--text-secondary);
+  padding-left: 16px; position: relative;
+}
+.trend-list li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+.trend-list li.trend-up::before { background: var(--accent); }
+.trend-list li.trend-down::before { background: var(--red); }
+.trend-list li.trend-neutral::before { background: var(--amber); }
+.trend-list li .trend-tag {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 10px; padding: 1px 6px; border-radius: 3px;
+  margin-left: 4px; font-weight: 600;
+}
+.trend-tag.up { background: var(--accent-dim); color: var(--accent); }
+.trend-tag.down { background: var(--red-dim); color: var(--red); }
+.trend-tag.neutral { background: var(--amber-dim); color: var(--amber); }
+
+@media (max-width: 768px) {
+  .analysis-grid { grid-template-columns: 1fr; }
+}
+
+/* === DAILY BRIEFING === */
+.briefing-section { position: relative; }
+.briefing-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.briefing-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.briefing-date-badge {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+  color: var(--accent);
+  padding: 6px 14px; background: var(--accent-dim);
+  border-radius: 20px; display: inline-flex; align-items: center; gap: 8px;
+}
+.briefing-stats {
+  display: flex; gap: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);
+}
+.briefing-stats .stat-item { display: flex; align-items: center; gap: 6px; }
+.briefing-stats .stat-val { font-weight: 700; color: var(--text-primary); font-size: 14px; }
+.briefing-body {
+  padding: 28px 32px;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px;
+}
+.briefing-block { margin-bottom: 24px; }
+.briefing-block:last-child { margin-bottom: 0; }
+.briefing-block-title {
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.briefing-block-title::before {
+  content: ''; width: 3px; height: 14px;
+  background: var(--accent); border-radius: 2px;
+}
+.briefing-deals { display: flex; flex-direction: column; gap: 10px; }
+.briefing-deal-card {
+  padding: 14px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.briefing-deal-card:hover {
+  border-color: var(--accent); box-shadow: 0 2px 8px var(--accent-dim);
+}
+.briefing-deal-card .deal-info { flex: 1; }
+.briefing-deal-card .deal-title {
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.briefing-deal-card .deal-desc {
+  font-size: 12px; color: var(--text-secondary); line-height: 1.6;
+}
+.briefing-deal-card .deal-amt {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+  color: var(--accent); white-space: nowrap;
+}
+.briefing-commentary {
+  font-size: 13px; line-height: 2; color: var(--text-secondary);
+  padding: 16px; background: var(--bg-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+.briefing-heatmap {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+}
+.heatmap-day {
+  aspect-ratio: 1; border-radius: 4px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px;
+  border: 1px solid var(--border); position: relative;
+}
+.heatmap-day .day-label { font-size: 9px; color: var(--text-muted); margin-bottom: 2px; }
+.heatmap-day .day-count { font-weight: 700; font-size: 14px; }
+.heat-0 { background: var(--bg-primary); }
+.heat-1 { background: #d1fae5; color: #065f46; }
+.heat-2 { background: #6ee7b7; color: #065f46; }
+.heat-3 { background: #34d399; color: #ffffff; }
+.heat-4 { background: #10b981; color: #ffffff; }
+.heat-5 { background: #059669; color: #ffffff; }
+.briefing-companies { display: flex; flex-direction: column; gap: 8px; }
+.company-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; background: var(--bg-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 12px;
+}
+.company-rank {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  color: #ffffff; background: var(--accent);
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.company-rank.r2 { background: var(--purple); }
+.company-rank.r3 { background: var(--amber); }
+.company-rank.rn { background: var(--text-muted); }
+.company-name { flex: 1; font-weight: 500; color: var(--text-primary); }
+.company-count { font-family: var(--font-mono); color: var(--text-muted); }
+.company-amt { font-family: var(--font-mono); color: var(--accent); font-weight: 600; }
+
+/* Trader list in weekly report */
+.trader-list { display: flex; flex-direction: column; gap: 8px; }
+.trader-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.trader-info { flex: 1; }
+.trader-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.trader-detail { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.trader-amt {
+  font-family: var(--font-mono); font-size: 13px;
+  font-weight: 700; color: var(--accent); white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .briefing-body { grid-template-columns: 1fr; }
+  .briefing-header { flex-direction: column; align-items: flex-start; }
+}
+
 /* === FOOTER === */
 .footer {
   border-top: 1px solid var(--border);
@@ -513,6 +715,7 @@ body {
   </div>
   <div class="nav-links">
     <a href="#dashboard" class="active">总览</a>
+    <a href="#briefing-anchor">每日简报</a>
     <a href="#explorer-anchor">交易数据</a>
     <a href="#report-anchor">周报</a>
   </div>
@@ -526,6 +729,43 @@ body {
 <section class="ticker-section" id="ticker">
   <div class="ticker-label"><span class="dot"></span> 最新交易动态 LIVE DEAL FEED</div>
   <div class="ticker-track" id="tickerTrack"></div>
+</section>
+
+<!-- DAILY BRIEFING -->
+<div id="briefing-anchor" style="scroll-margin-top:60px"></div>
+<section class="section briefing-section" id="dailyBriefing">
+  <div class="section-label">Daily Briefing</div>
+  <div class="section-title">每日全球生物医药动态简报</div>
+  <div class="section-subtitle" id="briefingDate"></div>
+
+  <div class="briefing-container">
+    <div class="briefing-header">
+      <div class="briefing-date-badge" id="briefingBadge"></div>
+      <div class="briefing-stats" id="briefingStats"></div>
+    </div>
+    <div class="briefing-body">
+      <div class="briefing-col-main">
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">今日交易速览</h4>
+          <div id="briefingDeals" class="briefing-deals"></div>
+        </div>
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">今日市场点评</h4>
+          <div id="briefingCommentary" class="briefing-commentary"></div>
+        </div>
+      </div>
+      <div class="briefing-col-side">
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">近7日热力指标</h4>
+          <div id="briefingHeatmap" class="briefing-heatmap"></div>
+        </div>
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">活跃交易方</h4>
+          <div id="briefingActiveCompanies" class="briefing-companies"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SUMMARY DASHBOARD -->
@@ -642,6 +882,46 @@ body {
     </div>
     <div class="report-body">
       <div class="report-kpi-row" id="reportKpis"></div>
+
+      <!-- 市场动态分析 -->
+      <div class="analysis-section" id="analysisSection">
+        <div class="analysis-card analysis-summary">
+          <div class="analysis-icon">&#x1F4CA;</div>
+          <h4>市场动态概览</h4>
+          <p id="analysisSummary"></p>
+        </div>
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <h5>交易类型分布</h5>
+            <div id="analysisTypeBreakdown" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>治疗领域热度</h5>
+            <div id="analysisAreaHeat" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>地域活跃度</h5>
+            <div id="analysisGeoActivity" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>趋势洞察</h5>
+            <ul id="analysisTrends" class="trend-list"></ul>
+          </div>
+        </div>
+
+        <!-- 靶点/机制分析 + 交易者分析 -->
+        <div class="analysis-grid" style="margin-top:16px">
+          <div class="analysis-card">
+            <h5>热门靶点 / 技术机制</h5>
+            <div id="analysisTargets" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>活跃交易者排行</h5>
+            <div id="analysisTraders" class="trader-list"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="report-highlights">
         <h4>本周重点交易</h4>
         <ol class="highlight-list" id="highlightList"></ol>
@@ -824,6 +1104,7 @@ function getWeekNumber(d) {
 function initApp() {
   document.getElementById('updateTime').textContent = '数据更新: ' + getUpdateTime();
   renderTicker();
+  renderDailyBriefing();
   renderSummary();
   renderBarChart();
   renderDonut();
@@ -974,6 +1255,127 @@ function renderDonut() {
 
   document.getElementById('donutChart').innerHTML = svg + `<div class="donut-legend">${legend}</div>`;
 }
+
+// =============================================
+// RENDER: DAILY BRIEFING
+// =============================================
+function renderDailyBriefing() {
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0,10);
+  const yesterdayStr = new Date(now.getTime() - 86400000).toISOString().slice(0,10);
+
+  // Get today's deals (or yesterday's if none today yet)
+  let todayDeals = DEALS.filter(d => d.date === todayStr);
+  let displayDate = todayStr;
+  if (todayDeals.length === 0) {
+    todayDeals = DEALS.filter(d => d.date === yesterdayStr);
+    displayDate = yesterdayStr;
+  }
+  if (todayDeals.length === 0) {
+    // Get most recent day that has deals
+    const latestDate = DEALS.length > 0 ? DEALS[0].date : todayStr;
+    todayDeals = DEALS.filter(d => d.date === latestDate);
+    displayDate = latestDate;
+  }
+
+  // Last 7 days for heatmap
+  const last7 = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(now.getTime() - i * 86400000);
+    const ds = d.toISOString().slice(0,10);
+    const dayNames = ['日','一','二','三','四','五','六'];
+    const count = DEALS.filter(dd => dd.date === ds).length;
+    last7.push({ date: ds, label: dayNames[d.getDay()], count });
+  }
+
+  // Date badge
+  const weekDays = ['周日','周一','周二','周三','周四','周五','周六'];
+  const dispD = new Date(displayDate + 'T00:00:00');
+  document.getElementById('briefingBadge').innerHTML =
+    `<span style="font-size:16px">&#x1F4C5;</span> ${displayDate} ${weekDays[dispD.getDay()]}`;
+
+  // Stats
+  const todayAmt = todayDeals.reduce((s,d)=>s+d.amount, 0);
+  const week7 = DEALS.filter(d => d.date >= new Date(now.getTime()-7*86400000).toISOString().slice(0,10));
+  document.getElementById('briefingStats').innerHTML = `
+    <div class="stat-item">今日交易 <span class="stat-val">${todayDeals.length}</span> 笔</div>
+    <div class="stat-item">今日金额 <span class="stat-val">$${todayAmt.toFixed(1)}亿</span></div>
+    <div class="stat-item">近7日 <span class="stat-val">${week7.length}</span> 笔</div>`;
+
+  document.getElementById('briefingDate').textContent = displayDate;
+
+  // Today's deals cards
+  const sortedToday = [...todayDeals].sort((a,b)=>b.amount-a.amount);
+  document.getElementById('briefingDeals').innerHTML = sortedToday.length > 0
+    ? sortedToday.map(d => `
+      <div class="briefing-deal-card" onclick="showDetail(${DEALS.indexOf(d)})">
+        <div class="deal-info">
+          <div class="deal-title">
+            <span class="deal-type-tag ${typeClass(d.type)}" style="font-size:10px;margin-right:6px">${d.type}</span>
+            ${d.company}${d.partner !== '—' ? ' & '+d.partner : ''}
+          </div>
+          <div class="deal-desc">${d.event} · ${d.area} · ${d.geography||''}</div>
+        </div>
+        <div class="deal-amt">${formatAmount(d.amount)}</div>
+      </div>`).join('')
+    : '<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:13px">今日暂无新交易数据</div>';
+
+  // Commentary
+  document.getElementById('briefingCommentary').innerHTML = generateDailyCommentary(todayDeals, displayDate);
+
+  // Heatmap
+  const maxH = Math.max(...last7.map(d=>d.count), 1);
+  document.getElementById('briefingHeatmap').innerHTML = last7.map(d => {
+    const level = d.count === 0 ? 0 : Math.min(Math.ceil(d.count / maxH * 5), 5);
+    const isToday = d.date === todayStr;
+    return `<div class="heatmap-day heat-${level}" ${isToday?'style="border-color:var(--accent);border-width:2px"':''}>
+      <div class="day-label">${d.label}</div>
+      <div class="day-count">${d.count}</div>
+    </div>`;
+  }).join('');
+
+  // Active companies (last 30 days)
+  const last30 = DEALS.filter(d => d.date >= new Date(now.getTime()-30*86400000).toISOString().slice(0,10));
+  const compCounts = {};
+  const compAmts = {};
+  last30.forEach(d => {
+    compCounts[d.company] = (compCounts[d.company]||0) + 1;
+    compAmts[d.company] = (compAmts[d.company]||0) + d.amount;
+  });
+  const topCompanies = Object.entries(compCounts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  document.getElementById('briefingActiveCompanies').innerHTML = topCompanies.map(([name, count], i) => {
+    const rankCls = i===0?'':i===1?'r2':i===2?'r3':'rn';
+    return `<div class="company-row">
+      <div class="company-rank ${rankCls}">${i+1}</div>
+      <div class="company-name">${name}</div>
+      <div class="company-count">${count}笔</div>
+      <div class="company-amt">${formatAmount(compAmts[name])}</div>
+    </div>`;
+  }).join('');
+}
+
+function generateDailyCommentary(todayDeals, dateStr) {
+  if (todayDeals.length === 0) return '当日无新增交易记录。关注次日更新。';
+  const n = todayDeals.length;
+  const totalAmt = todayDeals.reduce((s,d)=>s+d.amount,0);
+  const biggest = [...todayDeals].sort((a,b)=>b.amount-a.amount)[0];
+  const types = {};
+  todayDeals.forEach(d => { types[d.type] = (types[d.type]||0)+1; });
+  const areas = {};
+  todayDeals.forEach(d => { areas[d.area] = (areas[d.area]||0)+1; });
+  const topArea = Object.entries(areas).sort((a,b)=>b[1]-a[1])[0];
+  const crossBorder = todayDeals.filter(d => (d.geography||'').includes('中') && (d.geography||'').match(/美|欧|全球|瑞|日|英|德|法/));
+
+  let lines = [];
+  lines.push(`${dateStr} 共录得 <strong>${n}</strong> 笔交易，合计金额 <strong>$${totalAmt.toFixed(1)}亿</strong>。`);
+  if (biggest && biggest.amount > 0) {
+    lines.push(`最大单笔交易为 <strong>${biggest.company}</strong> 的${biggest.type}（${formatAmount(biggest.amount)}），涉及${biggest.area}领域。`);
+  }
+  if (topArea) lines.push(`${topArea[0]}领域最为活跃（${topArea[1]}笔）。`);
+  if (crossBorder.length > 0) lines.push(`其中 ${crossBorder.length} 笔为跨境交易。`);
+  return lines.join(' ');
+}
+
 // =============================================
 // DEAL EXPLORER: FILTERING, SORTING, PAGINATION
 // =============================================
@@ -1156,38 +1558,59 @@ function generateWeeklyReport() {
 }
 
 // =============================================
-// RENDER: WEEKLY REPORT SECTION
+// RENDER: WEEKLY REPORT SECTION + ANALYSIS
 // =============================================
 function renderWeeklyReport() {
   const now = new Date();
   const weekAgo = new Date(now.getTime() - 7 * 86400000);
+  const twoWeeksAgo = new Date(now.getTime() - 14 * 86400000);
   const wStr = weekAgo.toISOString().slice(0,10);
   const nStr = now.toISOString().slice(0,10);
+  const prevWStr = twoWeeksAgo.toISOString().slice(0,10);
   const wk = getWeekNumber(now);
+
   const weekDeals = DEALS.filter(d => d.date >= wStr && d.date <= nStr);
+  const prevWeekDeals = DEALS.filter(d => d.date >= prevWStr && d.date < wStr);
   const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
-  const finAmt = weekDeals.filter(d=>d.type==='融资'||d.type==='IPO').reduce((s,d)=>s+d.amount,0);
-  const bdAmt = weekDeals.filter(d=>d.type==='BD/许可'||d.type==='并购').reduce((s,d)=>s+d.amount,0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+  const finDeals = weekDeals.filter(d=>d.type==='融资'||d.type==='IPO');
+  const bdDeals = weekDeals.filter(d=>d.type==='BD/许可'||d.type==='并购');
+  const finAmt = finDeals.reduce((s,d)=>s+d.amount,0);
+  const bdAmt = bdDeals.reduce((s,d)=>s+d.amount,0);
 
   document.getElementById('reportDateRange').textContent = `${wStr} — ${nStr}`;
   document.getElementById('reportTitle').textContent = `第${wk}周交易全景`;
   document.getElementById('reportPeriod').textContent = `WEEK ${wk} · ${wStr} — ${nStr}`;
 
+  // KPI row with week-over-week comparison
+  const amtChange = prevTotalAmt > 0 ? ((totalAmt - prevTotalAmt) / prevTotalAmt * 100) : 0;
+  const amtTag = amtChange >= 0
+    ? `<span class="trend-tag up">+${amtChange.toFixed(0)}%</span>`
+    : `<span class="trend-tag down">${amtChange.toFixed(0)}%</span>`;
+  const countChange = prevWeekDeals.length > 0 ? weekDeals.length - prevWeekDeals.length : 0;
+  const countTag = countChange >= 0
+    ? `<span class="trend-tag up">+${countChange}</span>`
+    : `<span class="trend-tag down">${countChange}</span>`;
+
   document.getElementById('reportKpis').innerHTML = `
     <div class="report-kpi">
-      <div class="report-kpi-label">本周交易总额</div>
+      <div class="report-kpi-label">本周交易总额 ${amtTag}</div>
       <div class="report-kpi-value" style="color:var(--accent)">$${totalAmt.toFixed(1)}亿</div>
     </div>
     <div class="report-kpi">
-      <div class="report-kpi-label">融资 & IPO</div>
-      <div class="report-kpi-value" style="color:var(--amber)">$${finAmt.toFixed(1)}亿</div>
+      <div class="report-kpi-label">交易数量 ${countTag}</div>
+      <div class="report-kpi-value" style="color:var(--text-primary)">${weekDeals.length}<span style="font-size:14px;opacity:0.6"> 笔</span></div>
     </div>
     <div class="report-kpi">
-      <div class="report-kpi-label">BD/许可 & 并购</div>
-      <div class="report-kpi-value" style="color:var(--purple)">$${bdAmt.toFixed(1)}亿</div>
+      <div class="report-kpi-label">融资 & IPO / BD & 并购</div>
+      <div class="report-kpi-value"><span style="color:var(--amber)">$${finAmt.toFixed(1)}</span><span style="font-size:14px;opacity:0.5"> / </span><span style="color:var(--purple)">$${bdAmt.toFixed(1)}</span><span style="font-size:14px;opacity:0.6">亿</span></div>
     </div>`;
 
-  const top = weekDeals.sort((a,b) => b.amount - a.amount).slice(0, 5);
+  // === ANALYSIS ===
+  renderAnalysis(weekDeals, prevWeekDeals);
+
+  // Top deals
+  const top = [...weekDeals].sort((a,b) => b.amount - a.amount).slice(0, 5);
   document.getElementById('highlightList').innerHTML = top.map((d, i) => `
     <li>
       <span class="hl-num">${i+1}</span>
@@ -1201,9 +1624,311 @@ function renderWeeklyReport() {
 }
 
 // =============================================
+// ANALYSIS ENGINE
+// =============================================
+function renderAnalysis(weekDeals, prevWeekDeals) {
+  if (weekDeals.length === 0) {
+    document.getElementById('analysisSection').style.display = 'none';
+    return;
+  }
+  document.getElementById('analysisSection').style.display = '';
+
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+
+  // 1. Summary text
+  const summary = generateSummaryText(weekDeals, prevWeekDeals);
+  document.getElementById('analysisSummary').innerHTML = summary;
+
+  // 2. Type breakdown bars
+  const types = ['融资', 'BD/许可', '并购', 'IPO'];
+  const typeColors = ['var(--accent)', 'var(--purple)', 'var(--amber)', 'var(--blue)'];
+  const typeCounts = types.map(t => weekDeals.filter(d=>d.type===t).length);
+  const typeAmts = types.map(t => weekDeals.filter(d=>d.type===t).reduce((s,d)=>s+d.amount,0));
+  const maxTypeAmt = Math.max(...typeAmts, 1);
+
+  document.getElementById('analysisTypeBreakdown').innerHTML = types.map((t,i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${t}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(typeAmts[i]/maxTypeAmt*100).toFixed(0)}%;background:${typeColors[i]}"></div>
+      </div>
+      <div class="analysis-bar-value">${typeCounts[i]}笔 $${typeAmts[i].toFixed(1)}亿</div>
+    </div>`).join('');
+
+  // 3. Therapeutic area heat
+  const areaCounts = {};
+  weekDeals.forEach(d => { areaCounts[d.area] = (areaCounts[d.area]||0) + 1; });
+  const areaEntries = Object.entries(areaCounts).sort((a,b) => b[1]-a[1]).slice(0,5);
+  const maxAreaCount = Math.max(...areaEntries.map(a=>a[1]), 1);
+  const areaColors = ['#0d9488','#7c3aed','#d97706','#2563eb','#e11d48'];
+
+  document.getElementById('analysisAreaHeat').innerHTML = areaEntries.map(([area, count], i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${area}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(count/maxAreaCount*100).toFixed(0)}%;background:${areaColors[i%5]}"></div>
+      </div>
+      <div class="analysis-bar-value">${count}笔</div>
+    </div>`).join('');
+
+  // 4. Geography activity
+  const geoCounts = {};
+  weekDeals.forEach(d => {
+    const geos = (d.geography||'').split(/[、,，]/);
+    geos.forEach(g => { g = g.trim(); if(g) geoCounts[g] = (geoCounts[g]||0)+1; });
+  });
+  const geoEntries = Object.entries(geoCounts).sort((a,b) => b[1]-a[1]).slice(0,5);
+  const maxGeo = Math.max(...geoEntries.map(g=>g[1]), 1);
+
+  document.getElementById('analysisGeoActivity').innerHTML = geoEntries.map(([geo, count], i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${geo}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(count/maxGeo*100).toFixed(0)}%;background:${areaColors[i%5]}"></div>
+      </div>
+      <div class="analysis-bar-value">${count}次</div>
+    </div>`).join('');
+
+  // 5. Trend insights
+  const trends = generateTrends(weekDeals, prevWeekDeals);
+  document.getElementById('analysisTrends').innerHTML = trends.map(t =>
+    `<li class="trend-${t.dir}">${t.text} <span class="trend-tag ${t.dir}">${t.tag}</span></li>`
+  ).join('');
+
+  // 6. Target / mechanism analysis
+  renderTargetAnalysis(weekDeals);
+
+  // 7. Trader / company analysis
+  renderTraderAnalysis(weekDeals);
+}
+
+// =============================================
+// TARGET / MECHANISM ANALYSIS
+// =============================================
+function renderTargetAnalysis(weekDeals) {
+  // Extract targets/mechanisms from event text
+  const targetKeywords = [
+    {label:'PD-1/PD-L1', keys:['PD-1','PD-L1','PD1','PDL1','pd-1']},
+    {label:'ADC', keys:['ADC','抗体偶联','antibody-drug conjugate']},
+    {label:'CAR-T', keys:['CAR-T','CAR T','CART']},
+    {label:'GLP-1/GIP', keys:['GLP-1','GLP1','GIP','GCGR','司美格鲁肽','tirzepatide']},
+    {label:'双特异性抗体', keys:['双抗','双特异','bispecific','BsAb']},
+    {label:'PROTAC', keys:['PROTAC','蛋白降解','degrader']},
+    {label:'小核酸', keys:['小核酸','siRNA','ASO','mRNA','核酸']},
+    {label:'KRAS', keys:['KRAS','SOS1','SHP2']},
+    {label:'BTK', keys:['BTK','布鲁顿']},
+    {label:'TIGIT', keys:['TIGIT']},
+    {label:'TYK2', keys:['TYK2']},
+    {label:'BCMA', keys:['BCMA']},
+    {label:'HER2/HER3', keys:['HER2','HER3','B7-H4','EGFR']},
+    {label:'基因治疗', keys:['基因治疗','gene therapy','AAV']},
+    {label:'AI药物发现', keys:['AI','人工智能','machine learning','LLM','蛋白质设计']},
+  ];
+
+  const targetCounts = {};
+  const targetAmts = {};
+  weekDeals.forEach(d => {
+    const text = (d.event + ' ' + d.area + ' ' + (d.company||'')).toLowerCase();
+    targetKeywords.forEach(tk => {
+      if (tk.keys.some(k => text.includes(k.toLowerCase()))) {
+        targetCounts[tk.label] = (targetCounts[tk.label]||0) + 1;
+        targetAmts[tk.label] = (targetAmts[tk.label]||0) + d.amount;
+      }
+    });
+  });
+
+  const targetEntries = Object.entries(targetCounts).sort((a,b) => b[1]-a[1]).slice(0,6);
+  const maxTarget = Math.max(...targetEntries.map(t=>t[1]), 1);
+  const tColors = ['#0d9488','#7c3aed','#d97706','#2563eb','#e11d48','#8b5cf6'];
+
+  const el = document.getElementById('analysisTargets');
+  if (targetEntries.length === 0) {
+    el.innerHTML = '<div style="font-size:12px;color:var(--text-muted);padding:8px 0">本周交易未明确涉及特定靶点/机制</div>';
+  } else {
+    el.innerHTML = targetEntries.map(([target, count], i) => `
+      <div class="analysis-bar-item">
+        <div class="analysis-bar-label" style="width:90px">${target}</div>
+        <div class="analysis-bar-track">
+          <div class="analysis-bar-fill" style="width:${(count/maxTarget*100).toFixed(0)}%;background:${tColors[i%6]}"></div>
+        </div>
+        <div class="analysis-bar-value">${count}笔 $${(targetAmts[target]||0).toFixed(1)}亿</div>
+      </div>`).join('');
+  }
+}
+
+// =============================================
+// TRADER / COMPANY ANALYSIS
+// =============================================
+function renderTraderAnalysis(weekDeals) {
+  // Count deals and amounts per company (both sides)
+  const traderData = {};
+  weekDeals.forEach(d => {
+    // Main company
+    if (d.company && d.company !== '—') {
+      if (!traderData[d.company]) traderData[d.company] = {count:0, amount:0, types:new Set(), as:'主体'};
+      traderData[d.company].count++;
+      traderData[d.company].amount += d.amount;
+      traderData[d.company].types.add(d.type);
+    }
+    // Partner
+    if (d.partner && d.partner !== '—') {
+      if (!traderData[d.partner]) traderData[d.partner] = {count:0, amount:0, types:new Set(), as:'合作方'};
+      traderData[d.partner].count++;
+      traderData[d.partner].amount += d.amount;
+      traderData[d.partner].types.add(d.type);
+    }
+  });
+
+  const ranked = Object.entries(traderData)
+    .sort((a,b) => b[1].amount - a[1].amount)
+    .slice(0, 8);
+
+  const el = document.getElementById('analysisTraders');
+  if (ranked.length === 0) {
+    el.innerHTML = '<div style="font-size:12px;color:var(--text-muted)">暂无数据</div>';
+    return;
+  }
+
+  el.innerHTML = ranked.map(([name, info], i) => {
+    const rankCls = i===0?'':i===1?'r2':i===2?'r3':'rn';
+    const typeStr = [...info.types].join('/');
+    return `<div class="trader-row">
+      <div class="company-rank ${rankCls}">${i+1}</div>
+      <div class="trader-info">
+        <div class="trader-name">${name}</div>
+        <div class="trader-detail">${info.count}笔交易 · ${typeStr} · ${info.as}</div>
+      </div>
+      <div class="trader-amt">${formatAmount(info.amount)}</div>
+    </div>`;
+  }).join('');
+}
+
+function generateSummaryText(weekDeals, prevWeekDeals) {
+  const total = weekDeals.length;
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotal = prevWeekDeals.length;
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+  const bdCount = weekDeals.filter(d=>d.type==='BD/许可').length;
+  const finCount = weekDeals.filter(d=>d.type==='融资').length;
+  const maCount = weekDeals.filter(d=>d.type==='并购').length;
+  const ipoCount = weekDeals.filter(d=>d.type==='IPO').length;
+
+  // Top area
+  const areaCounts = {};
+  weekDeals.forEach(d => { areaCounts[d.area] = (areaCounts[d.area]||0) + 1; });
+  const topArea = Object.entries(areaCounts).sort((a,b)=>b[1]-a[1])[0];
+
+  // Biggest deal
+  const biggest = [...weekDeals].sort((a,b)=>b.amount-a.amount)[0];
+
+  // China cross-border
+  const crossBorder = weekDeals.filter(d => {
+    const geo = d.geography || '';
+    return (geo.includes('中国') || geo.includes('中')) && (geo.includes('美') || geo.includes('欧') || geo.includes('全球'));
+  });
+
+  let lines = [];
+  // Volume comparison
+  if (prevTotal > 0) {
+    const pctChange = ((total - prevTotal) / prevTotal * 100).toFixed(0);
+    if (total > prevTotal) {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，较上周（${prevTotal}笔）增长 ${pctChange}%，交易活跃度提升。`);
+    } else if (total < prevTotal) {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，较上周（${prevTotal}笔）有所回落，市场节奏趋缓。`);
+    } else {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，与上周持平。`);
+    }
+  } else {
+    lines.push(`本周共录得 <strong>${total}</strong> 笔交易，总交易规模 <strong>$${totalAmt.toFixed(1)}亿</strong>美元。`);
+  }
+
+  // Amount comparison
+  if (prevTotalAmt > 0) {
+    const amtPct = ((totalAmt - prevTotalAmt) / prevTotalAmt * 100).toFixed(0);
+    if (totalAmt > prevTotalAmt * 1.2) {
+      lines.push(`交易总额达 $${totalAmt.toFixed(1)}亿，环比增长 ${amtPct}%，${biggest ? `其中 <strong>${biggest.company}</strong> 的${biggest.type}交易（${formatAmount(biggest.amount)}）为本周最大单笔交易。` : '大额交易推动整体规模上升。'}`);
+    } else if (totalAmt < prevTotalAmt * 0.8) {
+      lines.push(`交易总额 $${totalAmt.toFixed(1)}亿，环比下降 ${Math.abs(amtPct)}%，缺少超大型交易拉动。`);
+    }
+  }
+
+  // Type highlights
+  const typeHighlights = [];
+  if (bdCount > 0) typeHighlights.push(`BD/许可 ${bdCount}笔`);
+  if (finCount > 0) typeHighlights.push(`融资 ${finCount}笔`);
+  if (maCount > 0) typeHighlights.push(`并购 ${maCount}笔`);
+  if (ipoCount > 0) typeHighlights.push(`IPO ${ipoCount}笔`);
+  if (typeHighlights.length > 0) {
+    lines.push(`交易类型方面：${typeHighlights.join('、')}。${bdCount >= finCount ? 'BD/许可交易继续引领市场，' : '融资交易占据主导地位，'}${topArea ? `<strong>${topArea[0]}</strong>领域最为活跃（${topArea[1]}笔）。` : ''}`);
+  }
+
+  // Cross-border
+  if (crossBorder.length > 0) {
+    lines.push(`跨境交易方面，本周有 ${crossBorder.length} 笔涉及中国企业的跨境合作/出海交易，中国创新药全球化趋势持续。`);
+  }
+
+  return lines.join(' ');
+}
+
+function generateTrends(weekDeals, prevWeekDeals) {
+  const trends = [];
+  const total = weekDeals.length;
+  const prevTotal = prevWeekDeals.length;
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+
+  // Volume trend
+  if (prevTotal > 0) {
+    const diff = total - prevTotal;
+    if (diff > 0) trends.push({text: `交易数量环比增加 ${diff} 笔`, dir:'up', tag:`+${diff}`});
+    else if (diff < 0) trends.push({text: `交易数量环比减少 ${Math.abs(diff)} 笔`, dir:'down', tag:`${diff}`});
+    else trends.push({text: '交易数量与上周持平', dir:'neutral', tag:'±0'});
+  }
+
+  // Amount trend
+  if (prevTotalAmt > 0) {
+    const pct = ((totalAmt - prevTotalAmt) / prevTotalAmt * 100).toFixed(0);
+    if (pct > 10) trends.push({text: `交易总额环比增长`, dir:'up', tag:`+${pct}%`});
+    else if (pct < -10) trends.push({text: `交易总额环比回落`, dir:'down', tag:`${pct}%`});
+    else trends.push({text: '交易总额与上周基本持平', dir:'neutral', tag:`${pct}%`});
+  }
+
+  // BD vs Financing
+  const bdThis = weekDeals.filter(d=>d.type==='BD/许可').length;
+  const finThis = weekDeals.filter(d=>d.type==='融资').length;
+  const bdPrev = prevWeekDeals.filter(d=>d.type==='BD/许可').length;
+  const finPrev = prevWeekDeals.filter(d=>d.type==='融资').length;
+
+  if (bdThis > bdPrev && bdPrev > 0) {
+    trends.push({text: 'BD/许可交易活跃度上升', dir:'up', tag:`${bdPrev}→${bdThis}`});
+  } else if (bdThis < bdPrev && bdPrev > 0) {
+    trends.push({text: 'BD/许可交易有所降温', dir:'down', tag:`${bdPrev}→${bdThis}`});
+  }
+
+  // Oncology dominance
+  const oncoCount = weekDeals.filter(d=>d.area==='肿瘤').length;
+  if (oncoCount > total * 0.5) {
+    trends.push({text: `肿瘤领域占比超过 ${(oncoCount/total*100).toFixed(0)}%，持续主导`, dir:'neutral', tag:`${oncoCount}/${total}`});
+  }
+
+  // Average deal size
+  const avgThis = total > 0 ? totalAmt / total : 0;
+  const avgPrev = prevTotal > 0 ? prevTotalAmt / prevTotal : 0;
+  if (avgPrev > 0 && avgThis > avgPrev * 1.2) {
+    trends.push({text: `平均交易规模扩大至 $${avgThis.toFixed(1)}亿`, dir:'up', tag:`+${((avgThis-avgPrev)/avgPrev*100).toFixed(0)}%`});
+  } else if (avgPrev > 0 && avgThis < avgPrev * 0.8) {
+    trends.push({text: `平均交易规模缩小至 $${avgThis.toFixed(1)}亿`, dir:'down', tag:`${((avgThis-avgPrev)/avgPrev*100).toFixed(0)}%`});
+  }
+
+  return trends.slice(0, 5);
+}
+
+// =============================================
 // LAUNCH — Load data and start app
 // =============================================
 loadData();
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"75124c326cb447fe934cde04713ae013","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
