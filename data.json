@@ -462,6 +462,20 @@
     "sourceUrl": ""
   },
   {
+    "date": "2026-03-05",
+    "type": "融资",
+    "company": "鲁抗医药",
+    "partner": "—",
+    "event": "鲁抗医药：融资净偿还19.85万元，融资余额6.06亿元",
+    "area": "肿瘤",
+    "amount": 0.84,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "东方财富",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBYMkNpX0VKb0Q5TUF6NXB4LU90M1pFRVJMZUwzb182cEFkaHhWN2VzYzZMb2lsX1FVNXZNX0stNlQxOEJPWUozQmcwY1JBSGgwbFBld01ZVjR4NnYyd2ZCMGYzRFRQQQ?oc=5"
+  },
+  {
     "date": "2026-03-03",
     "type": "BD/许可",
     "company": "翰森制药",
@@ -838,6 +852,20 @@
     "geography": "中国、美国、全球",
     "source": "上海证券交易所",
     "sourceUrl": "https://www.sse.com.cn/"
+  },
+  {
+    "date": "2026-01-06",
+    "type": "融资",
+    "company": "亿美元！2025年",
+    "partner": "—",
+    "event": "147亿美元！2025年中国创新药融资回温",
+    "area": "肿瘤",
+    "amount": 147.0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "ByDrug",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBWak1lVnlCLVhpZkozSXRJdUVHblhwR0Z6SkEzYzhySEhfNFZZSVMtaDFTamhVaHFSY3VILS1pQ3g1bFg2ZjBmMDlFbVdGTGJETmZvNnFyVjN5YXdnYkEzNnBrdkR6amI4UFZqN2oyNnluNk9MLXhIeE5lM1h5UQ?oc=5"
   },
   {
     "date": "2026-01-05",
@@ -1566,5 +1594,19 @@
     "geography": "中国",
     "source": "医药魔方 PharmCube",
     "sourceUrl": "https://bydrug.pharmcube.com/"
+  },
+  {
+    "date": "2024-02-26",
+    "type": "BD/许可",
+    "company": "Despite Bio",
+    "partner": "—",
+    "event": "China’s Mabwell Soars Despite Biotech Firm Ending Licensing Deals for Two Cancer",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "Yicai Global",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRmZKSXp1ZG1VTzZwOFZBVTZKM19ZM1YtdDdKcXZqTGdOYjg1UlItTnBkRlhfdEJuVjF1dkUtSzBCOXU5cmx2V1pUQ3pnR2haMU1PNm1qOUVfUGYyT0RyRjdRUjJyeWlBRmNWSjEzOU1NdWVFZzlZb1BzQVJyZ3JRczJZVWRkMExQWnoxYTJmV2JWN0stSXFDczBVQUlfZGZtcTltOEdhMTAxR01vYmloSU9BMVNvN3RYRWl6T0dvTDg?oc=5"
   }
 ]
