@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-03-24",
+    "type": "融资",
+    "company": "国内近期 5 家企业",
+    "partner": "—",
+    "event": "国内近期 5 家企业融资超 5 亿元！涵盖细胞、基因、核酸……",
+    "area": "肿瘤",
+    "amount": 0.69,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/aa146c693e01b525dd477261152ab712"
+  },
+  {
     "date": "2026-03-23",
     "type": "融资",
     "company": "先衍生物",
@@ -26,6 +40,20 @@
     "geography": "全球",
     "source": "ByDrug",
     "sourceUrl": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNQVRTVjJlUFByeGllT2xRWFVyTHlPWUN3cy1fMHVLaXZiTDR3U1hIX0d4Vmo4bWhVeUxwcE5aTjBPQXhHbE5mOV9iOEZFOVVSRlFhUjBPWEtCUlY1eFM5WXdDdkt6TzNhS1FwckJpZmhyc1JLX1h5cmRWZjd2Sll4LQ?oc=5"
+  },
+  {
+    "date": "2026-03-23",
+    "type": "融资",
+    "company": "生物医药",
+    "partner": "—",
+    "event": "生物医药领域融资动态及行业观察",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "雪球",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9xNERHSkxvV1pvV2tmcDRfVU9aTDVDZlBTNkJDSUtDWV9kQzNQNG96Q0Jta0F5MlRhQjRfNzZqdGhFR1lwUVc3S2tMMEFOWVh1?oc=5"
   },
   {
     "date": "2026-03-21",
@@ -208,6 +236,20 @@
     "geography": "中国、瑞士、美国、欧洲",
     "source": "披露易 HKEXnews",
     "sourceUrl": "https://www.hkexnews.hk/index_c.htm"
+  },
+  {
+    "date": "2026-03-18",
+    "type": "BD/许可",
+    "company": "中国医药",
+    "partner": "—",
+    "event": "2026年2月中国医药BD交易盘点",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "ByDrug",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMifkFVX3lxTE8yc0NkczM1TGs3NlowUFpNQldKMlZFWGNpeFA4a3JubUcxbjNPcUxhX3QzUXgtZEM3Ni1YUlIzOVNGNE5ON1BDZWdSb3ppd0lKLTJUcEZlVW5WcS1vMF90NjN5VDh2VVBvTlIyMlRBaHJWSzd0RlNWdU56NXRodw?oc=5"
   },
   {
     "date": "2026-03-17",
@@ -994,6 +1036,20 @@
     "sourceUrl": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE04SldveHRSUUZPdjRLUVZMRTUzUW13U0w1NzNRWDlDWVhscVA3dEczRC1VWndKQjZGaDE1WF9pTmdIUDhBQjhFcTVHbU1HSS1BcFY0RHZn?oc=5"
   },
   {
+    "date": "2025-12-30",
+    "type": "IPO",
+    "company": "十大生物医药",
+    "partner": "—",
+    "event": "2025年十大生物医药IPO，告诉我们什么？ - 36kr.com",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "36kr.com",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE81bnAtazZZeXdmNXFmYUVYUUxoeG1FdlVhTm9mcWxiX29mQ1ZTUFowclZmYWM1RjZaeXpaXzRmV1pXbnotWWRnQTFBbjdUZw?oc=5"
+  },
+  {
     "date": "2025-12-29",
     "type": "BD/许可",
     "company": "中国医药",
@@ -1160,6 +1216,20 @@
     "geography": "全球",
     "source": "投资界",
     "sourceUrl": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1PQnppUWFxeGpxb1NOQ2t2ZGllSDJiWXVJMkpjc1R5eXFGYmx5dHk4ckNiaGRqNmp5ZjhENTFhS3RoV2EyTUNubi0yX0NkdkU4NjdHS3VB?oc=5"
+  },
+  {
+    "date": "2025-11-25",
+    "type": "IPO",
+    "company": "生物医药",
+    "partner": "—",
+    "event": "港股创新药IPO大堵车：生物医药热潮涌动，A+H双重上市成新风向 - 摩熵医药",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "全球",
+    "geography": "全球",
+    "source": "摩熵医药",
+    "sourceUrl": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE83TGozdXNSZVl4ME1UTW5pU1J1dldEMDZtVmd3Y05maFdZX1FSSUJITkFqU0RDMFM5UW5fR1Y2TWZGS05Sbk9JWk1pYWhWMjF6Z0VTNDlZZw?oc=5"
   },
   {
     "date": "2025-11-20",
