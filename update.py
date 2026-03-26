@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 PharmaDeal Intelligence — 自动数据更新脚本
-每天北京时间 07:00 由 GitHub Actions 自动运行
+每小时由 GitHub Actions 自动运行
 从多个公开来源抓取最新医药融资/BD交易信息
 """
 
@@ -24,6 +24,13 @@ HEADERS = {
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
 TIMEOUT = 30
+
+# More complete company name patterns
+COMPANY_PATTERNS = [
+    r"([\u4e00-\u9fff]{2,10}(?:医药|生物科技|生物制药|生物|制药|药业|药学|健华|神州|博泰|生科|药明|百济|恒瑞|信达|科伦|生命|巨诺|传奇|映恩|翰森|康方|诺诚|再鼎|和黄|加科思|宜联))",
+    r"([A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+){0,2}\s+(?:Therapeutics|Pharmaceuticals?|Pharma|Biotherapeutics|Biotechnologies|Biotech|Bio|Sciences?|Oncology|Health|Immunopharma))",
+    r"(Pfizer|Merck|Novartis|Roche|AbbVie|Sanofi|GSK|AstraZeneca|Johnson & Johnson|Takeda|Gilead|Biogen|BioNTech|Lilly|Bristol[- ]?Myers)",
+]
 
 # === HELPERS ===
 
@@ -55,6 +62,9 @@ def deduplicate(existing, new_deals):
     added = 0
     for d in new_deals:
         clean_deal(d)
+        if is_summary_article(d):
+            print(f"  [SKIP] Summary article: {d['event'][:40]}")
+            continue
         did = deal_id(d)
         if did not in seen:
             existing.append(d)
@@ -62,6 +72,27 @@ def deduplicate(existing, new_deals):
             added += 1
             print(f"  [NEW] {d['date']} | {d['type']} | {d['company']} | {d['event'][:40]}")
     return existing, added
+
+
+def is_summary_article(d):
+    """Return True if the deal looks like a summary article, not a real deal."""
+    title = d.get("event", "")
+    summary_patterns = [
+        r"月.*盘点",
+        r"年.*盘点",
+        r"年度.*总结",
+        r"十大.*IPO",
+        r"趋势",
+        r"回顾",
+        r"概述",
+        r"研判",
+        r"展望",
+        r"^\d{4}年.*(?:盘点|总结|回顾|概述|趋势|展望|研判)",
+    ]
+    for pat in summary_patterns:
+        if re.search(pat, title):
+            return True
+    return False
 
 
 def clean_deal(d):
@@ -80,10 +111,12 @@ def clean_deal(d):
     company = re.sub(r"^快讯\s*[|｜]\s*", "", company)
     if len(company) < 2 or company == d["event"][:len(company)]:
         # Try re-extracting from event
-        cm = re.search(r"([\u4e00-\u9fff]{2,8}(?:医药|生物|制药|药业|药|生命|健华|神州|博泰|生科))", d["event"])
-        if cm:
-            company = cm.group(1)
-    d["company"] = company.strip()[:20]
+        for pat in COMPANY_PATTERNS:
+            cm = re.search(pat, d["event"])
+            if cm:
+                company = cm.group(1)
+                break
+    d["company"] = company.strip()[:30]
 
     # Ensure amount is numeric
     if not isinstance(d.get("amount"), (int, float)):
@@ -130,7 +163,9 @@ def classify_deal(text):
     text_lower = text.lower()
     if any(kw in text for kw in ["并购", "收购", "acquisition", "acquire", "buyout"]):
         return "并购"
-    if any(kw in text for kw in ["IPO", "上市", "ipo", "public offering"]):
+    if any(kw in text_lower for kw in ["pre-ipo", "pre ipo", "preipo"]):
+        return "融资"  # Pre-IPO is financing, not IPO
+    if any(kw in text for kw in ["IPO", "上市", "public offering"]) and "ipo" in text_lower:
         return "IPO"
     if any(kw in text for kw in ["许可", "授权", "license", "licensing", "合作", "collaboration", "partnership", "BD"]):
         return "BD/许可"
@@ -199,11 +234,7 @@ def scrape_10jqka():
 
             # Extract company name from title
             company = ""
-            company_patterns = [
-                r"([\u4e00-\u9fff]{2,6}(?:医药|生物|制药|药业|健华|神州|生科))",
-                r"([A-Z][a-zA-Z]+\s+(?:Therapeutics|Pharma|Bio|Sciences?))",
-            ]
-            for pat in company_patterns:
+            for pat in COMPANY_PATTERNS:
                 cm = re.search(pat, title)
                 if cm:
                     company = cm.group(1)
@@ -266,11 +297,7 @@ def scrape_pharmcube():
 
         date_str = datetime.now().strftime("%Y-%m-%d")
         company = ""
-        company_patterns = [
-            r"([\u4e00-\u9fff]{2,6}(?:医药|生物|制药|药业|健华|神州|博泰|生科))",
-            r"([A-Z][a-zA-Z]+\s+(?:Therapeutics|Pharma|Bio|Sciences?))",
-        ]
-        for pat in company_patterns:
+        for pat in COMPANY_PATTERNS:
             cm = re.search(pat, title)
             if cm:
                 company = cm.group(1)
@@ -481,10 +508,12 @@ def scrape_biomart():
                 full_url = f"https://www.biomart.cn{href}"
 
             company = ""
-            cm = re.search(r"([\u4e00-\u9fff]{2,8}(?:医药|生物|制药|药业|健华|神州|生科))", title)
-            if cm:
-                company = cm.group(1)
-            else:
+            for pat in COMPANY_PATTERNS:
+                cm = re.search(pat, title)
+                if cm:
+                    company = cm.group(1)
+                    break
+            if not company:
                 company = title[:10]
 
             deals.append({
@@ -503,102 +532,6 @@ def scrape_biomart():
             })
 
     print(f"  Found {len(deals)} potential deals from 丁香通")
-    return deals
-
-
-# =========================================================
-# SOURCE 6: Google News RSS 聚合 (免费，无需API)
-# =========================================================
-def scrape_search_aggregation():
-    """Search for pharma deals via Google News RSS feeds."""
-    print("\n[SOURCE] 公开搜索聚合 (Google News RSS)...")
-    deals = []
-    queries = [
-        "医药+融资+2026",
-        "biotech+licensing+deal+2026",
-        "医药+BD+授权+交易",
-        "pharma+acquisition+2026",
-        "生物医药+IPO",
-    ]
-    for query in queries:
-        url = f"https://news.google.com/rss/search?q={query}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
-        resp = safe_get(url)
-        if not resp:
-            continue
-
-        try:
-            soup = BeautifulSoup(resp.content, "lxml-xml")
-            items = soup.find_all("item")
-        except Exception:
-            soup = BeautifulSoup(resp.text, "lxml")
-            items = soup.find_all("item")
-
-        for item in items[:10]:
-            title = item.find("title")
-            link = item.find("link")
-            pub_date = item.find("pubDate")
-            source_el = item.find("source")
-
-            if not title:
-                continue
-            title_text = title.get_text(strip=True)
-            href = link.get_text(strip=True) if link else ""
-            src_name = source_el.get_text(strip=True) if source_el else "公开新闻"
-
-            # Filter for pharma deal keywords
-            pharma_kw = ["医药", "药", "生物", "biotech", "pharma"]
-            deal_kw = ["融资", "并购", "授权", "许可", "license", "IPO", "BD",
-                       "deal", "收购", "acquisition", "合作", "collaboration",
-                       "series", "round", "raise", "funding", "交易"]
-            if not (any(kw.lower() in title_text.lower() for kw in pharma_kw) and
-                    any(kw.lower() in title_text.lower() for kw in deal_kw)):
-                continue
-
-            # Parse date
-            date_str = datetime.now().strftime("%Y-%m-%d")
-            if pub_date:
-                date_text = pub_date.get_text(strip=True)
-                try:
-                    from email.utils import parsedate_to_datetime
-                    dt = parsedate_to_datetime(date_text)
-                    date_str = dt.strftime("%Y-%m-%d")
-                except Exception:
-                    dm = re.search(r"(\d{1,2})\s+(\w+)\s+(\d{4})", date_text)
-                    if dm:
-                        months = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06",
-                                  "Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"}
-                        mon = months.get(dm.group(2)[:3], "01")
-                        date_str = f"{dm.group(3)}-{mon}-{dm.group(1).zfill(2)}"
-
-            # Extract company
-            company = ""
-            for pat in [
-                r"([\u4e00-\u9fff]{2,8}(?:医药|生物|制药|药业|健华|神州|博泰|生科|药明|百济|恒瑞|信达|科伦|生命))",
-                r"([A-Z][a-zA-Z]+\s+(?:Therapeutics|Pharma|Bio|Sciences?|Oncology))",
-            ]:
-                cm = re.search(pat, title_text)
-                if cm:
-                    company = cm.group(1)
-                    break
-            if not company:
-                company = title_text[:12]
-
-            deals.append({
-                "date": date_str,
-                "type": classify_deal(title_text),
-                "company": company,
-                "partner": "—",
-                "event": title_text[:80],
-                "area": classify_area(title_text),
-                "amount": parse_amount(title_text),
-                "stage": "—",
-                "region": "全球",
-                "geography": "全球",
-                "source": src_name,
-                "sourceUrl": href,
-            })
-
-    print(f"  Found {len(deals)} potential deals from RSS search")
     return deals
 
 
@@ -622,7 +555,6 @@ def main():
         scrape_sse,
         scrape_hkex,
         scrape_biomart,
-        scrape_search_aggregation,
     ]
 
     for src_fn in sources:
