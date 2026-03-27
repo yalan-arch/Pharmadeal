@@ -1,258 +1,2282 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球药企情报局 | Global Pharma Intel</title>
-    <style>
-        /* --- CSS 样式部分 --- */
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #34495e;
-            --bg-color: #f9f9f9;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PharmaDeal Intelligence — 全球医药交易情报平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f3f8;
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
+  --text-primary: #1a202c;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --accent: #0d9488;
+  --accent-dim: #0d948815;
+  --accent-glow: #0d948830;
+  --red: #e11d48;
+  --red-dim: #e11d4812;
+  --amber: #d97706;
+  --amber-dim: #d9770612;
+  --blue: #2563eb;
+  --blue-dim: #2563eb12;
+  --purple: #7c3aed;
+  --purple-dim: #7c3aed12;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 6px;
+  --radius-lg: 12px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
+html { scroll-behavior: smooth; }
 
-        /* 导航栏样式 */
-        nav {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+::selection { background: var(--accent); color: #ffffff; }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
 
-        .highlight {
-            color: var(--accent-color);
-        }
+/* === NAV === */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(245, 247, 250, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 18px;
+  letter-spacing: -0.02em;
+}
+.nav-brand .logo-mark {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--accent), #10b981);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 14px;
+  color: #ffffff;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary); text-decoration: none; font-size: 13px;
+  font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--accent); border-radius: 1px;
+}
+.nav-status {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+}
+.nav-status .pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+/* === TICKER BANNER === */
+.ticker-section {
+  margin-top: 60px;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.ticker-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--accent); padding: 0 40px; margin-bottom: 10px;
+}
+.ticker-label .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+.ticker-track {
+  display: flex; gap: 0;
+  animation: tickerScroll 60s linear infinite;
+  width: max-content;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 8px 32px;
+  border-right: 1px solid var(--border);
+  white-space: nowrap; cursor: default;
+  transition: background 0.2s;
+}
+.ticker-item:hover { background: var(--bg-card); }
+.ticker-tag {
+  font-family: var(--font-mono); font-size: 9px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 2px 8px; border-radius: 3px; font-weight: 600;
+}
+.ticker-tag.financing { background: var(--accent-dim); color: var(--accent); }
+.ticker-tag.bd { background: var(--purple-dim); color: var(--purple); }
+.ticker-tag.ma { background: var(--amber-dim); color: var(--amber); }
+.ticker-tag.ipo { background: var(--blue-dim); color: var(--blue); }
+.ticker-company { font-weight: 600; font-size: 13px; }
+.ticker-detail { font-size: 12px; color: var(--text-secondary); max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+.ticker-amount { font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: var(--accent); }
 
-        .nav-links li {
-            display: inline;
-        }
+/* === SECTION COMMON === */
+.section { padding: 80px 40px; max-width: 1440px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--accent); margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--font-display); font-size: 36px;
+  font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.section-subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 48px; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+/* === DASHBOARD SUMMARY === */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.summary-card:hover { border-color: var(--border-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.summary-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+.summary-card.card-accent::before { background: linear-gradient(90deg, var(--accent), transparent); }
+.summary-card.card-purple::before { background: linear-gradient(90deg, var(--purple), transparent); }
+.summary-card.card-amber::before { background: linear-gradient(90deg, var(--amber), transparent); }
+.summary-card.card-blue::before { background: linear-gradient(90deg, var(--blue), transparent); }
+.card-year {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 16px;
+}
+.card-value {
+  font-family: var(--font-mono); font-size: 32px;
+  font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;
+}
+.card-value.accent { color: var(--accent); }
+.card-value.purple { color: var(--purple); }
+.card-value.amber { color: var(--amber); }
+.card-value.blue { color: var(--blue); }
+.card-label { font-size: 13px; color: var(--text-secondary); }
+.card-change {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--font-mono); font-size: 11px;
+  margin-top: 12px; padding: 2px 8px; border-radius: 4px;
+}
+.card-change.up { background: var(--accent-dim); color: var(--accent); }
+.card-change.down { background: var(--red-dim); color: var(--red); }
+.summary-grid-secondary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+.summary-card-sm {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: border-color 0.3s, transform 0.2s;
+}
+.summary-card-sm:hover { border-color: var(--border-light); transform: translateY(-1px); }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
+/* === NEWS BANNER === */
+.news-banner {
+  margin-top: 24px; padding: 16px 20px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.news-banner-title {
+  font-size: 12px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;
+}
+.news-banner-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; }
+.news-link {
+  flex-shrink: 0; padding: 8px 14px;
+  background: var(--bg-primary); border: 1px solid var(--border);
+  border-radius: 20px; font-size: 12px; color: var(--text-secondary);
+  text-decoration: none; white-space: nowrap; transition: all 0.2s;
+}
+.news-link:hover { border-color: var(--accent); color: var(--accent); }
+.news-link .news-date { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-right: 6px; }
 
-        /* 头部区域 */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-background-image.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-            padding-top: 70px; /* 避开固定导航栏 */
-        }
+/* === CHARTS ROW === */
+.charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.chart-title {
+  font-size: 14px; font-weight: 600; margin-bottom: 4px;
+}
+.chart-subtitle { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+.chart-area { position: relative; height: 200px; }
+.bar-chart { display: flex; align-items: flex-end; gap: 8px; height: 100%; padding-bottom: 24px; }
+.bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.bar {
+  width: 100%; border-radius: 3px 3px 0 0;
+  transition: opacity 0.2s; cursor: pointer; position: relative;
+  min-height: 2px;
+}
+.bar:hover { opacity: 0.8; }
+.bar.financing { background: linear-gradient(180deg, var(--accent), #10b981); }
+.bar.bd { background: linear-gradient(180deg, var(--purple), #a78bfa); }
+.bar-label {
+  font-family: var(--font-mono); font-size: 9px;
+  color: var(--text-muted); letter-spacing: 0.05em;
+}
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+/* Donut chart */
+.donut-container { display: flex; align-items: center; justify-content: center; gap: 40px; height: 100%; }
+.donut-svg { width: 160px; height: 160px; }
+.donut-legend { display: flex; flex-direction: column; gap: 12px; }
+.legend-item { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.legend-value { font-family: var(--font-mono); font-weight: 600; font-size: 12px; margin-left: auto; padding-left: 16px; }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
+/* === DEAL TABLE / EXPLORER === */
+.explorer-section {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  align-items: center; margin-bottom: 32px;
+}
+.filter-bar input, .filter-bar select {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 10px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.filter-bar input:focus, .filter-bar select:focus { border-color: var(--accent); }
+.filter-bar input::placeholder { color: var(--text-muted); }
+.search-input { flex: 1; min-width: 240px; }
+.filter-bar select { cursor: pointer; min-width: 140px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.btn-primary:hover { background: #00eebb; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.btn-outline:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+.btn-sm { padding: 6px 14px; font-size: 12px; }
 
-        /* 主要内容区域通用样式 */
-        section {
-            padding: 80px 20px;
-        }
+.deals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.deals-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.deals-table th:hover { color: var(--text-secondary); }
+.deals-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.deals-table tr { transition: background 0.15s; }
+.deals-table tbody tr:hover { background: var(--bg-card-hover); }
+.deal-type-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 3px; font-weight: 600;
+  display: inline-block;
+}
+.deal-type-tag.financing { background: var(--accent-dim); color: var(--accent); }
+.deal-type-tag.bd { background: var(--purple-dim); color: var(--purple); }
+.deal-type-tag.ma { background: var(--amber-dim); color: var(--amber); }
+.deal-type-tag.ipo { background: var(--blue-dim); color: var(--blue); }
+.deal-company { font-weight: 600; white-space: nowrap; }
+.deal-amount { font-family: var(--font-mono); font-weight: 600; }
+.deal-stage {
+  font-size: 11px; padding: 2px 8px;
+  border-radius: 3px; background: var(--bg-primary);
+  color: var(--text-secondary); border: 1px solid var(--border);
+}
+.pagination {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.pagination-info { font-size: 13px; color: var(--text-muted); }
+.pagination-btns { display: flex; gap: 4px; }
+.page-btn {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  font-family: var(--font-mono); font-size: 12px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); cursor: pointer;
+  transition: all 0.2s;
+}
+.page-btn:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+.page-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.page-btn:disabled { opacity: 0.3; cursor: default; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+/* === WEEKLY REPORT === */
+.report-section { position: relative; }
+.report-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.report-header {
+  padding: 32px; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.report-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+.report-body { padding: 32px; }
+.report-kpi-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-bottom: 32px;
+}
+.report-kpi {
+  padding: 20px;
+  background: var(--bg-primary);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.report-kpi-label {
+  font-size: 12px; color: var(--text-muted); margin-bottom: 8px;
+}
+.report-kpi-value {
+  font-family: var(--font-mono); font-size: 24px; font-weight: 700;
+}
+.report-highlights h4 {
+  font-size: 14px; font-weight: 600; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.report-highlights h4::before {
+  content: ''; width: 3px; height: 16px;
+  background: var(--accent); border-radius: 2px;
+}
+.highlight-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.highlight-list li {
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px; line-height: 1.7;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.highlight-list li .hl-num {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--accent); background: var(--accent-dim);
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-weight: 700;
+}
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+/* === ANALYSIS === */
+.analysis-section { margin-bottom: 32px; }
+.analysis-summary {
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-bottom: 20px;
+}
+.analysis-summary .analysis-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+.analysis-summary h4 {
+  font-size: 14px; font-weight: 600; margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.analysis-summary p {
+  font-size: 13px; line-height: 1.8; color: var(--text-secondary);
+}
+.analysis-card {
+  padding: 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.analysis-card h5 {
+  font-size: 12px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.analysis-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 0;
+}
+.analysis-bars { display: flex; flex-direction: column; gap: 10px; }
+.analysis-bar-item { display: flex; align-items: center; gap: 10px; }
+.analysis-bar-label {
+  font-size: 12px; color: var(--text-secondary);
+  width: 70px; flex-shrink: 0; text-align: right;
+}
+.analysis-bar-track {
+  flex: 1; height: 8px; background: var(--border);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.analysis-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.6s ease;
+}
+.analysis-bar-value {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); width: 50px; flex-shrink: 0;
+}
+.trend-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.trend-list li {
+  font-size: 12px; line-height: 1.7; color: var(--text-secondary);
+  padding-left: 16px; position: relative;
+}
+.trend-list li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+.trend-list li.trend-up::before { background: var(--accent); }
+.trend-list li.trend-down::before { background: var(--red); }
+.trend-list li.trend-neutral::before { background: var(--amber); }
+.trend-list li .trend-tag {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 10px; padding: 1px 6px; border-radius: 3px;
+  margin-left: 4px; font-weight: 600;
+}
+.trend-tag.up { background: var(--accent-dim); color: var(--accent); }
+.trend-tag.down { background: var(--red-dim); color: var(--red); }
+.trend-tag.neutral { background: var(--amber-dim); color: var(--amber); }
 
-        .section-title p {
-            color: #7f8c8d;
-        }
+@media (max-width: 768px) {
+  .analysis-grid { grid-template-columns: 1fr; }
+}
 
-        /* 交易概览卡片样式 */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* === DAILY BRIEFING === */
+.briefing-section { position: relative; }
+.briefing-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.briefing-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.briefing-date-badge {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+  color: var(--accent);
+  padding: 6px 14px; background: var(--accent-dim);
+  border-radius: 20px; display: inline-flex; align-items: center; gap: 8px;
+}
+.briefing-stats {
+  display: flex; gap: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);
+}
+.briefing-stats .stat-item { display: flex; align-items: center; gap: 6px; }
+.briefing-stats .stat-val { font-weight: 700; color: var(--text-primary); font-size: 14px; }
+.briefing-body {
+  padding: 28px 32px;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px;
+}
+.briefing-block { margin-bottom: 24px; }
+.briefing-block:last-child { margin-bottom: 0; }
+.briefing-block-title {
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.briefing-block-title::before {
+  content: ''; width: 3px; height: 14px;
+  background: var(--accent); border-radius: 2px;
+}
+.briefing-deals { display: flex; flex-direction: column; gap: 10px; }
+.briefing-deal-card {
+  padding: 14px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.briefing-deal-card:hover {
+  border-color: var(--accent); box-shadow: 0 2px 8px var(--accent-dim);
+}
+.briefing-deal-card .deal-info { flex: 1; }
+.briefing-deal-card .deal-title {
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.briefing-deal-card .deal-desc {
+  font-size: 12px; color: var(--text-secondary); line-height: 1.6;
+}
+.briefing-deal-card .deal-amt {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+  color: var(--accent); white-space: nowrap;
+}
+.briefing-commentary {
+  font-size: 13px; line-height: 2; color: var(--text-secondary);
+  padding: 16px; background: var(--bg-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+.briefing-heatmap {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+}
+.heatmap-day {
+  aspect-ratio: 1; border-radius: 4px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px;
+  border: 1px solid var(--border); position: relative;
+}
+.heatmap-day .day-label { font-size: 9px; color: var(--text-muted); margin-bottom: 2px; }
+.heatmap-day .day-count { font-weight: 700; font-size: 14px; }
+.heat-0 { background: var(--bg-primary); }
+.heat-1 { background: #d1fae5; color: #065f46; }
+.heat-2 { background: #6ee7b7; color: #065f46; }
+.heat-3 { background: #34d399; color: #ffffff; }
+.heat-4 { background: #10b981; color: #ffffff; }
+.heat-5 { background: #059669; color: #ffffff; }
+.heatmap-day { cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+.heatmap-day.selected { border-color: var(--accent); border-width: 2px; box-shadow: 0 0 8px var(--accent-dim); }
+.briefing-companies { display: flex; flex-direction: column; gap: 8px; }
+.company-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; background: var(--bg-primary);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 12px;
+}
+.company-rank {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  color: #ffffff; background: var(--accent);
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.company-rank.r2 { background: var(--purple); }
+.company-rank.r3 { background: var(--amber); }
+.company-rank.rn { background: var(--text-muted); }
+.company-name { flex: 1; font-weight: 500; color: var(--text-primary); }
+.company-count { font-family: var(--font-mono); color: var(--text-muted); }
+.company-amt { font-family: var(--font-mono); color: var(--accent); font-weight: 600; }
 
-        .card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
+/* Trader list in weekly report */
+.trader-list { display: flex; flex-direction: column; gap: 8px; }
+.trader-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.trader-info { flex: 1; }
+.trader-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.trader-detail { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.trader-amt {
+  font-family: var(--font-mono); font-size: 13px;
+  font-weight: 700; color: var(--accent); white-space: nowrap;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+@media (max-width: 768px) {
+  .briefing-body { grid-template-columns: 1fr; }
+  .briefing-header { flex-direction: column; align-items: flex-start; }
+}
 
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+/* === COMPANY REPORTS === */
+.report-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.report-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  text-decoration: none; color: inherit;
+}
+.report-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.report-card-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.report-card-code { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+.report-card-exchange {
+  font-size: 11px; color: var(--accent); background: var(--accent-dim);
+  padding: 2px 8px; border-radius: 3px; display: inline-block; width: fit-content;
+}
+.report-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.report-file-link {
+  font-size: 11px; color: var(--accent); background: var(--accent-dim);
+  padding: 3px 10px; border-radius: 4px; text-decoration: none;
+  transition: background 0.2s, color 0.2s; font-weight: 500;
+}
+.report-file-link:hover { background: var(--accent); color: #fff; }
+}
 
-        .card-content {
-            padding: 20px;
-        }
+/* === FOOTER === */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 40px 40px;
+  font-size: 12px; color: var(--text-muted);
+  max-width: 1440px; margin: 0 auto;
+}
+.footer a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+.footer a:hover { color: var(--accent); }
+.footer-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 32px; text-align: left;
+}
+.footer-col h5 {
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--accent); margin-bottom: 14px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-col li { display: flex; align-items: center; gap: 8px; }
+.footer-col li .src-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--border-light); flex-shrink: 0;
+}
+.footer-col li a, .footer-col li span { font-size: 12px; }
+.footer-divider {
+  border: none; border-top: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.footer-bottom { text-align: center; }
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer { padding: 32px 20px; }
+}
 
-        .card-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
+/* === ANIMATIONS === */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
 
-        /* 页脚 */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+/* === MODAL === */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3); backdrop-filter: blur(8px);
+  z-index: 200; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); width: 90%; max-width: 600px;
+  max-height: 80vh; overflow-y: auto; padding: 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.modal h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 20px; }
+.modal-close {
+  float: right; background: none; border: none; color: var(--text-muted);
+  font-size: 20px; cursor: pointer; padding: 4px;
+}
+.modal-close:hover { color: var(--text-primary); }
+.detail-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.detail-label { font-size: 12px; color: var(--text-muted); min-width: 80px; }
+.detail-value { font-size: 13px; font-weight: 500; }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .summary-grid-secondary { grid-template-columns: repeat(2, 1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+  .report-kpi-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .section { padding: 48px 20px; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .summary-grid-secondary { grid-template-columns: repeat(2, 1fr); }
+  .section-title { font-size: 28px; }
+  .report-kpi-row { grid-template-columns: 1fr; }
+  .deals-table { font-size: 12px; }
+  .deals-table th, .deals-table td { padding: 10px 8px; }
+  .filter-bar { flex-direction: column; }
+  .filter-bar input, .filter-bar select { width: 100%; }
+}
+</style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav>
-        <div class="container">
-            <div class="logo">PHARMA<span class="highlight">INTEL</span></div>
-            <ul class="nav-links">
-                <li><a href="#financing">融资</a></li>
-                <li><a href="#bd">BD交易</a></li>
-                <li><a href="#ipo">IPO</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <div class="logo-mark">PD</div>
+    <span>PharmaDeal</span>
+  </div>
+  <div class="nav-links">
+    <a href="#dashboard" class="active">总览</a>
+    <a href="#briefing-anchor">每日简报</a>
+    <a href="#explorer-anchor">交易数据</a>
+    <a href="#report-anchor">周报</a>
+    <a href="#reports-anchor">企业报表</a>
+  </div>
+  <div class="nav-status">
+    <span class="pulse"></span>
+    <span id="updateTime">数据更新: 加载中...</span>
+  </div>
+</nav>
 
-    <!-- 头部区域 -->
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <h1>全球上市药企情报中心</h1>
-            <p>实时监控全球医药市场动态，聚焦上市药企交易与融资</p>
-        </div>
-    </header>
+<!-- TICKER BANNER -->
+<section class="ticker-section" id="ticker">
+  <div class="ticker-label"><span class="dot"></span> 最新交易动态 LIVE DEAL FEED</div>
+  <div class="ticker-track" id="tickerTrack"></div>
+</section>
 
-    <!-- 全球医药交易概览 -->
-    <section id="financing" class="section-padding">
-        <div class="section-title">
-            <h2>全球医药交易概览</h2>
-            <p>最新融资与并购动态</p>
-        </div>
-        <div class="cards">
-            <div class="card">
-                <img src="image1.jpg" alt="交易图片">
-                <div class="card-content">
-                    <h3>Biotech A 获得 5000 万美元 B 轮融资</h3>
-                    <p>由知名风投机构领投，用于推进其核心管线...</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="image2.jpg" alt="交易图片">
-                <div class="card-content">
-                    <h3>Pharma B 收购 C 公司管线</h3>
-                    <p>交易金额高达 2 亿美元，扩充罕见病领域...</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- DAILY BRIEFING -->
+<div id="briefing-anchor" style="scroll-margin-top:60px"></div>
+<section class="section briefing-section" id="dailyBriefing">
+  <div class="section-label">Daily Briefing</div>
+  <div class="section-title">每日全球生物医药动态简报</div>
+  <div class="section-subtitle" id="briefingDate"></div>
 
-    <!-- 企业报表中心 -->
-    <section id="bd" class="section-padding" style="background-color: #fff;">
-        <div class="section-title">
-            <h2>企业报表中心</h2>
-            <p>深度分析与数据报告</p>
+  <div class="briefing-container">
+    <div class="briefing-header">
+      <div class="briefing-date-badge" id="briefingBadge"></div>
+      <div class="briefing-stats" id="briefingStats"></div>
+    </div>
+    <div class="briefing-body">
+      <div class="briefing-col-main">
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">今日交易速览</h4>
+          <div id="briefingDeals" class="briefing-deals"></div>
         </div>
-        <div class="cards">
-            <div class="card">
-                <div class="card-content">
-                    <h3>季度财报分析</h3>
-                    <p>涵盖全球 top 20 药企的财务表现与战略解读。</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>市场趋势报告</h3>
-                    <p>AI 制药、细胞治疗等前沿领域的最新市场洞察。</p>
-                </div>
-            </div>
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">今日市场点评</h4>
+          <div id="briefingCommentary" class="briefing-commentary"></div>
         </div>
-    </section>
+      </div>
+      <div class="briefing-col-side">
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">近7日热力指标</h4>
+          <div id="briefingHeatmap" class="briefing-heatmap"></div>
+        </div>
+        <div class="briefing-block">
+          <h4 class="briefing-block-title">活跃交易方</h4>
+          <div id="briefingActiveCompanies" class="briefing-companies"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- PDF报告预览 -->
-    <section id="ipo" class="section-padding">
-        <div class="section-title">
-            <h2>PDF报告预览</h2>
-            <p>下载完整的行业研究报告</p>
-        </div>
-        <div class="cards">
-            <div class="card">
-                <div class="card-content">
-                    <h3>2024 全球医药投资趋势白皮书</h3>
-                    <p>点击下载 PDF</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SUMMARY DASHBOARD -->
+<section class="section" id="dashboard">
+  <div class="section-label">Overview</div>
+  <div class="section-title">全球医药交易概览</div>
+  <div class="section-subtitle">融资、BD/许可交易、并购及IPO数据汇总</div>
 
-    <!-- 页脚 -->
-    <footer>
-        <p>&copy; 2026 Global Pharma Intel. All rights reserved.</p>
-    </footer>
+  <div class="summary-grid" id="summaryGrid">
+    <!-- JS fills -->
+  </div>
+
+  <div class="news-banner fade-in" id="newsBanner">
+    <div class="news-banner-title">行业资讯 & 报告</div>
+    <div class="news-banner-scroll" id="newsBannerItems"></div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card fade-in">
+      <div class="chart-title">月度交易金额趋势</div>
+      <div class="chart-subtitle">2025.01 — 2026.03（单位：亿美元）</div>
+      <div class="chart-area">
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">交易类型分布</div>
+      <div class="chart-subtitle">2026 年至今累计</div>
+      <div class="chart-area">
+        <div class="donut-container" id="donutChart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL EXPLORER -->
+<div id="explorer-anchor" style="scroll-margin-top:60px"></div>
+<section class="section explorer-section" id="explorer">
+  <div class="section-label">Deal Explorer</div>
+  <div class="section-title">交易数据总览</div>
+  <div class="section-subtitle">全部融资、BD、并购及IPO交易记录 — 支持筛选、排序与导出</div>
+
+  <div class="filter-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索公司、事件、治疗领域...">
+    <select id="filterType">
+      <option value="">全部类型</option>
+      <option value="融资">融资</option>
+      <option value="BD/许可">BD/许可</option>
+      <option value="并购">并购</option>
+      <option value="IPO">IPO</option>
+    </select>
+    <select id="filterYear">
+      <option value="">全部年份</option>
+      <option value="2026">2026</option>
+      <option value="2025">2025</option>
+    </select>
+    <select id="filterArea">
+      <option value="">全部领域</option>
+      <option value="肿瘤">肿瘤</option>
+      <option value="免疫">免疫</option>
+      <option value="神经科学">神经科学</option>
+      <option value="心血管">心血管</option>
+      <option value="罕见病">罕见病</option>
+      <option value="抗感染">抗感染</option>
+      <option value="眼科">眼科</option>
+      <option value="代谢">代谢</option>
+    </select>
+    <button class="btn btn-primary" id="downloadBtn" onclick="downloadCSV()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      导出 CSV
+    </button>
+    <button class="btn btn-outline" onclick="downloadJSON()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      导出 JSON
+    </button>
+  </div>
+
+  <div style="overflow-x:auto">
+    <table class="deals-table">
+      <thead>
+        <tr>
+          <th onclick="sortTable('date')">日期 &#x25BE;</th>
+          <th onclick="sortTable('type')">类型</th>
+          <th onclick="sortTable('company')">交易主体</th>
+          <th>交易对象/合作方</th>
+          <th>事件摘要</th>
+          <th>治疗领域</th>
+          <th onclick="sortTable('amount')">金额(亿$) &#x25BE;</th>
+          <th>阶段</th>
+        </tr>
+      </thead>
+      <tbody id="dealsBody"></tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <div class="pagination-info" id="paginationInfo"></div>
+    <div class="pagination-btns" id="paginationBtns"></div>
+  </div>
+</section>
+
+<!-- WEEKLY REPORT -->
+<div id="report-anchor" style="scroll-margin-top:60px"></div>
+<section class="section report-section" id="weeklyReport">
+  <div class="section-label">Weekly Panorama</div>
+  <div class="section-title">一周交易全景报告</div>
+  <div class="section-subtitle" id="reportDateRange"></div>
+
+  <div class="report-container">
+    <div class="report-header">
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:4px" id="reportTitle">第12周交易全景</h3>
+        <div class="report-meta" id="reportPeriod"></div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="downloadReport()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下载报告
+      </button>
+    </div>
+    <div class="report-body">
+      <div class="report-kpi-row" id="reportKpis"></div>
+
+      <!-- 市场动态分析 -->
+      <div class="analysis-section" id="analysisSection">
+        <div class="analysis-card analysis-summary">
+          <div class="analysis-icon">&#x1F4CA;</div>
+          <h4>市场动态概览</h4>
+          <p id="analysisSummary"></p>
+        </div>
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <h5>交易类型分布</h5>
+            <div id="analysisTypeBreakdown" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>治疗领域热度</h5>
+            <div id="analysisAreaHeat" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>地域活跃度</h5>
+            <div id="analysisGeoActivity" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>趋势洞察</h5>
+            <ul id="analysisTrends" class="trend-list"></ul>
+          </div>
+        </div>
+
+        <!-- 靶点/机制分析 + 交易者分析 -->
+        <div class="analysis-grid" style="margin-top:16px">
+          <div class="analysis-card">
+            <h5>热门靶点 / 技术机制</h5>
+            <div id="analysisTargets" class="analysis-bars"></div>
+          </div>
+          <div class="analysis-card">
+            <h5>活跃交易者排行</h5>
+            <div id="analysisTraders" class="trader-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-highlights">
+        <h4>本周重点交易</h4>
+        <ol class="highlight-list" id="highlightList"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY REPORTS -->
+<div id="reports-anchor" style="scroll-margin-top:60px"></div>
+<section class="section" id="companyReports">
+  <div class="section-label">Financial Reports</div>
+  <div class="section-title">上市医疗企业报表</div>
+  <div class="section-subtitle">点击跳转至官方披露页面</div>
+
+  <div class="filter-bar" style="margin-bottom:20px">
+    <input type="text" id="reportSearch" placeholder="搜索公司名称 / 简称 / 代码..." style="flex:2" oninput="filterCompanyReports()">
+  </div>
+
+  <div class="report-list" id="reportList"></div>
+</section>
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay" id="dealModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h3 id="modalTitle">交易详情</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h5>数据来源</h5>
+      <ul>
+        <li><span class="src-dot"></span><a href="https://www.biomart.cn" target="_blank" rel="noopener">丁香通 BioMart</a></li>
+        <li><span class="src-dot"></span><a href="https://news.10jqka.com.cn/" target="_blank" rel="noopener">同花顺财经</a></li>
+        <li><span class="src-dot"></span><a href="https://bydrug.pharmcube.com/" target="_blank" rel="noopener">医药魔方 PharmCube</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>官方披露</h5>
+      <ul>
+        <li><span class="src-dot"></span><a href="https://www.hkexnews.hk/index_c.htm" target="_blank" rel="noopener">披露易 HKEXnews</a></li>
+        <li><span class="src-dot"></span><a href="https://www.sse.com.cn/" target="_blank" rel="noopener">上海证券交易所</a></li>
+        <li><span class="src-dot"></span><span style="color:var(--text-muted)">及其他公司官方公告</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>关于平台</h5>
+      <ul>
+        <li><span class="src-dot"></span><span>数据每日北京时间 07:00 自动更新</span></li>
+        <li><span class="src-dot"></span><span>覆盖全球融资、BD/许可、并购、IPO</span></li>
+        <li><span class="src-dot"></span><span>数据仅供参考，不构成投资建议</span></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <p>PharmaDeal Intelligence &mdash; 全球医药交易情报平台 &copy; 2025-2026</p>
+  </div>
+</footer>
+
+<script>
+// =============================================
+// DATA LAYER — Loaded from data.json (auto-updated daily)
+// =============================================
+let DEALS = [];
+
+async function loadData() {
+  try {
+    const resp = await fetch('data.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('Failed to load data.json');
+    DEALS = await resp.json();
+    // Sort by date descending
+    DEALS.sort((a, b) => b.date.localeCompare(a.date));
+    initApp();
+  } catch (e) {
+    console.error('数据加载失败，使用内置备份数据:', e);
+    DEALS = FALLBACK_DEALS;
+    initApp();
+  }
+}
+
+// Fallback data in case data.json fails to load
+const FALLBACK_DEALS = [
+  {date:'2026-03-19',type:'BD/许可',company:'恒瑞医药',partner:'Merck & Co.',event:'PD-L1/VEGF双抗全球权益授权',area:'肿瘤',amount:14.5,stage:'临床III期',region:'中美',geography:'中国、美国、欧洲',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2026-03-18',type:'融资',company:'Recursion Pharmaceuticals',partner:'—',event:'E轮融资，AI驱动药物发现平台扩展',area:'肿瘤',amount:7.5,stage:'平台型',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2026-03-18',type:'BD/许可',company:'百济神州',partner:'Novartis',event:'TIGIT单抗海外独家许可协议',area:'肿瘤',amount:22.0,stage:'临床II期',region:'中瑞',geography:'中国、瑞士、美国、欧洲',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-17',type:'并购',company:'AbbVie',partner:'Nimbus Therapeutics',event:'收购TYK2抑制剂管线（含里程碑付款）',area:'免疫',amount:60.0,stage:'临床III期',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2026-03-17',type:'融资',company:'药明巨诺',partner:'—',event:'B+轮融资，推进CAR-T疗法管线',area:'肿瘤',amount:3.2,stage:'临床II期',region:'中国',geography:'中国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2026-03-16',type:'BD/许可',company:'信达生物',partner:'Sanofi',event:'GLP-1R/GCGR双靶点激动剂全球共同开发',area:'代谢',amount:18.0,stage:'临床II期',region:'中法',geography:'中国、法国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-15',type:'IPO',company:'Upstream Bio',partner:'—',event:'Nasdaq IPO，聚焦呼吸系统疾病',area:'免疫',amount:4.2,stage:'临床II期',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2026-03-14',type:'融资',company:'Apogee Therapeutics',partner:'—',event:'D轮融资，推进皮肤病及呼吸双特异性抗体',area:'免疫',amount:5.0,stage:'临床I期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2026-03-13',type:'BD/许可',company:'再鼎医药',partner:'Argenx',event:'efgartigimod大中华区独家许可',area:'免疫',amount:8.5,stage:'已上市',region:'中比',geography:'中国大陆、港澳台、比利时',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-12',type:'并购',company:'Johnson & Johnson',partner:'Proteologix',event:'收购双特异性抗体平台，加强免疫管线',area:'免疫',amount:15.0,stage:'临床I期',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2026-03-11',type:'融资',company:'Ariax Pharmaceuticals',partner:'—',event:'A轮，ADC新一代连接子技术',area:'肿瘤',amount:1.8,stage:'临床前',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2026-03-10',type:'BD/许可',company:'康方生物',partner:'Summit Therapeutics',event:'依沃西单抗海外商业化合作扩展',area:'肿瘤',amount:30.0,stage:'临床III期',region:'中美',geography:'中国、美国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-09',type:'融资',company:'Eikon Therapeutics',partner:'—',event:'C轮融资，超分辨率显微平台',area:'肿瘤',amount:5.5,stage:'平台型',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2026-03-07',type:'BD/许可',company:'和黄医药',partner:'Takeda',event:'呋喹替尼日本独家许可',area:'肿瘤',amount:4.0,stage:'已上市',region:'中日',geography:'中国、日本',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-06',type:'融资',company:'Rapport Therapeutics',partner:'—',event:'B轮融资，精准神经科学药物开发',area:'神经科学',amount:2.7,stage:'临床I期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2026-03-05',type:'并购',company:'Roche',partner:'Poseida Therapeutics',event:'全面收购，获通用型CAR-T平台',area:'肿瘤',amount:16.0,stage:'临床II期',region:'瑞美',geography:'瑞士、美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2026-03-03',type:'BD/许可',company:'翰森制药',partner:'GSK',event:'B7-H4 ADC全球独家许可',area:'肿瘤',amount:17.0,stage:'临床I期',region:'中英',geography:'中国、英国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-03-01',type:'IPO',company:'Fractyl Health',partner:'—',event:'Nasdaq IPO，GLP-1替代疗法',area:'代谢',amount:2.5,stage:'临床II期',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2026-02-27',type:'融资',company:'Adagene',partner:'—',event:'后续公开募资，推进SAFEbody ADC',area:'肿瘤',amount:3.0,stage:'临床II期',region:'中美',geography:'中国、美国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2026-02-25',type:'BD/许可',company:'科伦博泰',partner:'AbbVie',event:'三个ADC资产全球独家许可（新增）',area:'肿瘤',amount:11.0,stage:'临床I/II期',region:'中美',geography:'中国、美国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2026-02-22',type:'并购',company:'AstraZeneca',partner:'Gracell Biotechnologies',event:'全面收购，通用型CAR-T',area:'肿瘤',amount:12.0,stage:'临床I期',region:'英中',geography:'英国、中国',source:'公司官方公告',sourceUrl:''},
+  {date:'2026-02-19',type:'融资',company:'Xaira Therapeutics',partner:'—',event:'Mega轮，LLM+蛋白质设计AI平台',area:'肿瘤',amount:10.0,stage:'平台型',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2026-02-15',type:'BD/许可',company:'传奇生物',partner:'Novartis',event:'BCMA CAR-T联合疗法全球共同开发',area:'肿瘤',amount:9.0,stage:'临床III期',region:'中瑞',geography:'中国、瑞士、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-02-10',type:'融资',company:'Lyell Immunopharma',partner:'—',event:'后续融资，T细胞重编程疗法',area:'肿瘤',amount:4.8,stage:'临床II期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2026-02-05',type:'BD/许可',company:'映恩生物',partner:'BioNTech',event:'HER3 ADC全球独家许可',area:'肿瘤',amount:16.5,stage:'临床I期',region:'中德',geography:'中国、德国、全球',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2026-01-28',type:'融资',company:'Treeline Biosciences',partner:'—',event:'B轮，PROTAC蛋白降解平台',area:'肿瘤',amount:2.2,stage:'临床前',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2026-01-22',type:'BD/许可',company:'诺诚健华',partner:'Biogen',event:'BTK抑制剂全球神经科学领域权益授权',area:'神经科学',amount:8.0,stage:'临床II期',region:'中美',geography:'中国、美国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2026-01-18',type:'并购',company:'Pfizer',partner:'Seagen遗留管线',event:'ADC组合整合完毕，新管线推进',area:'肿瘤',amount:8.5,stage:'临床III期',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2026-01-12',type:'融资',company:'宜联生物',partner:'—',event:'C轮融资，新一代ADC平台TMALIN',area:'肿瘤',amount:2.0,stage:'临床I期',region:'中国',geography:'中国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2026-01-08',type:'BD/许可',company:'加科思',partner:'Gilead',event:'SHP2抑制剂全球权益授权',area:'肿瘤',amount:6.0,stage:'临床II期',region:'中美',geography:'中国、美国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2026-01-03',type:'IPO',company:'Candid Therapeutics',partner:'—',event:'Nasdaq IPO，自身免疫B细胞耗竭',area:'免疫',amount:3.5,stage:'临床I期',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  // 2025 deals
+  {date:'2025-12-20',type:'BD/许可',company:'恒瑞医药',partner:'Merck KGaA',event:'GLP-1受体激动剂欧洲独家许可',area:'代谢',amount:13.0,stage:'临床II期',region:'中德',geography:'中国、德国、欧洲',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2025-12-15',type:'融资',company:'Novarock Biotherapeutics',partner:'—',event:'B轮融资，双特异性抗体管线',area:'肿瘤',amount:2.5,stage:'临床I期',region:'中美',geography:'中国、美国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2025-12-10',type:'并购',company:'AstraZeneca',partner:'Icosavax',event:'收购RSV及hMPV双价VLP疫苗平台',area:'抗感染',amount:8.3,stage:'临床III期',region:'英美',geography:'英国、美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-11-28',type:'BD/许可',company:'百济神州',partner:'OncoMed',event:'Notch通路抗体全球独家许可',area:'肿瘤',amount:9.5,stage:'临床II期',region:'中美',geography:'中国、美国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-11-20',type:'融资',company:'Kriya Therapeutics',partner:'—',event:'C轮融资，基因治疗生产平台突破',area:'罕见病',amount:4.7,stage:'临床I期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-11-12',type:'BD/许可',company:'科伦博泰',partner:'Merck & Co.',event:'两个ADC资产全球授权（首付+里程碑）',area:'肿瘤',amount:13.5,stage:'临床I期',region:'中美',geography:'中国、美国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2025-11-05',type:'并购',company:'Novo Nordisk',partner:'Catalent',event:'全面收购CDMO巨头，强化GLP-1产能',area:'代谢',amount:165.0,stage:'商业化',region:'丹美',geography:'丹麦、美国、全球',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-10-28',type:'融资',company:'Bicara Therapeutics',partner:'—',event:'C轮融资，PD-1/VEGF双特异性抗体',area:'肿瘤',amount:3.5,stage:'临床II期',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2025-10-20',type:'BD/许可',company:'信达生物',partner:'Coherus',event:'PD-1单抗北美商业化合作',area:'肿瘤',amount:5.0,stage:'已上市',region:'中美',geography:'中国、美国',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-10-15',type:'IPO',company:'MoonLake Immunotherapeutics',partner:'—',event:'Nasdaq IPO，三特异性抗体sonelokimab',area:'免疫',amount:5.2,stage:'临床III期',region:'瑞士',geography:'瑞士、美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2025-10-08',type:'融资',company:'Alumis',partner:'—',event:'D轮融资，TYK2口服抑制剂',area:'免疫',amount:2.9,stage:'临床III期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-09-25',type:'BD/许可',company:'康方生物',partner:'Summit Therapeutics',event:'依沃西单抗全球（除中国）独家许可',area:'肿瘤',amount:50.0,stage:'临床III期',region:'中美',geography:'中国、美国、全球（除中国）',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-09-18',type:'并购',company:'Merck & Co.',partner:'Prometheus Biosciences',event:'收购抗TL1A抗体平台',area:'免疫',amount:108.0,stage:'临床II期',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-09-10',type:'融资',company:'ArriVent BioPharma',partner:'—',event:'D轮融资，EGFR Exon20突变抑制剂',area:'肿瘤',amount:1.8,stage:'临床III期',region:'中美',geography:'中国、美国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2025-08-28',type:'BD/许可',company:'和铂医药',partner:'AbbVie',event:'HBM7008双抗全球独家许可',area:'肿瘤',amount:6.5,stage:'临床I期',region:'中美',geography:'中国、美国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-08-20',type:'融资',company:'Tempus AI',partner:'—',event:'E轮融资，AI驱动精准医疗数据平台',area:'肿瘤',amount:8.0,stage:'商业化',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2025-08-12',type:'BD/许可',company:'翰森制药',partner:'GSK',event:'B7-H4 ADC首次全球许可（初始交易）',area:'肿瘤',amount:15.0,stage:'临床前',region:'中英',geography:'中国、英国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2025-07-30',type:'并购',company:'Pfizer',partner:'Seagen',event:'完成对Seagen的全面收购',area:'肿瘤',amount:430.0,stage:'商业化',region:'美国',geography:'美国、全球',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-07-22',type:'融资',company:'Akeso (康方生物关联)',partner:'—',event:'可转债融资，PD-1/VEGF管线',area:'肿瘤',amount:6.0,stage:'临床III期',region:'中国',geography:'中国',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-07-15',type:'BD/许可',company:'映恩生物',partner:'BioNTech',event:'两个ADC资产全球独家许可（首次）',area:'肿瘤',amount:15.0,stage:'临床I期',region:'中德',geography:'中国、德国、全球',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+  {date:'2025-07-05',type:'融资',company:'Absci Corporation',partner:'—',event:'AI抗体设计平台，后续融资',area:'肿瘤',amount:2.0,stage:'平台型',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-06-20',type:'BD/许可',company:'再鼎医药',partner:'Novartis',event:'KRAS G12C抑制剂大中华区许可',area:'肿瘤',amount:4.5,stage:'临床II期',region:'中瑞',geography:'中国大陆、港澳台',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-06-10',type:'并购',company:'Roche',partner:'Carmot Therapeutics',event:'收购GLP-1/GIP/Glucagon三重激动剂',area:'代谢',amount:31.0,stage:'临床I期',region:'瑞美',geography:'瑞士、美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-05-25',type:'融资',company:'Geode Therapeutics',partner:'—',event:'A轮融资，表观遗传学新药',area:'肿瘤',amount:1.5,stage:'临床前',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-05-15',type:'BD/许可',company:'诺诚健华',partner:'Lilly',event:'BTK CDAC全球独家合作',area:'肿瘤',amount:10.0,stage:'临床I期',region:'中美',geography:'中国、美国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2025-05-01',type:'IPO',company:'CG Oncology',partner:'—',event:'Nasdaq IPO，膀胱癌腺病毒疗法',area:'肿瘤',amount:4.37,stage:'临床III期',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2025-04-15',type:'融资',company:'Aiolos Bio',partner:'—',event:'B轮融资，anti-TSLP长效抗体',area:'免疫',amount:2.3,stage:'临床I期',region:'美国',geography:'美国',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-04-01',type:'BD/许可',company:'加科思',partner:'AbbVie',event:'SOS1抑制剂全球权益授权',area:'肿瘤',amount:5.5,stage:'临床I期',region:'中美',geography:'中国、美国、全球',source:'上海证券交易所',sourceUrl:'https://www.sse.com.cn/'},
+  {date:'2025-03-20',type:'并购',company:'AbbVie',partner:'Cerevel Therapeutics',event:'收购神经科学管线公司',area:'神经科学',amount:87.0,stage:'临床III期',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-03-10',type:'融资',company:'Axsome Therapeutics',partner:'—',event:'后续融资，精神神经药物组合',area:'神经科学',amount:3.5,stage:'商业化',region:'美国',geography:'美国',source:'同花顺财经',sourceUrl:'https://news.10jqka.com.cn/'},
+  {date:'2025-02-20',type:'BD/许可',company:'百济神州',partner:'Eisai',event:'PD-L1单抗日本独家许可',area:'肿瘤',amount:3.0,stage:'已上市',region:'中日',geography:'中国、日本',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-02-10',type:'融资',company:'GenSight Biologics',partner:'—',event:'罕见病基因治疗C轮融资',area:'眼科',amount:1.2,stage:'临床III期',region:'法国',geography:'法国、欧洲',source:'丁香通 BioMart',sourceUrl:'https://www.biomart.cn'},
+  {date:'2025-01-25',type:'BD/许可',company:'药明生物',partner:'多家MNC',event:'ADC CRDMO大额订单（年度框架）',area:'肿瘤',amount:7.0,stage:'商业化',region:'中国',geography:'中国、全球',source:'披露易 HKEXnews',sourceUrl:'https://www.hkexnews.hk/index_c.htm'},
+  {date:'2025-01-15',type:'并购',company:'Johnson & Johnson',partner:'Intra-Cellular Therapies',event:'收购精神科药物Caplyta平台',area:'神经科学',amount:132.0,stage:'商业化',region:'美国',geography:'美国',source:'公司官方公告',sourceUrl:''},
+  {date:'2025-01-05',type:'融资',company:'Akeso (康方生物)',partner:'—',event:'A轮融资，双抗ADC新兴管线',area:'肿瘤',amount:4.0,stage:'临床前',region:'中国',geography:'中国',source:'医药魔方 PharmCube',sourceUrl:'https://bydrug.pharmcube.com/'},
+];
+
+// =============================================
+// UTILITIES
+// =============================================
+function formatAmount(v) {
+  if (v >= 100) return '$' + v.toFixed(0) + '亿';
+  if (v >= 10) return '$' + v.toFixed(1) + '亿';
+  return '$' + v.toFixed(1) + '亿';
+}
+
+function typeClass(t) {
+  if (t === '融资') return 'financing';
+  if (t === 'BD/许可') return 'bd';
+  if (t === '并购') return 'ma';
+  if (t === 'IPO') return 'ipo';
+  return '';
+}
+
+function getUpdateTime() {
+  const now = new Date();
+  const bj = new Date(now.toLocaleString('en-US', {timeZone:'Asia/Shanghai'}));
+  const today7 = new Date(bj); today7.setHours(7,0,0,0);
+  const disp = bj >= today7 ? bj : new Date(bj.getTime() - 86400000);
+  const m = String(disp.getMonth()+1).padStart(2,'0');
+  const d = String(disp.getDate()).padStart(2,'0');
+  return `${disp.getFullYear()}-${m}-${d} 07:00 BJT`;
+}
+
+function getWeekNumber(d) {
+  const start = new Date(d.getFullYear(), 0, 1);
+  const diff = (d - start + ((start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000)) / 86400000;
+  return Math.ceil((diff + start.getDay() + 1) / 7);
+}
+
+// =============================================
+// INIT APP — called after data is loaded
+// =============================================
+function initApp() {
+  document.getElementById('updateTime').textContent = '数据更新: ' + getUpdateTime();
+  renderTicker();
+  renderDailyBriefing();
+  renderSummary();
+  renderNewsBanner();
+  renderBarChart();
+  renderDonut();
+  applyFilters();
+  renderWeeklyReport();
+  renderCompanyReports();
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav active link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Event listeners for filters
+  document.getElementById('searchInput').addEventListener('input', applyFilters);
+  document.getElementById('filterType').addEventListener('change', applyFilters);
+  document.getElementById('filterYear').addEventListener('change', applyFilters);
+  document.getElementById('filterArea').addEventListener('change', applyFilters);
+
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  }, 100);
+}
+
+// =============================================
+// RENDER: TICKER
+// =============================================
+function renderTicker() {
+  const recent = DEALS.slice(0, 14);
+  const items = [...recent, ...recent].map(d => `
+    <div class="ticker-item" onclick="showDetail(${DEALS.indexOf(d)})">
+      <span class="ticker-tag ${typeClass(d.type)}">${d.type}</span>
+      <span class="ticker-company">${d.company}</span>
+      <span class="ticker-detail">${d.event}</span>
+      <span class="ticker-amount">${formatAmount(d.amount)}</span>
+    </div>`).join('');
+  document.getElementById('tickerTrack').innerHTML = items;
+}
+// =============================================
+// RENDER: SUMMARY CARDS
+// =============================================
+function renderSummary() {
+  const deals2025 = DEALS.filter(d => d.date.startsWith('2025'));
+  const deals2026 = DEALS.filter(d => d.date.startsWith('2026'));
+
+  // Main categories
+  const fin2025 = deals2025.filter(d => d.type === '融资');
+  const bd2025 = deals2025.filter(d => d.type === 'BD/许可');
+  const fin2026 = deals2026.filter(d => d.type === '融资');
+  const bd2026 = deals2026.filter(d => d.type === 'BD/许可');
+  const sumFin2025 = fin2025.reduce((s,d) => s+d.amount, 0);
+  const sumBD2025 = bd2025.reduce((s,d) => s+d.amount, 0);
+  const sumFin2026 = fin2026.reduce((s,d) => s+d.amount, 0);
+  const sumBD2026 = bd2026.reduce((s,d) => s+d.amount, 0);
+
+  // Secondary categories
+  const ma2025 = deals2025.filter(d => d.type === '并购');
+  const ipo2025 = deals2025.filter(d => d.type === 'IPO');
+  const ma2026 = deals2026.filter(d => d.type === '并购');
+  const ipo2026 = deals2026.filter(d => d.type === 'IPO');
+  const sumMA2025 = ma2025.reduce((s,d) => s+d.amount, 0);
+  const sumIPO2025 = ipo2025.reduce((s,d) => s+d.amount, 0);
+  const sumMA2026 = ma2026.reduce((s,d) => s+d.amount, 0);
+  const sumIPO2026 = ipo2026.reduce((s,d) => s+d.amount, 0);
+
+  const mainCards = [
+    {year:'2025 全年', value: sumFin2025.toFixed(1), label:'融资总额（亿美元）', cls:'accent', card:'card-accent', change:fin2025.length + '笔交易', deals: fin2025},
+    {year:'2025 全年', value: sumBD2025.toFixed(1), label:'BD/许可总额（亿美元）', cls:'purple', card:'card-purple', change:bd2025.length + '笔交易', deals: bd2025},
+    {year:'2026 YTD', value: sumFin2026.toFixed(1), label:'融资总额（亿美元）', cls:'amber', card:'card-amber', change:fin2026.length + '笔交易', deals: fin2026},
+    {year:'2026 YTD', value: sumBD2026.toFixed(1), label:'BD/许可总额（亿美元）', cls:'blue', card:'card-blue', change:bd2026.length + '笔交易', deals: bd2026},
+  ];
+
+  // Store deals for clickable cards
+  window._summaryCardDeals = mainCards.map(c => c.deals);
+
+  const secondaryCards = [
+    {year:'2025', value: sumMA2025.toFixed(1), label:'并购', count: ma2025.length, color:'var(--amber)', deals: ma2025},
+    {year:'2025', value: sumIPO2025.toFixed(1), label:'IPO', count: ipo2025.length, color:'var(--blue)', deals: ipo2025},
+    {year:'2026', value: sumMA2026.toFixed(1), label:'并购', count: ma2026.length, color:'var(--amber)', deals: ma2026},
+    {year:'2026', value: sumIPO2026.toFixed(1), label:'IPO', count: ipo2026.length, color:'var(--blue)', deals: ipo2026},
+  ];
+
+  window._secondaryCardDeals = secondaryCards.map(c => c.deals);
+
+  let html = '<div class="summary-grid">';
+  html += mainCards.map((c,i) => `
+    <div class="summary-card ${c.card} fade-in stagger-${i+1}">
+      <div class="card-year">${c.year}</div>
+      <div class="card-value ${c.cls}">$${c.value}<span style="font-size:16px;opacity:0.7">亿</span></div>
+      <div class="card-label">${c.label}</div>
+      <div class="card-change up" style="cursor:pointer" onclick="showCardDeals(${i},'main')">${c.change}</div>
+    </div>`).join('');
+  html += '</div>';
+
+  html += '<div class="summary-grid-secondary">';
+  html += secondaryCards.map((c,i) => `
+    <div class="summary-card-sm fade-in">
+      <div class="card-year">${c.year}</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <span style="font-family:var(--font-mono);font-size:20px;font-weight:700;color:${c.color}">$${c.value}<span style="font-size:12px;opacity:0.7">亿</span></span>
+      </div>
+      <div class="card-label" style="cursor:pointer" onclick="showCardDeals(${i},'secondary')">${c.label}（<span style="text-decoration:underline;color:var(--accent)">${c.count}笔</span>）</div>
+    </div>`).join('');
+  html += '</div>';
+
+  document.getElementById('summaryGrid').innerHTML = html;
+}
+
+function showCardDeals(index, type) {
+  const deals = type === 'main' ? window._summaryCardDeals[index] : window._secondaryCardDeals[index];
+  if (!deals || deals.length === 0) return;
+  const sorted = [...deals].sort((a,b) => b.amount - a.amount);
+  const labels = type === 'main'
+    ? ['2025 融资', '2025 BD/许可', '2026 融资', '2026 BD/许可']
+    : ['2025 并购', '2025 IPO', '2026 并购', '2026 IPO'];
+  const title = labels[index] + ` — ${deals.length}笔交易`;
+  const totalAmt = deals.reduce((s,d)=>s+d.amount, 0);
+  let body = `<div style="margin-bottom:12px;font-family:var(--font-mono);font-size:13px;color:var(--accent)">合计: $${totalAmt.toFixed(1)}亿</div>`;
+  body += '<div style="max-height:400px;overflow-y:auto">';
+  body += sorted.map(d => `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="showDetail(${DEALS.indexOf(d)})">
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${d.company}${d.partner !== '—' ? ' & '+d.partner : ''}</div>
+        <div style="font-size:11px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${d.date} · ${d.event}</div>
+      </div>
+      <div style="font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--accent);margin-left:12px;flex-shrink:0">${formatAmount(d.amount)}</div>
+    </div>`).join('');
+  body += '</div>';
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = body;
+  document.getElementById('dealModal').classList.add('open');
+}
+// =============================================
+// RENDER: NEWS BANNER
+// =============================================
+function renderNewsBanner() {
+  const newsLinks = [
+    {title:'医药魔方月度BD盘点', url:'https://bydrug.pharmcube.com/'},
+    {title:'同花顺医药行业资讯', url:'https://news.10jqka.com.cn/'},
+    {title:'上交所医药公告', url:'https://www.sse.com.cn/'},
+    {title:'披露易港股医药公告', url:'https://www.hkexnews.hk/index_c.htm'},
+  ];
+  document.getElementById('newsBannerItems').innerHTML = newsLinks.map(link =>
+    `<a class="news-link" href="${link.url}" target="_blank" rel="noopener">${link.title}</a>`
+  ).join('');
+}
+// =============================================
+// RENDER: BAR CHART
+// =============================================
+function renderBarChart() {
+  const months = [];
+  for (let y = 2025; y <= 2026; y++) {
+    const maxM = y === 2026 ? 3 : 12;
+    for (let m = 1; m <= maxM; m++) {
+      const key = `${y}-${String(m).padStart(2,'0')}`;
+      const label = (y === 2025 ? '' : "'26.") + (y === 2025 ? "'" + String(y).slice(2) + '.' + m : m);
+      const mDeals = DEALS.filter(d => d.date.startsWith(key));
+      const fin = mDeals.filter(d => d.type==='融资'||d.type==='IPO').reduce((s,d)=>s+d.amount,0);
+      const bd = mDeals.filter(d => d.type==='BD/许可'||d.type==='并购').reduce((s,d)=>s+d.amount,0);
+      months.push({label: m, year: y, fin, bd});
+    }
+  }
+  const maxVal = Math.max(...months.map(m => m.fin + m.bd), 1);
+  const barH = 160;
+
+  document.getElementById('barChart').innerHTML = months.map(m => {
+    const fH = (m.fin / maxVal) * barH;
+    const bH = (m.bd / maxVal) * barH;
+    const lbl = (m.year===2026 ? "<b style='color:var(--accent)'>" + m.label + "</b>" : m.label);
+    return `<div class="bar-group">
+      <div class="bar bd" style="height:${bH}px" title="BD/并购: $${m.bd.toFixed(1)}亿"></div>
+      <div class="bar financing" style="height:${fH}px" title="融资/IPO: $${m.fin.toFixed(1)}亿"></div>
+      <div class="bar-label">${lbl}</div>
+    </div>`;
+  }).join('');
+}
+// =============================================
+// RENDER: DONUT CHART (SVG)
+// =============================================
+function renderDonut() {
+  const deals2026 = DEALS.filter(d => d.date.startsWith('2026'));
+  const types = ['融资','BD/许可','并购','IPO'];
+  const colors = ['var(--accent)','var(--purple)','var(--amber)','var(--blue)'];
+  const rawColors = ['#0d9488','#7c3aed','#d97706','#2563eb'];
+  const vals = types.map(t => deals2026.filter(d=>d.type===t).reduce((s,d)=>s+d.amount,0));
+  const total = vals.reduce((s,v)=>s+v,0);
+
+  const r = 60, cx = 80, cy = 80, strokeW = 24;
+  const circ = 2 * Math.PI * r;
+  let offset = 0;
+  const arcs = vals.map((v, i) => {
+    const pct = v / total;
+    const dash = pct * circ;
+    const gap = circ - dash;
+    const o = offset;
+    offset += dash;
+    return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none"
+      stroke="${rawColors[i]}" stroke-width="${strokeW}"
+      stroke-dasharray="${dash} ${gap}"
+      stroke-dashoffset="${-o}"
+      style="transition: stroke-dasharray 0.8s ease ${i*0.1}s" />`;
+  }).join('');
+
+  const svg = `<svg class="donut-svg" viewBox="0 0 160 160">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#e2e8f0" stroke-width="${strokeW}"/>
+    ${arcs}
+    <text x="${cx}" y="${cy-4}" text-anchor="middle" fill="var(--text-primary)"
+      font-family="var(--font-mono)" font-size="18" font-weight="700">$${total.toFixed(0)}</text>
+    <text x="${cx}" y="${cy+12}" text-anchor="middle" fill="var(--text-muted)"
+      font-family="var(--font-mono)" font-size="9">亿美元</text>
+  </svg>`;
+
+  const legend = types.map((t,i) => `
+    <div class="legend-item">
+      <span class="legend-dot" style="background:${rawColors[i]}"></span>
+      <span>${t}</span>
+      <span class="legend-value">$${vals[i].toFixed(1)}亿 (${(vals[i]/total*100).toFixed(0)}%)</span>
+    </div>`).join('');
+
+  document.getElementById('donutChart').innerHTML = svg + `<div class="donut-legend">${legend}</div>`;
+}
+
+// =============================================
+// RENDER: DAILY BRIEFING
+// =============================================
+function renderDailyBriefing() {
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0,10);
+
+  // Find latest date in data
+  const latestDataDate = DEALS.length > 0 ? DEALS[0].date : todayStr;
+  const isDataStale = latestDataDate !== todayStr;
+
+  // Show latest day's deals
+  const todayDeals = DEALS.filter(d => d.date === latestDataDate);
+  const displayDate = latestDataDate;
+
+  // Last 7 days for heatmap (today inclusive, going back 6 days)
+  const last7 = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(now.getTime() - i * 86400000);
+    const ds = d.toISOString().slice(0,10);
+    const dayNames = ['日','一','二','三','四','五','六'];
+    const count = DEALS.filter(dd => dd.date === ds).length;
+    last7.push({ date: ds, label: dayNames[d.getDay()], count });
+  }
+
+  // Date badge — always show today's real date
+  const weekDays = ['周日','周一','周二','周三','周四','周五','周六'];
+  const todayD = new Date(todayStr + 'T00:00:00');
+  let badgeHtml = `<span style="font-size:16px">&#x1F4C5;</span> ${todayStr} ${weekDays[todayD.getDay()]}`;
+  if (isDataStale) {
+    badgeHtml += `<span style="margin-left:12px;font-size:11px;color:var(--amber);background:var(--amber-dim);padding:2px 8px;border-radius:4px">最新数据: ${latestDataDate}</span>`;
+  }
+  document.getElementById('briefingBadge').innerHTML = badgeHtml;
+
+  // Stats
+  const todayAmt = todayDeals.reduce((s,d)=>s+d.amount, 0);
+  const sevenDaysAgo = new Date(now.getTime()-6*86400000).toISOString().slice(0,10);
+  const week7 = DEALS.filter(d => d.date >= sevenDaysAgo && d.date <= todayStr);
+  const dealLabel = isDataStale ? `${latestDataDate} 交易` : '今日交易';
+  const amtLabel = isDataStale ? `${latestDataDate} 金额` : '今日金额';
+  document.getElementById('briefingStats').innerHTML = `
+    <div class="stat-item">${dealLabel} <span class="stat-val">${todayDeals.length}</span> 笔</div>
+    <div class="stat-item">${amtLabel} <span class="stat-val">$${todayAmt.toFixed(1)}亿</span></div>
+    <div class="stat-item">近7日 <span class="stat-val">${week7.length}</span> 笔</div>`;
+
+  document.getElementById('briefingDate').textContent = todayStr;
+
+  // Today's deals cards
+  const sortedToday = [...todayDeals].sort((a,b)=>b.amount-a.amount);
+  document.getElementById('briefingDeals').innerHTML = sortedToday.length > 0
+    ? sortedToday.map(d => `
+      <div class="briefing-deal-card" onclick="showDetail(${DEALS.indexOf(d)})">
+        <div class="deal-info">
+          <div class="deal-title">
+            <span class="deal-type-tag ${typeClass(d.type)}" style="font-size:10px;margin-right:6px">${d.type}</span>
+            ${d.company}${d.partner !== '—' ? ' & '+d.partner : ''}
+          </div>
+          <div class="deal-desc">${d.event} · ${d.area} · ${d.geography||''}</div>
+        </div>
+        <div class="deal-amt">${formatAmount(d.amount)}</div>
+      </div>`).join('')
+    : '<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:13px">今日暂无新交易数据</div>';
+
+  // Commentary
+  document.getElementById('briefingCommentary').innerHTML = generateDailyCommentary(todayDeals, displayDate);
+
+  // Heatmap
+  const maxH = Math.max(...last7.map(d=>d.count), 1);
+  document.getElementById('briefingHeatmap').innerHTML = last7.map(d => {
+    const level = d.count === 0 ? 0 : Math.min(Math.ceil(d.count / maxH * 5), 5);
+    const isToday = d.date === displayDate;
+    return `<div class="heatmap-day heat-${level}${isToday?' selected':''}" onclick="selectHeatmapDay('${d.date}')">
+      <div class="day-label">${d.label}</div>
+      <div class="day-count">${d.count}</div>
+    </div>`;
+  }).join('');
+
+  // Active companies (last 30 days)
+  const last30 = DEALS.filter(d => d.date >= new Date(now.getTime()-30*86400000).toISOString().slice(0,10));
+  const compCounts = {};
+  const compAmts = {};
+  last30.forEach(d => {
+    compCounts[d.company] = (compCounts[d.company]||0) + 1;
+    compAmts[d.company] = (compAmts[d.company]||0) + d.amount;
+  });
+  const topCompanies = Object.entries(compCounts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  document.getElementById('briefingActiveCompanies').innerHTML = topCompanies.map(([name, count], i) => {
+    const rankCls = i===0?'':i===1?'r2':i===2?'r3':'rn';
+    return `<div class="company-row">
+      <div class="company-rank ${rankCls}">${i+1}</div>
+      <div class="company-name">${name}</div>
+      <div class="company-count">${count}笔</div>
+      <div class="company-amt">${formatAmount(compAmts[name])}</div>
+    </div>`;
+  }).join('');
+}
+
+function selectHeatmapDay(dateStr) {
+  // Highlight selected day
+  document.querySelectorAll('.heatmap-day').forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  // Get deals for the selected day
+  const dayDeals = DEALS.filter(d => d.date === dateStr);
+  const sortedDay = [...dayDeals].sort((a,b) => b.amount - a.amount);
+
+  // Update the briefing deals section
+  document.getElementById('briefingDeals').innerHTML = sortedDay.length > 0
+    ? sortedDay.map(d => `
+      <div class="briefing-deal-card" onclick="showDetail(${DEALS.indexOf(d)})">
+        <div class="deal-info">
+          <div class="deal-title">
+            <span class="deal-type-tag ${typeClass(d.type)}" style="font-size:10px;margin-right:6px">${d.type}</span>
+            ${d.company}${d.partner !== '—' ? ' & '+d.partner : ''}
+          </div>
+          <div class="deal-desc">${d.event} · ${d.area} · ${d.geography||''}</div>
+        </div>
+        <div class="deal-amt">${formatAmount(d.amount)}</div>
+      </div>`).join('')
+    : '<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:13px">该日暂无交易数据</div>';
+
+  // Update commentary
+  document.getElementById('briefingCommentary').innerHTML = generateDailyCommentary(dayDeals, dateStr);
+
+  // Update date badge
+  const weekDays = ['周日','周一','周二','周三','周四','周五','周六'];
+  const dispD = new Date(dateStr + 'T00:00:00');
+  document.getElementById('briefingBadge').innerHTML =
+    `<span style="font-size:16px">&#x1F4C5;</span> ${dateStr} ${weekDays[dispD.getDay()]}`;
+
+  // Update stats
+  const dayAmt = dayDeals.reduce((s,d) => s+d.amount, 0);
+  const now = new Date();
+  const week7 = DEALS.filter(d => d.date >= new Date(now.getTime()-7*86400000).toISOString().slice(0,10));
+  document.getElementById('briefingStats').innerHTML = `
+    <div class="stat-item">当日交易 <span class="stat-val">${dayDeals.length}</span> 笔</div>
+    <div class="stat-item">当日金额 <span class="stat-val">$${dayAmt.toFixed(1)}亿</span></div>
+    <div class="stat-item">近7日 <span class="stat-val">${week7.length}</span> 笔</div>`;
+}
+
+function generateDailyCommentary(todayDeals, dateStr) {
+  if (todayDeals.length === 0) return '当日无新增交易记录。关注次日更新。';
+  const n = todayDeals.length;
+  const totalAmt = todayDeals.reduce((s,d)=>s+d.amount,0);
+  const biggest = [...todayDeals].sort((a,b)=>b.amount-a.amount)[0];
+  const types = {};
+  todayDeals.forEach(d => { types[d.type] = (types[d.type]||0)+1; });
+  const areas = {};
+  todayDeals.forEach(d => { areas[d.area] = (areas[d.area]||0)+1; });
+  const topArea = Object.entries(areas).sort((a,b)=>b[1]-a[1])[0];
+  const crossBorder = todayDeals.filter(d => (d.geography||'').includes('中') && (d.geography||'').match(/美|欧|全球|瑞|日|英|德|法/));
+
+  let lines = [];
+  lines.push(`${dateStr} 共录得 <strong>${n}</strong> 笔交易，合计金额 <strong>$${totalAmt.toFixed(1)}亿</strong>。`);
+  if (biggest && biggest.amount > 0) {
+    lines.push(`最大单笔交易为 <strong>${biggest.company}</strong> 的${biggest.type}（${formatAmount(biggest.amount)}），涉及${biggest.area}领域。`);
+  }
+  if (topArea) lines.push(`${topArea[0]}领域最为活跃（${topArea[1]}笔）。`);
+  if (crossBorder.length > 0) lines.push(`其中 ${crossBorder.length} 笔为跨境交易。`);
+  return lines.join(' ');
+}
+
+// =============================================
+// DEAL EXPLORER: FILTERING, SORTING, PAGINATION
+// =============================================
+let currentPage = 1;
+const pageSize = 15;
+let sortField = 'date';
+let sortDir = -1;
+let filtered = [...DEALS];
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const fType = document.getElementById('filterType').value;
+  const fYear = document.getElementById('filterYear').value;
+  const fArea = document.getElementById('filterArea').value;
+
+  filtered = DEALS.filter(d => {
+    if (fType && d.type !== fType) return false;
+    if (fYear && !d.date.startsWith(fYear)) return false;
+    if (fArea && d.area !== fArea) return false;
+    if (q) {
+      const hay = (d.company + d.partner + d.event + d.area + d.type + d.region).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    let va, vb;
+    if (sortField === 'date') { va = a.date; vb = b.date; }
+    else if (sortField === 'amount') { va = a.amount; vb = b.amount; }
+    else if (sortField === 'type') { va = a.type; vb = b.type; }
+    else if (sortField === 'company') { va = a.company; vb = b.company; }
+    else { va = a.date; vb = b.date; }
+    if (va < vb) return -1 * sortDir;
+    if (va > vb) return 1 * sortDir;
+    return 0;
+  });
+
+  currentPage = 1;
+  renderTable();
+}
+
+function sortTable(field) {
+  if (sortField === field) sortDir *= -1;
+  else { sortField = field; sortDir = -1; }
+  applyFilters();
+}
+
+function renderTable() {
+  const start = (currentPage - 1) * pageSize;
+  const page = filtered.slice(start, start + pageSize);
+  const totalPages = Math.ceil(filtered.length / pageSize);
+
+  document.getElementById('dealsBody').innerHTML = page.map((d, i) => `
+    <tr onclick="showDetail(${DEALS.indexOf(d)})" style="cursor:pointer">
+      <td style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">${d.date}</td>
+      <td><span class="deal-type-tag ${typeClass(d.type)}">${d.type}</span></td>
+      <td class="deal-company">${d.company}</td>
+      <td style="color:var(--text-secondary)">${d.partner}</td>
+      <td style="max-width:300px">${d.event}</td>
+      <td><span class="deal-stage">${d.area}</span></td>
+      <td class="deal-amount" style="color:var(--accent)">${formatAmount(d.amount)}</td>
+      <td><span class="deal-stage">${d.stage}</span></td>
+    </tr>`).join('');
+
+  document.getElementById('paginationInfo').textContent =
+    `显示 ${start+1}-${Math.min(start+pageSize, filtered.length)} / 共 ${filtered.length} 条`;
+
+  let btns = '';
+  btns += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>&#x25C0;</button>`;
+  for (let p = 1; p <= totalPages; p++) {
+    if (totalPages > 7 && p > 2 && p < totalPages - 1 && Math.abs(p - currentPage) > 1) {
+      if (p === 3 || p === totalPages - 2) btns += `<span style="color:var(--text-muted);padding:0 4px">...</span>`;
+      continue;
+    }
+    btns += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
+  }
+  btns += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>&#x25B6;</button>`;
+  document.getElementById('paginationBtns').innerHTML = btns;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(filtered.length / pageSize);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
+  renderTable();
+}
+
+// =============================================
+// MODAL
+// =============================================
+function showDetail(idx) {
+  const d = DEALS[idx];
+  const srcLink = d.sourceUrl
+    ? `<a href="${d.sourceUrl}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">${d.source}</a>`
+    : `<span>${d.source}</span>`;
+  document.getElementById('modalTitle').textContent = d.company + ' — ' + d.type;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="detail-row"><div class="detail-label">日期</div><div class="detail-value">${d.date}</div></div>
+    <div class="detail-row"><div class="detail-label">类型</div><div class="detail-value"><span class="deal-type-tag ${typeClass(d.type)}">${d.type}</span></div></div>
+    <div class="detail-row"><div class="detail-label">交易主体</div><div class="detail-value">${d.company}</div></div>
+    <div class="detail-row"><div class="detail-label">合作方</div><div class="detail-value">${d.partner}</div></div>
+    <div class="detail-row"><div class="detail-label">事件</div><div class="detail-value">${d.event}</div></div>
+    <div class="detail-row"><div class="detail-label">治疗领域</div><div class="detail-value">${d.area}</div></div>
+    <div class="detail-row"><div class="detail-label">金额</div><div class="detail-value" style="color:var(--accent);font-family:var(--font-mono);font-size:18px">${formatAmount(d.amount)}</div></div>
+    <div class="detail-row"><div class="detail-label">阶段</div><div class="detail-value">${d.stage}</div></div>
+    <div class="detail-row"><div class="detail-label">涉及地域</div><div class="detail-value">${d.geography}</div></div>
+    <div class="detail-row" style="border-bottom:none"><div class="detail-label">信息来源</div><div class="detail-value">${srcLink}</div></div>`;
+  document.getElementById('dealModal').classList.add('open');
+}
+function closeModal() { document.getElementById('dealModal').classList.remove('open'); }
+document.getElementById('dealModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// =============================================
+// DOWNLOAD: CSV & JSON
+// =============================================
+function downloadCSV() {
+  const header = '日期,类型,交易主体,合作方,事件,治疗领域,金额(亿美元),阶段,涉及地域,信息来源\n';
+  const rows = filtered.map(d =>
+    `${d.date},${d.type},"${d.company}","${d.partner}","${d.event}",${d.area},${d.amount},${d.stage},"${d.geography}","${d.source}"`
+  ).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + header + rows], {type: 'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url;
+  a.download = `PharmaDeal_Export_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function downloadJSON() {
+  const blob = new Blob([JSON.stringify(filtered, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url;
+  a.download = `PharmaDeal_Export_${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function downloadReport() {
+  const report = generateWeeklyReport();
+  const blob = new Blob([report], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url;
+  a.download = `PharmaDeal_WeeklyReport_W${getWeekNumber(new Date())}_${new Date().toISOString().slice(0,10)}.txt`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function generateWeeklyReport() {
+  const now = new Date();
+  const weekAgo = new Date(now.getTime() - 7 * 86400000);
+  const wStr = weekAgo.toISOString().slice(0,10);
+  const nStr = now.toISOString().slice(0,10);
+  const weekDeals = DEALS.filter(d => d.date >= wStr && d.date <= nStr);
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+
+  let txt = `═══════════════════════════════════════════\n`;
+  txt += `  PharmaDeal Intelligence — 一周交易全景报告\n`;
+  txt += `  第${getWeekNumber(now)}周 | ${wStr} ~ ${nStr}\n`;
+  txt += `═══════════════════════════════════════════\n\n`;
+  txt += `本周交易总数: ${weekDeals.length} 笔\n`;
+  txt += `本周交易总额: $${totalAmt.toFixed(1)} 亿美元\n\n`;
+  txt += `───────────────────────────────────────────\n`;
+  txt += `重点交易:\n\n`;
+  weekDeals.sort((a,b) => b.amount - a.amount).slice(0,5).forEach((d,i) => {
+    txt += `  ${i+1}. [${d.type}] ${d.company} ${d.partner !== '—' ? '& '+d.partner : ''}\n`;
+    txt += `     ${d.event}\n`;
+    txt += `     金额: ${formatAmount(d.amount)} | 领域: ${d.area} | 阶段: ${d.stage}\n\n`;
+  });
+  txt += `───────────────────────────────────────────\n`;
+  txt += `数据来源:\n`;
+  txt += `  · 丁香通 BioMart (biomart.cn)\n`;
+  txt += `  · 同花顺财经 (news.10jqka.com.cn)\n`;
+  txt += `  · 医药魔方 PharmCube (bydrug.pharmcube.com)\n`;
+  txt += `  · 披露易 HKEXnews (hkexnews.hk)\n`;
+  txt += `  · 上海证券交易所 (sse.com.cn)\n`;
+  txt += `  · 及其他公司官方公告\n\n`;
+  txt += `免责声明: 数据仅供参考，不构成投资建议\n`;
+  return txt;
+}
+
+// =============================================
+// RENDER: WEEKLY REPORT SECTION + ANALYSIS
+// =============================================
+function renderWeeklyReport() {
+  const now = new Date();
+  const weekAgo = new Date(now.getTime() - 7 * 86400000);
+  const twoWeeksAgo = new Date(now.getTime() - 14 * 86400000);
+  const wStr = weekAgo.toISOString().slice(0,10);
+  const nStr = now.toISOString().slice(0,10);
+  const prevWStr = twoWeeksAgo.toISOString().slice(0,10);
+  const wk = getWeekNumber(now);
+
+  const weekDeals = DEALS.filter(d => d.date >= wStr && d.date <= nStr);
+  const prevWeekDeals = DEALS.filter(d => d.date >= prevWStr && d.date < wStr);
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+  const finDeals = weekDeals.filter(d=>d.type==='融资'||d.type==='IPO');
+  const bdDeals = weekDeals.filter(d=>d.type==='BD/许可'||d.type==='并购');
+  const finAmt = finDeals.reduce((s,d)=>s+d.amount,0);
+  const bdAmt = bdDeals.reduce((s,d)=>s+d.amount,0);
+
+  document.getElementById('reportDateRange').textContent = `${wStr} — ${nStr}`;
+  document.getElementById('reportTitle').textContent = `第${wk}周交易全景`;
+  document.getElementById('reportPeriod').textContent = `WEEK ${wk} · ${wStr} — ${nStr}`;
+
+  // KPI row with week-over-week comparison
+  const amtChange = prevTotalAmt > 0 ? ((totalAmt - prevTotalAmt) / prevTotalAmt * 100) : 0;
+  const amtTag = amtChange >= 0
+    ? `<span class="trend-tag up">+${amtChange.toFixed(0)}%</span>`
+    : `<span class="trend-tag down">${amtChange.toFixed(0)}%</span>`;
+  const countChange = prevWeekDeals.length > 0 ? weekDeals.length - prevWeekDeals.length : 0;
+  const countTag = countChange >= 0
+    ? `<span class="trend-tag up">+${countChange}</span>`
+    : `<span class="trend-tag down">${countChange}</span>`;
+
+  document.getElementById('reportKpis').innerHTML = `
+    <div class="report-kpi">
+      <div class="report-kpi-label">本周交易总额 ${amtTag}</div>
+      <div class="report-kpi-value" style="color:var(--accent)">$${totalAmt.toFixed(1)}亿</div>
+    </div>
+    <div class="report-kpi">
+      <div class="report-kpi-label">交易数量 ${countTag}</div>
+      <div class="report-kpi-value" style="color:var(--text-primary)">${weekDeals.length}<span style="font-size:14px;opacity:0.6"> 笔</span></div>
+    </div>
+    <div class="report-kpi">
+      <div class="report-kpi-label">融资 & IPO / BD & 并购</div>
+      <div class="report-kpi-value"><span style="color:var(--amber)">$${finAmt.toFixed(1)}</span><span style="font-size:14px;opacity:0.5"> / </span><span style="color:var(--purple)">$${bdAmt.toFixed(1)}</span><span style="font-size:14px;opacity:0.6">亿</span></div>
+    </div>`;
+
+  // === ANALYSIS ===
+  renderAnalysis(weekDeals, prevWeekDeals);
+
+  // Top deals
+  const top = [...weekDeals].sort((a,b) => b.amount - a.amount).slice(0, 5);
+  document.getElementById('highlightList').innerHTML = top.map((d, i) => `
+    <li>
+      <span class="hl-num">${i+1}</span>
+      <div>
+        <strong>${d.company}</strong>${d.partner !== '—' ? ' & <strong>'+d.partner+'</strong>' : ''} —
+        <span class="deal-type-tag ${typeClass(d.type)}" style="font-size:9px">${d.type}</span>
+        ${d.event}
+        <div style="margin-top:6px;font-family:var(--font-mono);font-size:12px;color:var(--accent)">${formatAmount(d.amount)} · ${d.area} · ${d.stage}</div>
+      </div>
+    </li>`).join('');
+}
+
+// =============================================
+// ANALYSIS ENGINE
+// =============================================
+function renderAnalysis(weekDeals, prevWeekDeals) {
+  if (weekDeals.length === 0) {
+    document.getElementById('analysisSection').style.display = 'none';
+    return;
+  }
+  document.getElementById('analysisSection').style.display = '';
+
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+
+  // 1. Summary text
+  const summary = generateSummaryText(weekDeals, prevWeekDeals);
+  document.getElementById('analysisSummary').innerHTML = summary;
+
+  // 2. Type breakdown bars
+  const types = ['融资', 'BD/许可', '并购', 'IPO'];
+  const typeColors = ['var(--accent)', 'var(--purple)', 'var(--amber)', 'var(--blue)'];
+  const typeCounts = types.map(t => weekDeals.filter(d=>d.type===t).length);
+  const typeAmts = types.map(t => weekDeals.filter(d=>d.type===t).reduce((s,d)=>s+d.amount,0));
+  const maxTypeAmt = Math.max(...typeAmts, 1);
+
+  document.getElementById('analysisTypeBreakdown').innerHTML = types.map((t,i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${t}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(typeAmts[i]/maxTypeAmt*100).toFixed(0)}%;background:${typeColors[i]}"></div>
+      </div>
+      <div class="analysis-bar-value">${typeCounts[i]}笔 $${typeAmts[i].toFixed(1)}亿</div>
+    </div>`).join('');
+
+  // 3. Therapeutic area heat
+  const areaCounts = {};
+  weekDeals.forEach(d => { areaCounts[d.area] = (areaCounts[d.area]||0) + 1; });
+  const areaEntries = Object.entries(areaCounts).sort((a,b) => b[1]-a[1]).slice(0,5);
+  const maxAreaCount = Math.max(...areaEntries.map(a=>a[1]), 1);
+  const areaColors = ['#0d9488','#7c3aed','#d97706','#2563eb','#e11d48'];
+
+  document.getElementById('analysisAreaHeat').innerHTML = areaEntries.map(([area, count], i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${area}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(count/maxAreaCount*100).toFixed(0)}%;background:${areaColors[i%5]}"></div>
+      </div>
+      <div class="analysis-bar-value">${count}笔</div>
+    </div>`).join('');
+
+  // 4. Geography activity
+  const geoCounts = {};
+  weekDeals.forEach(d => {
+    const geos = (d.geography||'').split(/[、,，]/);
+    geos.forEach(g => { g = g.trim(); if(g) geoCounts[g] = (geoCounts[g]||0)+1; });
+  });
+  const geoEntries = Object.entries(geoCounts).sort((a,b) => b[1]-a[1]).slice(0,5);
+  const maxGeo = Math.max(...geoEntries.map(g=>g[1]), 1);
+
+  document.getElementById('analysisGeoActivity').innerHTML = geoEntries.map(([geo, count], i) => `
+    <div class="analysis-bar-item">
+      <div class="analysis-bar-label">${geo}</div>
+      <div class="analysis-bar-track">
+        <div class="analysis-bar-fill" style="width:${(count/maxGeo*100).toFixed(0)}%;background:${areaColors[i%5]}"></div>
+      </div>
+      <div class="analysis-bar-value">${count}次</div>
+    </div>`).join('');
+
+  // 5. Trend insights
+  const trends = generateTrends(weekDeals, prevWeekDeals);
+  document.getElementById('analysisTrends').innerHTML = trends.map(t =>
+    `<li class="trend-${t.dir}">${t.text} <span class="trend-tag ${t.dir}">${t.tag}</span></li>`
+  ).join('');
+
+  // 6. Target / mechanism analysis
+  renderTargetAnalysis(weekDeals);
+
+  // 7. Trader / company analysis
+  renderTraderAnalysis(weekDeals);
+}
+
+// =============================================
+// TARGET / MECHANISM ANALYSIS
+// =============================================
+function renderTargetAnalysis(weekDeals) {
+  // Extract targets/mechanisms from event text
+  const targetKeywords = [
+    {label:'PD-1/PD-L1', keys:['PD-1','PD-L1','PD1','PDL1','pd-1']},
+    {label:'ADC', keys:['ADC','抗体偶联','antibody-drug conjugate']},
+    {label:'CAR-T', keys:['CAR-T','CAR T','CART']},
+    {label:'GLP-1/GIP', keys:['GLP-1','GLP1','GIP','GCGR','司美格鲁肽','tirzepatide']},
+    {label:'双特异性抗体', keys:['双抗','双特异','bispecific','BsAb']},
+    {label:'PROTAC', keys:['PROTAC','蛋白降解','degrader']},
+    {label:'小核酸', keys:['小核酸','siRNA','ASO','mRNA','核酸']},
+    {label:'KRAS', keys:['KRAS','SOS1','SHP2']},
+    {label:'BTK', keys:['BTK','布鲁顿']},
+    {label:'TIGIT', keys:['TIGIT']},
+    {label:'TYK2', keys:['TYK2']},
+    {label:'BCMA', keys:['BCMA']},
+    {label:'HER2/HER3', keys:['HER2','HER3','B7-H4','EGFR']},
+    {label:'基因治疗', keys:['基因治疗','gene therapy','AAV']},
+    {label:'AI药物发现', keys:['AI','人工智能','machine learning','LLM','蛋白质设计']},
+  ];
+
+  const targetCounts = {};
+  const targetAmts = {};
+  weekDeals.forEach(d => {
+    const text = (d.event + ' ' + d.area + ' ' + (d.company||'')).toLowerCase();
+    targetKeywords.forEach(tk => {
+      if (tk.keys.some(k => text.includes(k.toLowerCase()))) {
+        targetCounts[tk.label] = (targetCounts[tk.label]||0) + 1;
+        targetAmts[tk.label] = (targetAmts[tk.label]||0) + d.amount;
+      }
+    });
+  });
+
+  const targetEntries = Object.entries(targetCounts).sort((a,b) => b[1]-a[1]).slice(0,6);
+  const maxTarget = Math.max(...targetEntries.map(t=>t[1]), 1);
+  const tColors = ['#0d9488','#7c3aed','#d97706','#2563eb','#e11d48','#8b5cf6'];
+
+  const el = document.getElementById('analysisTargets');
+  if (targetEntries.length === 0) {
+    el.innerHTML = '<div style="font-size:12px;color:var(--text-muted);padding:8px 0">本周交易未明确涉及特定靶点/机制</div>';
+  } else {
+    el.innerHTML = targetEntries.map(([target, count], i) => `
+      <div class="analysis-bar-item">
+        <div class="analysis-bar-label" style="width:90px">${target}</div>
+        <div class="analysis-bar-track">
+          <div class="analysis-bar-fill" style="width:${(count/maxTarget*100).toFixed(0)}%;background:${tColors[i%6]}"></div>
+        </div>
+        <div class="analysis-bar-value">${count}笔 $${(targetAmts[target]||0).toFixed(1)}亿</div>
+      </div>`).join('');
+  }
+}
+
+// =============================================
+// TRADER / COMPANY ANALYSIS
+// =============================================
+function renderTraderAnalysis(weekDeals) {
+  // Count deals and amounts per company (both sides)
+  const traderData = {};
+  weekDeals.forEach(d => {
+    // Main company
+    if (d.company && d.company !== '—') {
+      if (!traderData[d.company]) traderData[d.company] = {count:0, amount:0, types:new Set(), as:'主体'};
+      traderData[d.company].count++;
+      traderData[d.company].amount += d.amount;
+      traderData[d.company].types.add(d.type);
+    }
+    // Partner
+    if (d.partner && d.partner !== '—') {
+      if (!traderData[d.partner]) traderData[d.partner] = {count:0, amount:0, types:new Set(), as:'合作方'};
+      traderData[d.partner].count++;
+      traderData[d.partner].amount += d.amount;
+      traderData[d.partner].types.add(d.type);
+    }
+  });
+
+  const ranked = Object.entries(traderData)
+    .sort((a,b) => b[1].amount - a[1].amount)
+    .slice(0, 8);
+
+  const el = document.getElementById('analysisTraders');
+  if (ranked.length === 0) {
+    el.innerHTML = '<div style="font-size:12px;color:var(--text-muted)">暂无数据</div>';
+    return;
+  }
+
+  el.innerHTML = ranked.map(([name, info], i) => {
+    const rankCls = i===0?'':i===1?'r2':i===2?'r3':'rn';
+    const typeStr = [...info.types].join('/');
+    return `<div class="trader-row">
+      <div class="company-rank ${rankCls}">${i+1}</div>
+      <div class="trader-info">
+        <div class="trader-name">${name}</div>
+        <div class="trader-detail">${info.count}笔交易 · ${typeStr} · ${info.as}</div>
+      </div>
+      <div class="trader-amt">${formatAmount(info.amount)}</div>
+    </div>`;
+  }).join('');
+}
+
+function generateSummaryText(weekDeals, prevWeekDeals) {
+  const total = weekDeals.length;
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotal = prevWeekDeals.length;
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+  const bdCount = weekDeals.filter(d=>d.type==='BD/许可').length;
+  const finCount = weekDeals.filter(d=>d.type==='融资').length;
+  const maCount = weekDeals.filter(d=>d.type==='并购').length;
+  const ipoCount = weekDeals.filter(d=>d.type==='IPO').length;
+
+  // Top area
+  const areaCounts = {};
+  weekDeals.forEach(d => { areaCounts[d.area] = (areaCounts[d.area]||0) + 1; });
+  const topArea = Object.entries(areaCounts).sort((a,b)=>b[1]-a[1])[0];
+
+  // Biggest deal
+  const biggest = [...weekDeals].sort((a,b)=>b.amount-a.amount)[0];
+
+  // China cross-border
+  const crossBorder = weekDeals.filter(d => {
+    const geo = d.geography || '';
+    return (geo.includes('中国') || geo.includes('中')) && (geo.includes('美') || geo.includes('欧') || geo.includes('全球'));
+  });
+
+  let lines = [];
+  // Volume comparison
+  if (prevTotal > 0) {
+    const pctChange = ((total - prevTotal) / prevTotal * 100).toFixed(0);
+    if (total > prevTotal) {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，较上周（${prevTotal}笔）增长 ${pctChange}%，交易活跃度提升。`);
+    } else if (total < prevTotal) {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，较上周（${prevTotal}笔）有所回落，市场节奏趋缓。`);
+    } else {
+      lines.push(`本周共录得 <strong>${total}</strong> 笔交易，与上周持平。`);
+    }
+  } else {
+    lines.push(`本周共录得 <strong>${total}</strong> 笔交易，总交易规模 <strong>$${totalAmt.toFixed(1)}亿</strong>美元。`);
+  }
+
+  // Amount comparison
+  if (prevTotalAmt > 0) {
+    const amtPct = ((totalAmt - prevTotalAmt) / prevTotalAmt * 100).toFixed(0);
+    if (totalAmt > prevTotalAmt * 1.2) {
+      lines.push(`交易总额达 $${totalAmt.toFixed(1)}亿，环比增长 ${amtPct}%，${biggest ? `其中 <strong>${biggest.company}</strong> 的${biggest.type}交易（${formatAmount(biggest.amount)}）为本周最大单笔交易。` : '大额交易推动整体规模上升。'}`);
+    } else if (totalAmt < prevTotalAmt * 0.8) {
+      lines.push(`交易总额 $${totalAmt.toFixed(1)}亿，环比下降 ${Math.abs(amtPct)}%，缺少超大型交易拉动。`);
+    }
+  }
+
+  // Type highlights
+  const typeHighlights = [];
+  if (bdCount > 0) typeHighlights.push(`BD/许可 ${bdCount}笔`);
+  if (finCount > 0) typeHighlights.push(`融资 ${finCount}笔`);
+  if (maCount > 0) typeHighlights.push(`并购 ${maCount}笔`);
+  if (ipoCount > 0) typeHighlights.push(`IPO ${ipoCount}笔`);
+  if (typeHighlights.length > 0) {
+    lines.push(`交易类型方面：${typeHighlights.join('、')}。${bdCount >= finCount ? 'BD/许可交易继续引领市场，' : '融资交易占据主导地位，'}${topArea ? `<strong>${topArea[0]}</strong>领域最为活跃（${topArea[1]}笔）。` : ''}`);
+  }
+
+  // Cross-border
+  if (crossBorder.length > 0) {
+    lines.push(`跨境交易方面，本周有 ${crossBorder.length} 笔涉及中国企业的跨境合作/出海交易，中国创新药全球化趋势持续。`);
+  }
+
+  return lines.join(' ');
+}
+
+function generateTrends(weekDeals, prevWeekDeals) {
+  const trends = [];
+  const total = weekDeals.length;
+  const prevTotal = prevWeekDeals.length;
+  const totalAmt = weekDeals.reduce((s,d) => s+d.amount, 0);
+  const prevTotalAmt = prevWeekDeals.reduce((s,d) => s+d.amount, 0);
+
+  // Volume trend
+  if (prevTotal > 0) {
+    const diff = total - prevTotal;
+    if (diff > 0) trends.push({text: `交易数量环比增加 ${diff} 笔`, dir:'up', tag:`+${diff}`});
+    else if (diff < 0) trends.push({text: `交易数量环比减少 ${Math.abs(diff)} 笔`, dir:'down', tag:`${diff}`});
+    else trends.push({text: '交易数量与上周持平', dir:'neutral', tag:'±0'});
+  }
+
+  // Amount trend
+  if (prevTotalAmt > 0) {
+    const pct = ((totalAmt - prevTotalAmt) / prevTotalAmt * 100).toFixed(0);
+    if (pct > 10) trends.push({text: `交易总额环比增长`, dir:'up', tag:`+${pct}%`});
+    else if (pct < -10) trends.push({text: `交易总额环比回落`, dir:'down', tag:`${pct}%`});
+    else trends.push({text: '交易总额与上周基本持平', dir:'neutral', tag:`${pct}%`});
+  }
+
+  // BD vs Financing
+  const bdThis = weekDeals.filter(d=>d.type==='BD/许可').length;
+  const finThis = weekDeals.filter(d=>d.type==='融资').length;
+  const bdPrev = prevWeekDeals.filter(d=>d.type==='BD/许可').length;
+  const finPrev = prevWeekDeals.filter(d=>d.type==='融资').length;
+
+  if (bdThis > bdPrev && bdPrev > 0) {
+    trends.push({text: 'BD/许可交易活跃度上升', dir:'up', tag:`${bdPrev}→${bdThis}`});
+  } else if (bdThis < bdPrev && bdPrev > 0) {
+    trends.push({text: 'BD/许可交易有所降温', dir:'down', tag:`${bdPrev}→${bdThis}`});
+  }
+
+  // Oncology dominance
+  const oncoCount = weekDeals.filter(d=>d.area==='肿瘤').length;
+  if (oncoCount > total * 0.5) {
+    trends.push({text: `肿瘤领域占比超过 ${(oncoCount/total*100).toFixed(0)}%，持续主导`, dir:'neutral', tag:`${oncoCount}/${total}`});
+  }
+
+  // Average deal size
+  const avgThis = total > 0 ? totalAmt / total : 0;
+  const avgPrev = prevTotal > 0 ? prevTotalAmt / prevTotal : 0;
+  if (avgPrev > 0 && avgThis > avgPrev * 1.2) {
+    trends.push({text: `平均交易规模扩大至 $${avgThis.toFixed(1)}亿`, dir:'up', tag:`+${((avgThis-avgPrev)/avgPrev*100).toFixed(0)}%`});
+  } else if (avgPrev > 0 && avgThis < avgPrev * 0.8) {
+    trends.push({text: `平均交易规模缩小至 $${avgThis.toFixed(1)}亿`, dir:'down', tag:`${((avgThis-avgPrev)/avgPrev*100).toFixed(0)}%`});
+  }
+
+  return trends.slice(0, 5);
+}
+
+// =============================================
+// LISTED COMPANY REPORTS
+// =============================================
+const LISTED_COMPANIES = [
+  {name:'恒瑞医药', abbr:'恒瑞', code:'600276.SH', exchange:'上交所', reports:[
+    {label:'巨潮资讯-财报下载', url:'http://www.cninfo.com.cn/new/disclosure/stock?stockCode=600276&orgId=gssh0600276#702702'},
+  ]},
+  {name:'百济神州', abbr:'百济', code:'688235.SH / BGNE', exchange:'上交所/Nasdaq', reports:[
+    {label:'巨潮资讯-财报下载', url:'http://www.cninfo.com.cn/new/disclosure/stock?stockCode=688235&orgId=gssh0688235#702702'},
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=BGNE&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'信达生物', abbr:'信达', code:'01801.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'药明康德', abbr:'药明', code:'603259.SH', exchange:'上交所', reports:[
+    {label:'巨潮资讯-财报下载', url:'http://www.cninfo.com.cn/new/disclosure/stock?stockCode=603259&orgId=gssh0603259#702702'},
+  ]},
+  {name:'药明生物', abbr:'药明生物', code:'02269.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'康方生物', abbr:'康方', code:'09926.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'翰森制药', abbr:'翰森', code:'03692.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'再鼎医药', abbr:'再鼎', code:'09688.HK / ZLAB', exchange:'港交所/Nasdaq', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=ZLAB&type=20-F&dateb=&owner=include&count=10'},
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'传奇生物', abbr:'传奇', code:'LEGN', exchange:'Nasdaq', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=LEGN&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'和黄医药', abbr:'和黄', code:'00013.HK / HCM', exchange:'港交所/Nasdaq', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=HCM&type=20-F&dateb=&owner=include&count=10'},
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'科伦博泰', abbr:'科伦博泰', code:'06990.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'诺诚健华', abbr:'诺诚', code:'09969.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'加科思', abbr:'加科思', code:'01167.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'映恩生物', abbr:'映恩', code:'09606.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'和铂医药', abbr:'和铂', code:'02142.HK', exchange:'港交所', reports:[
+    {label:'HKExnews 披露查询', url:'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh'},
+  ]},
+  {name:'科伦药业', abbr:'科伦', code:'002422.SZ', exchange:'深交所', reports:[
+    {label:'巨潮资讯-财报下载', url:'http://www.cninfo.com.cn/new/disclosure/stock?stockCode=002422&orgId=gssz0002422#702702'},
+  ]},
+  {name:'迈瑞医疗', abbr:'迈瑞', code:'300760.SZ', exchange:'深交所', reports:[
+    {label:'巨潮资讯-财报下载', url:'http://www.cninfo.com.cn/new/disclosure/stock?stockCode=300760&orgId=gssz0300760#702702'},
+  ]},
+  {name:'Pfizer', abbr:'辉瑞', code:'PFE', exchange:'NYSE', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=PFE&type=10-K&dateb=&owner=include&count=10'},
+    {label:'SEC 10-Q', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=PFE&type=10-Q&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Roche', abbr:'罗氏', code:'ROG.SW', exchange:'SIX', reports:[
+    {label:'Annual Report', url:'https://www.roche.com/investors/annual-report'},
+  ]},
+  {name:'Novartis', abbr:'诺华', code:'NVS', exchange:'NYSE/SIX', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=NVS&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'AbbVie', abbr:'艾伯维', code:'ABBV', exchange:'NYSE', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=ABBV&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Merck & Co.', abbr:'默沙东', code:'MRK', exchange:'NYSE', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=MRK&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Johnson & Johnson', abbr:'强生', code:'JNJ', exchange:'NYSE', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=JNJ&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+  {name:'AstraZeneca', abbr:'阿斯利康', code:'AZN', exchange:'Nasdaq/LSE', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=AZN&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Novo Nordisk', abbr:'诺和诺德', code:'NVO', exchange:'NYSE/CSE', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=NVO&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Sanofi', abbr:'赛诺菲', code:'SNY', exchange:'NYSE/Euronext', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=SNY&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'GSK', abbr:'葛兰素史克', code:'GSK', exchange:'NYSE/LSE', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=GSK&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'BioNTech', abbr:'拜恩泰科', code:'BNTX', exchange:'Nasdaq', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=BNTX&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Gilead Sciences', abbr:'吉利德', code:'GILD', exchange:'Nasdaq', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=GILD&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Takeda', abbr:'武田', code:'TAK', exchange:'NYSE/TSE', reports:[
+    {label:'SEC 20-F', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=TAK&type=20-F&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Eli Lilly', abbr:'礼来', code:'LLY', exchange:'NYSE', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=LLY&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+  {name:'Amgen', abbr:'安进', code:'AMGN', exchange:'Nasdaq', reports:[
+    {label:'SEC 10-K', url:'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=AMGN&type=10-K&dateb=&owner=include&count=10'},
+  ]},
+];
+
+function renderCompanyReports() {
+  const el = document.getElementById('reportList');
+  el.innerHTML = LISTED_COMPANIES.map(c => `
+    <div class="report-card">
+      <div class="report-card-name">${c.name} <span style="color:var(--text-muted);font-weight:400;font-size:11px">${c.abbr}</span></div>
+      <div class="report-card-code">${c.code} · ${c.exchange}</div>
+      <div class="report-links">${c.reports.map(r => `<a class="report-file-link" href="${r.url}" target="_blank" rel="noopener">${r.label}</a>`).join('')}</div>
+    </div>`).join('');
+}
+
+function filterCompanyReports() {
+  const q = document.getElementById('reportSearch').value.toLowerCase();
+  const el = document.getElementById('reportList');
+  const filtered = LISTED_COMPANIES.filter(c => {
+    const hay = (c.name + c.abbr + c.code + c.exchange).toLowerCase();
+    return hay.includes(q);
+  });
+  el.innerHTML = filtered.map(c => `
+    <div class="report-card">
+      <div class="report-card-name">${c.name} <span style="color:var(--text-muted);font-weight:400;font-size:11px">${c.abbr}</span></div>
+      <div class="report-card-code">${c.code} · ${c.exchange}</div>
+      <div class="report-links">${c.reports.map(r => `<a class="report-file-link" href="${r.url}" target="_blank" rel="noopener">${r.label}</a>`).join('')}</div>
+    </div>`).join('');
+  if (filtered.length === 0) {
+    el.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:40px;font-size:13px;grid-column:1/-1">未找到匹配的公司</div>';
+  }
+}
+
+// =============================================
+// LAUNCH — Load data and start app
+// =============================================
+loadData();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"75124c326cb447fe934cde04713ae013","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
