@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmadeal - 全球医药交易概览</title>
+    <title>全球药企情报局 | Global Pharma Intel</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- 导航栏 -->
     <nav id="navbar">
-        <div class="logo">PHARMADEAL</div>
+        <div class="logo">PHARMA<span class="highlight">INTEL</span></div>
         <ul class="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#overview">全球交易概览</a></li>
-            <li><a href="#reports">报告</a></li>
+            <li><a href="#financing">融资</a></li>
+            <li><a href="#bd">BD交易</a></li>
+            <li><a href="#ipo">IPO</a></li>
         </ul>
     </nav>
 
-    <!-- 首页 -->
-    <section id="home" class="hero">
+    <!-- 头部区域 -->
+    <header class="hero">
         <div class="hero-content">
-            <h1>全球医药交易与报告平台</h1>
-            <p>实时更新全球医药行业交易动态与企业报告。</p>
+            <h1>全球上市药企情报中心</h1>
+            <p>实时监控全球医药市场动态，聚焦上市药企交易与融资</p>
         </div>
-    </section>
+    </header>
 
-    <!-- 全球医药交易概览 -->
-    <section id="overview" class="overview">
-        <h2>全球医药交易概览</h2>
-        <div class="transaction-list">
-            <!-- 模拟交易数据 -->
-            <div class="transaction-item">
-                <h3>交易名称</h3>
-                <p>交易金额：$0.0亿</p>
-                <p>交易时间：2026-03-27</p>
-            </div>
-            <div class="transaction-item">
-                <h3>交易名称</h3>
-                <p>交易金额：$0.0亿</p>
-                <p>交易时间：2026-03-27</p>
+    <!-- 全球交易概览区域 -->
+    <section id="global-overview" class="global-overview">
+        <div class="container">
+            <h2>全球医药交易概览</h2>
+            <div id="transaction-list" class="transaction-list">
+                <!-- 交易数据将通过JavaScript动态插入到这里 -->
             </div>
         </div>
     </section>
 
-    <!-- 报告列表 -->
+    <!-- 报表区域 -->
     <section id="reports" class="reports">
-        <h2>企业报告</h2>
-        <div class="report-list">
-            <!-- 报告链接 -->
-            <a href="https://static.cninfo.com.cn/finalpage/2026-03-26/1225032585.PDF" target="_blank" class="report-link">恒瑞医药年度报告</a>
-            <a href="https://example.com/report2.pdf" target="_blank" class="report-link">其他企业报告</a>
+        <div class="container">
+            <h2>企业报表中心</h2>
+            <div id="report-list" class="report-list">
+                <!-- 报表链接将通过JavaScript动态插入到这里 -->
+            </div>
         </div>
     </section>
 
+    <!-- PDF预览区域 -->
+    <section id="pdf-viewer" class="pdf-viewer">
+        <div class="container">
+            <h2>PDF报告预览</h2>
+            <iframe id="pdf-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <!-- 引入JavaScript文件 -->
     <script src="script.js"></script>
 </body>
 </html>
