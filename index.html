@@ -3,317 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmadeal | 全球医疗产业资讯</title>
+    <title>PharmaDeal Intelligence | 全球医药交易情报</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0f172a;    
-            --accent-color: #0d9488;     
-            --bg-color: #f8fafc;         
-            --text-main: #1e293b;
-            --text-secondary: #475569;
-            --text-muted: #94a3b8;
-            --card-bg: #ffffff;
+            --bg-primary: #f8fafc;
+            --accent: #0d9488;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
             --border: #e2e8f0;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-color);
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-primary); 
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* Header */
-        header {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* --- 1. 顶部导航栏修复 (不再重叠) --- */
+        header { 
+            background: var(--white); 
+            border-bottom: 1px solid var(--border); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 9999; /* 确保在最上层 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* 增加一点投影区分层级 */
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; color: var(--text-main); }
+        .sync-info { font-size: 0.75rem; color: var(--text-sub); font-weight: 600; }
+
+        /* --- 2. 交易概览面板 (间距修正) --- */
+        .insights-section { 
+            max-width: 1200px; 
+            margin: 2rem auto 0; /* 这里的 2rem 确保了不被 header 挡住 */
+            padding: 0 1.5rem; 
+        }
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
         }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .insight-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
+        .insight-label { font-size: 0.7rem; font-weight: 700; color: var(--text-sub); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+        .insight-value { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .insight-desc { font-size: 0.8rem; color: var(--text-sub); margin-top: 0.2rem; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-        }
-
-        /* Layout */
+        /* --- 3. 主体内容布局 --- */
         main {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: 1fr 350px;
+            grid-template-columns: 1fr 340px;
             gap: 2rem;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 968px) {
+            .insights-grid { grid-template-columns: 1fr; }
             main { grid-template-columns: 1fr; }
         }
 
-        .section-header {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .section-title { font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section-title::before { content: ''; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; }
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 18px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* 资讯卡片 (左侧) */
-        .news-grid { display: flex; flex-direction: column; gap: 1rem; }
-        
+        /* 资讯卡片样式 */
+        .news-list { display: flex; flex-direction: column; gap: 1rem; }
         .news-card {
-            background: var(--card-bg);
+            background: var(--white);
             border: 1px solid var(--border);
             padding: 1.25rem;
-            border-radius: 12px;
-            transition: all 0.2s;
+            border-radius: 10px;
         }
-
-        .news-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .news-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .tag-default { background: #f1f5f9; color: #475569; }
+        .news-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: #f1f5f9; margin-bottom: 0.6rem; display: inline-block; }
         .tag-ipo { background: #dcfce7; color: #166534; }
-        .tag-finance { background: #dbeafe; color: #1e40af; }
+        .tag-bd { background: #fef9c3; color: #854d0e; }
+        .news-title { font-size: 1.05rem; font-weight: 600; color: var(--text-main); text-decoration: none; display: block; margin-bottom: 0.4rem; }
+        .news-meta { font-size: 0.8rem; color: var(--text-sub); }
 
-        .news-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+        /* 侧边栏 */
+        .sidebar { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+        .search-box { width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 1rem; outline: none; }
+        .search-box:focus { border-color: var(--accent); }
+        .report-item { padding: 0.75rem 0; border-bottom: 1px solid #f8fafc; }
+        .co-name { font-weight: 600; font-size: 0.9rem; }
+        .btn-report { font-size: 0.7rem; color: var(--accent); background: #f0fdfa; padding: 2px 5px; border-radius: 4px; text-decoration: none; border: 1px solid #ccfbf1; margin-right: 4px; }
 
-        .news-meta {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* 财报板块 (右侧侧边栏) */
-        .sidebar {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: fit-content;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .report-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-
-        .report-card {
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .report-card:last-child { border-bottom: none; }
-
-        .company-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary-color);
-        }
-
-        .company-code {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
-        }
-
-        .report-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .report-link {
-            font-size: 0.75rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            background: #f0fdfa;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            border: 1px solid #ccfbf1;
-        }
-
-        .report-link:hover { background: var(--accent-color); color: white; }
-
-        .loading { font-size: 0.9rem; color: var(--text-muted); text-align: center; padding: 2rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-container">
-        <div class="logo">PHARMADEAL</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);" id="update-date">正在同步数据...</div>
+    <div class="nav-container">
+        <div class="logo">Pharmadeal</div>
+        <div class="sync-info" id="update-date">SYSTEM READY</div>
     </div>
 </header>
 
+<section class="insights-section">
+    <div class="insights-grid">
+        <div class="insight-card">
+            <div class="insight-label">Intel Insights</div>
+            <div class="insight-value" id="stat-deals">--</div>
+            <div class="insight-desc">Tracking global pharma deals</div>
+        </div>
+        <div class="insight-card">
+            <div class="insight-label">Hot Sector</div>
+            <div class="insight-value">Biotech</div>
+            <div class="insight-desc">Top active therapeutic areas</div>
+        </div>
+        <div class="insight-card">
+            <div class="insight-label">Market Pulse</div>
+            <div class="insight-value">Stable</div>
+            <div class="insight-desc">Investment activity index</div>
+        </div>
+    </div>
+</section>
+
 <main>
     <section>
-        <div class="section-header">
-            <h2 class="section-title">全球产业动态</h2>
-        </div>
-        <div id="news-container" class="news-grid">
-            <div class="loading">正在加载最新资讯...</div>
+        <h2 class="section-title">Industry Intelligence</h2>
+        <div id="news-container" class="news-list">
+            <div style="text-align:center; padding:40px; color:#94a3b8;">Connecting to database...</div>
         </div>
     </section>
 
-    <aside class="sidebar">
-        <div class="section-header">
-            <h2 class="section-title">上市药企财报</h2>
-        </div>
-        <input type="text" id="report-search" class="search-box" placeholder="搜索公司名称或代码..." oninput="filterReports()">
-        <div id="report-list" class="report-list">
-            <div class="loading">加载中...</div>
+    <aside>
+        <div class="sidebar">
+            <h2 class="section-title">Listed Reports</h2>
+            <input type="text" class="search-box" id="coInput" placeholder="Search company..." oninput="handleSearch()">
+            <div id="report-container"></div>
         </div>
     </aside>
 </main>
 
 <script>
-    // 这里预留你的财报数据，如果你的财报数据在外部 JSON，也可以通过 fetch 加载
-    const LISTED_COMPANIES = [
-        {
-            name: "恒瑞医药",
-            abbr: "Hengrui",
-            code: "600276",
-            exchange: "SH",
-            reports: [
-                { label: "2023年报", url: "#" },
-                { label: "2024Q1", url: "#" }
-            ]
-        },
-        {
-            name: "迈瑞医疗",
-            abbr: "Mindray",
-            code: "300760",
-            exchange: "SZ",
-            reports: [
-                { label: "2023年报", url: "#" }
-            ]
-        }
-        // 你可以在这里继续添加更多公司
+    // 你的财报库
+    const CO_DATA = [
+        { name: "恒瑞医药", code: "600276", reports: [{n: "23年报", u: "#"}] },
+        { name: "迈瑞医疗", code: "300760", reports: [{n: "23年报", u: "#"}] }
     ];
 
-    // 资讯标签识别
-    function getTag(title) {
-        const t = title.toUpperCase();
-        if (t.includes('IPO') || t.includes('上市')) return { text: 'IPO', class: 'tag-ipo' };
-        if (t.includes('融资') || t.includes('轮')) return { text: '融资', class: 'tag-finance' };
-        return { text: '资讯', class: 'tag-default' };
-    }
-
-    // 加载数据
-    async function initApp() {
-        // 1. 加载资讯 (data.json)
+    async function init() {
         try {
-            const res = await fetch('data.json');
-            const data = await res.json();
-            const container = document.getElementById('news-container');
-            container.innerHTML = '';
+            const r = await fetch('data.json');
+            const data = await r.json();
             
-            data.slice(0, 20).forEach(item => {
-                const tag = getTag(item.title);
-                container.innerHTML += `
+            // 更新顶部
+            document.getElementById('stat-deals').innerText = data.length + " DEALS";
+            document.getElementById('update-date').innerText = "LAST SYNC: " + new Date().toLocaleDateString();
+
+            // 渲染资讯
+            const container = document.getElementById('news-container');
+            container.innerHTML = data.map(item => {
+                const isIPO = item.title.includes('IPO');
+                const isBD = item.title.includes('BD') || item.title.includes('合作');
+                const tagClass = isIPO ? 'tag-ipo' : (isBD ? 'tag-bd' : '');
+                const tagName = isIPO ? 'IPO' : (isBD ? 'BD' : 'NEWS');
+                
+                return `
                     <div class="news-card">
-                        <span class="news-tag ${tag.class}">${tag.text}</span>
+                        <span class="news-tag ${tagClass}">${tagName}</span>
                         <a href="${item.link}" target="_blank" class="news-title">${item.title}</a>
-                        <div class="news-meta">${item.date || ''} • ${item.source || '全球资讯'}</div>
+                        <div class="news-meta">${item.date || ''} • Global Intelligence</div>
                     </div>
                 `;
-            });
-            document.getElementById('update-date').innerText = `最后更新: ${new Date().toLocaleDateString()}`;
-        } catch (e) {
-            document.getElementById('news-container').innerHTML = '<div class="loading">无法加载资讯，请检查 data.json</div>';
-        }
+            }).join('');
 
-        // 2. 渲染财报
-        renderReports(LISTED_COMPANIES);
+            renderReports(CO_DATA);
+
+        } catch (e) {
+            document.getElementById('news-container').innerHTML = "No data found in data.json";
+        }
     }
 
-    function renderReports(companies) {
-        const list = document.getElementById('report-list');
-        list.innerHTML = companies.map(c => `
-            <div class="report-card">
-                <div class="company-name">${c.name} <span style="font-weight:400; font-size:0.8rem; color:var(--text-muted)">${c.abbr}</span></div>
-                <div class="company-code">${c.code}.${c.exchange}</div>
-                <div class="report-links">
-                    ${c.reports.map(r => `<a href="${r.url}" target="_blank" class="report-link">${r.label}</a>`).join('')}
-                </div>
+    function renderReports(list) {
+        document.getElementById('report-container').innerHTML = list.map(c => `
+            <div class="report-item">
+                <div class="co-name">${c.name} <span style="font-size:11px;color:#94a3b8">${c.code}</span></div>
+                <div style="margin-top:5px;">${c.reports.map(r => `<a href="${r.u}" target="_blank" class="btn-report">${r.n}</a>`).join('')}</div>
             </div>
         `).join('');
     }
 
-    function filterReports() {
-        const q = document.getElementById('report-search').value.toLowerCase();
-        const filtered = LISTED_COMPANIES.filter(c => 
-            c.name.includes(q) || c.code.includes(q) || c.abbr.toLowerCase().includes(q)
-        );
-        renderReports(filtered);
+    function handleSearch() {
+        const q = document.getElementById('coInput').value.toLowerCase();
+        const f = CO_DATA.filter(c => c.name.includes(q) || c.code.includes(q));
+        renderReports(f);
     }
 
-    document.addEventListener('DOMContentLoaded', initApp);
+    init();
 </script>
 
 </body>
