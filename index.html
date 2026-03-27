@@ -4,56 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>全球药企情报局 | Global Pharma Intel</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- CSS 样式部分 --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --bg-color: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 头部区域 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 70px; /* 避开固定导航栏 */
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* 主要内容区域通用样式 */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #7f8c8d;
+        }
+
+        /* 交易概览卡片样式 */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav id="navbar">
-        <div class="logo">PHARMA<span class="highlight">INTEL</span></div>
-        <ul class="nav-links">
-            <li><a href="#financing">融资</a></li>
-            <li><a href="#bd">BD交易</a></li>
-            <li><a href="#ipo">IPO</a></li>
-        </ul>
+    <nav>
+        <div class="container">
+            <div class="logo">PHARMA<span class="highlight">INTEL</span></div>
+            <ul class="nav-links">
+                <li><a href="#financing">融资</a></li>
+                <li><a href="#bd">BD交易</a></li>
+                <li><a href="#ipo">IPO</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- 头部区域 -->
-    <header class="hero">
+    <header class="hero" id="home">
         <div class="hero-content">
             <h1>全球上市药企情报中心</h1>
             <p>实时监控全球医药市场动态，聚焦上市药企交易与融资</p>
         </div>
     </header>
 
-    <!-- 全球交易概览区域 -->
-    <section id="global-overview" class="global-overview">
-        <div class="container">
+    <!-- 全球医药交易概览 -->
+    <section id="financing" class="section-padding">
+        <div class="section-title">
             <h2>全球医药交易概览</h2>
-            <div id="transaction-list" class="transaction-list">
-                <!-- 交易数据将通过JavaScript动态插入到这里 -->
+            <p>最新融资与并购动态</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <img src="image1.jpg" alt="交易图片">
+                <div class="card-content">
+                    <h3>Biotech A 获得 5000 万美元 B 轮融资</h3>
+                    <p>由知名风投机构领投，用于推进其核心管线...</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="image2.jpg" alt="交易图片">
+                <div class="card-content">
+                    <h3>Pharma B 收购 C 公司管线</h3>
+                    <p>交易金额高达 2 亿美元，扩充罕见病领域...</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 报表区域 -->
-    <section id="reports" class="reports">
-        <div class="container">
+    <!-- 企业报表中心 -->
+    <section id="bd" class="section-padding" style="background-color: #fff;">
+        <div class="section-title">
             <h2>企业报表中心</h2>
-            <div id="report-list" class="report-list">
-                <!-- 报表链接将通过JavaScript动态插入到这里 -->
+            <p>深度分析与数据报告</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <h3>季度财报分析</h3>
+                    <p>涵盖全球 top 20 药企的财务表现与战略解读。</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>市场趋势报告</h3>
+                    <p>AI 制药、细胞治疗等前沿领域的最新市场洞察。</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PDF预览区域 -->
-    <section id="pdf-viewer" class="pdf-viewer">
-        <div class="container">
+    <!-- PDF报告预览 -->
+    <section id="ipo" class="section-padding">
+        <div class="section-title">
             <h2>PDF报告预览</h2>
-            <iframe id="pdf-iframe" src="" frameborder="0"></iframe>
+            <p>下载完整的行业研究报告</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <h3>2024 全球医药投资趋势白皮书</h3>
+                    <p>点击下载 PDF</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 引入JavaScript文件 -->
-    <script src="script.js"></script>
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2026 Global Pharma Intel. All rights reserved.</p>
+    </footer>
 </body>
 </html>
