@@ -7,138 +7,313 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #0d9488;
-            --bg: #f8fafc;
-            --white: #ffffff;
+            --primary-color: #0f172a;    
+            --accent-color: #0d9488;     
+            --bg-color: #f8fafc;         
+            --text-main: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --card-bg: #ffffff;
             --border: #e2e8f0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--primary); }
 
-        /* 顶部 */
-        header { background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; }
-
-        /* 概览块 - 保证三格并排 */
-        .insights-section { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
-        .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .insight-card { background: var(--white); border: 1px solid var(--border); padding: 1.2rem; border-radius: 12px; }
-        .insight-label { font-size: 0.7rem; color: #64748b; font-weight: 700; text-transform: uppercase; margin-bottom: 0.3rem; }
-        .insight-value { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
-
-        /* 主体 - 左右分栏 */
-        main { max-width: 1200px; margin: 0 auto; padding: 1rem; display: flex; gap: 2rem; }
-        
-        #left-content { flex: 2; min-width: 0; } /* 资讯区 */
-        #right-sidebar { flex: 1; min-width: 300px; } /* 财报区 */
-
-        @media (max-width: 850px) {
-            main { flex-direction: column; }
-            .insights-grid { grid-template-columns: 1fr; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        /* 资讯卡片样式 */
-        .section-title { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; padding-left: 0.5rem; border-left: 4px solid var(--accent); }
-        .news-card { background: var(--white); border: 1px solid var(--border); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
-        .news-title { color: var(--primary); text-decoration: none; font-weight: 600; display: block; margin-bottom: 0.5rem; font-size: 1.05rem; }
-        .news-title:hover { color: var(--accent); }
-        .news-date { font-size: 0.8rem; color: #94a3b8; }
-        .tag { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: #f1f5f9; color: #475569; font-weight: 700; margin-right: 8px; }
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-        /* 财报列表样式 */
-        .sidebar-inner { background: var(--white); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; }
-        .co-item { padding: 0.8rem 0; border-bottom: 1px solid #f1f5f9; }
-        .co-name { font-size: 0.9rem; font-weight: 600; }
-        .co-links { margin-top: 0.4rem; display: flex; gap: 5px; }
-        .btn-link { font-size: 0.7rem; color: var(--accent); background: #f0fdfa; padding: 2px 6px; border-radius: 4px; text-decoration: none; border: 1px solid #ccfbf1; }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .loading { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        /* Layout */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            main { grid-template-columns: 1fr; }
+        }
+
+        .section-header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* 资讯卡片 (左侧) */
+        .news-grid { display: flex; flex-direction: column; gap: 1rem; }
+        
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .news-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .news-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .tag-default { background: #f1f5f9; color: #475569; }
+        .tag-ipo { background: #dcfce7; color: #166534; }
+        .tag-finance { background: #dbeafe; color: #1e40af; }
+
+        .news-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 财报板块 (右侧侧边栏) */
+        .sidebar {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .report-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .report-card {
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .report-card:last-child { border-bottom: none; }
+
+        .company-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-color);
+        }
+
+        .company-code {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .report-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .report-link {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            background: #f0fdfa;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccfbf1;
+        }
+
+        .report-link:hover { background: var(--accent-color); color: white; }
+
+        .loading { font-size: 0.9rem; color: var(--text-muted); text-align: center; padding: 2rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="nav-container">
-        <div class="logo">Pharmadeal</div>
-        <div id="date-now" style="font-size: 0.8rem; color: #94a3b8;">Intelligence System</div>
+    <div class="header-container">
+        <div class="logo">PHARMADEAL</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);" id="update-date">正在同步数据...</div>
     </div>
 </header>
 
-<div class="insights-section">
-    <div class="insights-grid">
-        <div class="insight-card">
-            <div class="insight-label">Intelligence</div>
-            <div class="insight-value" id="stat-count">--</div>
-        </div>
-        <div class="insight-card">
-            <div class="insight-label">Focus</div>
-            <div class="insight-value">Global R&D</div>
-        </div>
-        <div class="insight-card">
-            <div class="insight-label">Market</div>
-            <div class="insight-value">Active</div>
-        </div>
-    </div>
-</div>
-
 <main>
-    <div id="left-content">
-        <h2 class="section-title">全球资讯</h2>
-        <div id="news-list">
-            <div class="loading">正在同步全球医药数据库...</div>
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">全球产业动态</h2>
         </div>
-    </div>
+        <div id="news-container" class="news-grid">
+            <div class="loading">正在加载最新资讯...</div>
+        </div>
+    </section>
 
-    <div id="right-sidebar">
-        <h2 class="section-title">药企财报</h2>
-        <div class="sidebar-inner">
-            <div id="report-list">
-                <div class="co-item">
-                    <div class="co-name">恒瑞医药 600276</div>
-                    <div class="co-links"><a href="#" class="btn-link">2023年报</a></div>
-                </div>
-            </div>
+    <aside class="sidebar">
+        <div class="section-header">
+            <h2 class="section-title">上市药企财报</h2>
         </div>
-    </div>
+        <input type="text" id="report-search" class="search-box" placeholder="搜索公司名称或代码..." oninput="filterReports()">
+        <div id="report-list" class="report-list">
+            <div class="loading">加载中...</div>
+        </div>
+    </aside>
 </main>
 
 <script>
-    // 自动运行
-    async function start() {
+    // 这里预留你的财报数据，如果你的财报数据在外部 JSON，也可以通过 fetch 加载
+    const LISTED_COMPANIES = [
+        {
+            name: "恒瑞医药",
+            abbr: "Hengrui",
+            code: "600276",
+            exchange: "SH",
+            reports: [
+                { label: "2023年报", url: "#" },
+                { label: "2024Q1", url: "#" }
+            ]
+        },
+        {
+            name: "迈瑞医疗",
+            abbr: "Mindray",
+            code: "300760",
+            exchange: "SZ",
+            reports: [
+                { label: "2023年报", url: "#" }
+            ]
+        }
+        // 你可以在这里继续添加更多公司
+    ];
+
+    // 资讯标签识别
+    function getTag(title) {
+        const t = title.toUpperCase();
+        if (t.includes('IPO') || t.includes('上市')) return { text: 'IPO', class: 'tag-ipo' };
+        if (t.includes('融资') || t.includes('轮')) return { text: '融资', class: 'tag-finance' };
+        return { text: '资讯', class: 'tag-default' };
+    }
+
+    // 加载数据
+    async function initApp() {
+        // 1. 加载资讯 (data.json)
         try {
             const res = await fetch('data.json');
             const data = await res.json();
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
             
-            // 更新计数
-            document.getElementById('stat-count').innerText = data.length + " DEALS";
-            document.getElementById('date-now').innerText = "Last Update: " + new Date().toLocaleDateString();
-
-            // 渲染资讯
-            const list = document.getElementById('news-list');
-            if (data.length === 0) {
-                list.innerHTML = '<div class="loading">今日暂无更新数据</div>';
-                return;
-            }
-
-            list.innerHTML = data.map(item => `
-                <div class="news-card">
-                    <a href="${item.link}" target="_blank" class="news-title">${item.title}</a>
-                    <div>
-                        <span class="tag">${item.title.includes('IPO') ? 'IPO' : 'NEWS'}</span>
-                        <span class="news-date">${item.date || ''}</span>
+            data.slice(0, 20).forEach(item => {
+                const tag = getTag(item.title);
+                container.innerHTML += `
+                    <div class="news-card">
+                        <span class="news-tag ${tag.class}">${tag.text}</span>
+                        <a href="${item.link}" target="_blank" class="news-title">${item.title}</a>
+                        <div class="news-meta">${item.date || ''} • ${item.source || '全球资讯'}</div>
                     </div>
-                </div>
-            `).join('');
-
+                `;
+            });
+            document.getElementById('update-date').innerText = `最后更新: ${new Date().toLocaleDateString()}`;
         } catch (e) {
-            document.getElementById('news-list').innerHTML = '<div class="loading">⚠️ 数据库同步失败，请检查 data.json 文件</div>';
+            document.getElementById('news-container').innerHTML = '<div class="loading">无法加载资讯，请检查 data.json</div>';
         }
+
+        // 2. 渲染财报
+        renderReports(LISTED_COMPANIES);
     }
 
-    start();
+    function renderReports(companies) {
+        const list = document.getElementById('report-list');
+        list.innerHTML = companies.map(c => `
+            <div class="report-card">
+                <div class="company-name">${c.name} <span style="font-weight:400; font-size:0.8rem; color:var(--text-muted)">${c.abbr}</span></div>
+                <div class="company-code">${c.code}.${c.exchange}</div>
+                <div class="report-links">
+                    ${c.reports.map(r => `<a href="${r.url}" target="_blank" class="report-link">${r.label}</a>`).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterReports() {
+        const q = document.getElementById('report-search').value.toLowerCase();
+        const filtered = LISTED_COMPANIES.filter(c => 
+            c.name.includes(q) || c.code.includes(q) || c.abbr.toLowerCase().includes(q)
+        );
+        renderReports(filtered);
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
 </script>
 
 </body>
