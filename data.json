@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-04",
+    "type": "融资",
+    "company": "AI手术机器人企业磅",
+    "partner": "—",
+    "event": "AI手术机器人企业磅策医疗完成亿元B轮融资，构筑AI消费医疗新生态",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/29d85431663a33d11a3b5c9a7eb930e2"
+  },
+  {
+    "date": "2026-04-04",
+    "type": "BD/许可",
+    "company": "魔方中国之声 |",
+    "partner": "—",
+    "event": "4月魔方中国之声 | 本导基因-BD211启动一项 针对β-地中海贫血的中国Phase I/II临床试验",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/64216ab982ad925bff5eed3f0f575c64"
+  },
+  {
     "date": "2026-04-03",
     "type": "融资",
     "company": "安颂科技完成近1.5",
