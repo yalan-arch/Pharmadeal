@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-08",
+    "type": "并购",
+    "company": "亿！罕见病药企",
+    "partner": "—",
+    "event": "200亿！罕见病药企被收购，业内却说：卖亏了",
+    "area": "罕见病",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/23026c70cdab4108dd1b350a636941db"
+  },
+  {
+    "date": "2026-04-08",
+    "type": "并购",
+    "company": "云顶新耀收购海森生物制药",
+    "partner": "—",
+    "event": "17.22亿元！云顶新耀收购海森生物制药新加坡公司",
+    "area": "肿瘤",
+    "amount": 2.39,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/0f82d44b9fc028ebc42bbb12fb454cb7"
+  },
+  {
     "date": "2026-04-06",
     "type": "IPO",
     "company": "HSV-2第一股！这",
