@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-17",
+    "type": "融资",
+    "company": "国内一核酸药物公司完",
+    "partner": "—",
+    "event": "国内一核酸药物公司完成5400万美元新一轮融资",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/5ba460cbe69562d0a9c4d62dcad29ae6"
+  },
+  {
+    "date": "2026-04-17",
+    "type": "BD/许可",
+    "company": "英矽智能与泰格医药",
+    "partner": "—",
+    "event": "英矽智能与泰格医药签署战略合作，以AI赋能临床研究加速新药研发",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/8dd748e019cc6ebaca31f957202cfd83"
+  },
+  {
     "date": "2026-04-16",
     "type": "BD/许可",
     "company": "上药控股携手强生达成",
