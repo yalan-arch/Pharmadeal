@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-20",
+    "type": "融资",
+    "company": "帕母医疗完成1亿美元",
+    "partner": "—",
+    "event": "帕母医疗完成1亿美元D轮融资，美敦力领投加码心肺创新疗法",
+    "area": "肿瘤",
+    "amount": 1.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a66204be5769745378c2ded356a48838"
+  },
+  {
+    "date": "2026-04-20",
+    "type": "BD/许可",
+    "company": "普众发现热烈祝贺合作",
+    "partner": "—",
+    "event": "普众发现热烈祝贺合作伙伴Adcendo成功完成7500万美元C轮融资，携手推进ADC创新疗法开发",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/024cee00140935909c69fb1ace98a128"
+  },
+  {
     "date": "2026-04-18",
     "type": "并购",
     "company": ".5亿美元！优时",
