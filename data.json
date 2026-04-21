@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-21",
+    "type": "BD/许可",
+    "company": "天境生物",
+    "partner": "—",
+    "event": "8.5亿美元！天境生物与Biogen达成合作",
+    "area": "肿瘤",
+    "amount": 8.5,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6ddc01f3218e5731199e033b454aa4a9"
+  },
+  {
+    "date": "2026-04-21",
+    "type": "融资",
+    "company": "DeepWay深向P",
+    "partner": "—",
+    "event": "DeepWay深向Pre-IPO轮累计融资超3.1亿美元：三大海外资本入局、全球化布局提速",
+    "area": "肿瘤",
+    "amount": 3.1,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c4fe3faaa6503e3bd3e7b7de461a0b6f"
+  },
+  {
     "date": "2026-04-20",
     "type": "融资",
     "company": "帕母医疗完成1亿美元",
