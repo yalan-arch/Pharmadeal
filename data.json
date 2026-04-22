@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-04-22",
+    "type": "融资",
+    "company": "ScreenPoin",
+    "partner": "—",
+    "event": "ScreenPoint Medical 获 1600 万美元融资，将 AI 乳腺癌检测技术推向全球",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6d8c7ee339fdcce9be9ec220aef149a3"
+  },
+  {
     "date": "2026-04-21",
     "type": "BD/许可",
     "company": "天境生物",
