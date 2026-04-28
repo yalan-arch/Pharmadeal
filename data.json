@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-04-28",
+    "type": "融资",
+    "company": "寻明生科",
+    "partner": "—",
+    "event": "【首发】寻明生科完成3500万美元A+轮融资，加速构建下一代Tech-Bio智能体基础设施",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/7ee4b71e54ffe6777909ec597ad31533"
+  },
+  {
+    "date": "2026-04-28",
+    "type": "并购",
+    "company": "礼来23亿美元收购一",
+    "partner": "—",
+    "event": "礼来23亿美元收购一款1期临床阶段的2型JAK2抑制剂",
+    "area": "肿瘤",
+    "amount": 23.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e8c0cb4157a20058425a26a647cb6305"
+  },
+  {
     "date": "2026-04-27",
     "type": "融资",
     "company": "层浪生物",
