@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-05-02",
+    "type": "BD/许可",
+    "company": "中国药企和医药",
+    "partner": "—",
+    "event": "突发！美国国会提议FDA禁用中国临床数据，中国药企和医药BD面临挑战",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/7e370674f59dd0a284a98405d398b15f"
+  },
+  {
+    "date": "2026-05-02",
+    "type": "并购",
+    "company": "亿美元！ARCH",
+    "partner": "—",
+    "event": "11亿美元！ARCHIMED收购Esperion，获得三款商业化新药",
+    "area": "肿瘤",
+    "amount": 11.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/928edf7aaf49c6f39df49f88f3a93ef1"
+  },
+  {
+    "date": "2026-05-02",
+    "type": "BD/许可",
+    "company": "“数智云药”平台交易",
+    "partner": "—",
+    "event": "“数智云药”平台交易额突破30亿元",
+    "area": "肿瘤",
+    "amount": 4.17,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/fd201085aea93d9e0af18f67fd335d48"
+  },
+  {
     "date": "2026-05-01",
     "type": "融资",
     "company": "模驭AI获徐汇资本数",
