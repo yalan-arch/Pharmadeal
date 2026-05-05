@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-05-05",
+    "type": "并购",
+    "company": "亿美元！UCB收",
+    "partner": "—",
+    "event": "22亿美元！UCB收购一家TCE公司",
+    "area": "肿瘤",
+    "amount": 22.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6300feeeb8a3090ec8e642d708a34726"
+  },
+  {
+    "date": "2026-05-05",
+    "type": "BD/许可",
+    "company": "晶泰科技再获临床里程",
+    "partner": "—",
+    "event": "晶泰科技再获临床里程碑：“合成致死”管线PEP08加速推进，携手智擎生技再续百亿赛道 AI 药物发现合作",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/b83965cd6856ba2177c20942ef15c6c9"
+  },
+  {
     "date": "2026-05-04",
     "type": "并购",
     "company": "亿美元！UCB收",
