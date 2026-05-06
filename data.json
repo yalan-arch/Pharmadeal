@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-05-06",
+    "type": "融资",
+    "company": "国内一细胞疗法公司完",
+    "partner": "—",
+    "event": "国内一细胞疗法公司完成A+轮融资",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/2a148cd9738661596d28db9a30e070a2"
+  },
+  {
+    "date": "2026-05-06",
+    "type": "BD/许可",
+    "company": "时安生物",
+    "partner": "—",
+    "event": "超10亿美元：时安生物ALK7 siRNA授权给GSK",
+    "area": "肿瘤",
+    "amount": 10.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ff5e3a2f88930611e63bad30b6d299dd"
+  },
+  {
     "date": "2026-05-05",
     "type": "并购",
     "company": "亿美元！UCB收",
