@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-05-09",
+    "type": "融资",
+    "company": "柯君医药",
+    "partner": "—",
+    "event": "【首发】柯君医药完成超3亿元C轮融资，加速推进心脑血管、代谢及抗病毒领域全球创新药开发",
+    "area": "代谢",
+    "amount": 0.42,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/d3862933f12077b263c6414299c78f3f"
+  },
+  {
     "date": "2026-05-08",
     "type": "BD/许可",
     "company": "友芝友生物",
