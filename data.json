@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-05-10",
+    "type": "融资",
+    "company": "​脑回录完成种子+轮",
+    "partner": "—",
+    "event": "​脑回录完成种子+轮融资，将用于运动脑机接口技术迭代",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/f30de5ac8225240022bccfc21e78cd86"
+  },
+  {
+    "date": "2026-05-10",
+    "type": "并购",
+    "company": "OpenAI与Ant",
+    "partner": "—",
+    "event": "OpenAI与Anthropic通过合资企业斥资55亿美元收购“AI部署服务商” | 加密交易平台Bullish拟以约42亿美元收购过户代理Equiniti",
+    "area": "肿瘤",
+    "amount": 55.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6d0da03eeff4bf4c7c7c9d8f8a923bca"
+  },
+  {
     "date": "2026-05-09",
     "type": "融资",
     "company": "柯君医药",
