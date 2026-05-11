@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-05-11",
+    "type": "融资",
+    "company": "高瓴创投、礼来亚洲基",
+    "partner": "—",
+    "event": "高瓴创投、礼来亚洲基金等看好，这家苏州 Biotech 拿下 2.7 亿元融资",
+    "area": "肿瘤",
+    "amount": 0.38,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/20442761172195b47e4f9b75a907fd84"
+  },
+  {
+    "date": "2026-05-11",
+    "type": "融资",
+    "company": "塑新科技两年五轮融资",
+    "partner": "—",
+    "event": "塑新科技两年五轮融资，跑通全球首条万吨酶法rPET产线",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/5bd17b0a5cf183a96bb0883694a23203"
+  },
+  {
+    "date": "2026-05-11",
+    "type": "融资",
+    "company": "数亿元融资落定，伽奈",
+    "partner": "—",
+    "event": "数亿元融资落定，伽奈维医疗深耕“三位一体”，重塑肿瘤介入诊疗新格局",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a1d96200cda8028adc6d9b475d1817fa"
+  },
+  {
     "date": "2026-05-10",
     "type": "融资",
     "company": "​脑回录完成种子+轮",
