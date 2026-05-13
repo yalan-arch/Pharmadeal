@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-05-13",
+    "type": "IPO",
+    "company": "亿港元，南京又",
+    "partner": "—",
+    "event": "100亿港元，南京又跑出一个药企IPO！早期投资人回报超15倍",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/faadbad0ba06be5ffe0dd54285256cce"
+  },
+  {
+    "date": "2026-05-13",
+    "type": "BD/许可",
+    "company": "美团医药",
+    "partner": "—",
+    "event": "美团医药健康与锦欣生殖达成战略合作，共建生育健康标准化服务",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/5fae7cf1394ae3edc7b1be3de0eb7d9c"
+  },
+  {
+    "date": "2026-05-13",
+    "type": "并购",
+    "company": "亿美元收购刚收官",
+    "partner": "—",
+    "event": "48亿美元收购刚收官，BioMarin启动Amicus总部裁员",
+    "area": "肿瘤",
+    "amount": 48.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a9b8b79486b33486baa4b82bba6cd420"
+  },
+  {
     "date": "2026-05-12",
     "type": "融资",
     "company": "「中晟全肽」‌完成超",
