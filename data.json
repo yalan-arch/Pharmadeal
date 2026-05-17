@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-05-17",
+    "type": "融资",
+    "company": "领先硅谷巨头押注人类",
+    "partner": "—",
+    "event": "领先硅谷巨头押注人类数据，融资数亿的深度机智全速冲向具身AGI",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/046d77f98519c4f08274a3646b94f8e9"
+  },
+  {
+    "date": "2026-05-17",
+    "type": "并购",
+    "company": "与恒瑞医药",
+    "partner": "—",
+    "event": "QXO 170亿美元收购TopBuild建筑服务商 | BMS与恒瑞医药152亿美元创新药管线授权并购合作",
+    "area": "肿瘤",
+    "amount": 170.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/467d58d6dfdc82c976252b028585a54d"
+  },
+  {
+    "date": "2026-05-17",
+    "type": "BD/许可",
+    "company": "首例！未完成备案擅自",
+    "partner": "—",
+    "event": "首例！未完成备案擅自在境外上市，发行人和律所同时被罚",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c4f47eeaf00eb0e06cae880169938e7b"
+  },
+  {
     "date": "2026-05-15",
     "type": "融资",
     "company": "今年前4个月社会融资",
