@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-05-23",
+    "type": "并购",
+    "company": "亿美元重磅收购！",
+    "partner": "—",
+    "event": "65亿美元重磅收购！强生尼卡利单抗中国获批",
+    "area": "肿瘤",
+    "amount": 65.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/34c4f2c201064444d1c304beb3eedc47"
+  },
+  {
+    "date": "2026-05-23",
+    "type": "并购",
+    "company": "现金流眼看要耗尽了，",
+    "partner": "—",
+    "event": "现金流眼看要耗尽了，公司通过收购成功续命",
+    "area": "眼科",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/98bc8e9210415584b8c33e60f72a9db8"
+  },
+  {
     "date": "2026-05-21",
     "type": "并购",
     "company": "美敦力收购SPR：骨",
