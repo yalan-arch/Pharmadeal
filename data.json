@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-05-30",
+    "type": "并购",
+    "company": "哈根达斯，要被一家中",
+    "partner": "—",
+    "event": "哈根达斯，要被一家中国柠檬茶收购？",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/13678dce7394cb42e6475a16de9bbabb"
+  },
+  {
+    "date": "2026-05-30",
+    "type": "融资",
+    "company": "涨不停！这一产品开启",
+    "partner": "—",
+    "event": "涨不停！这一产品开启新一轮调涨",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/cd979494b77101fcc6b734cb34111161"
+  },
+  {
     "date": "2026-05-29",
     "type": "融资",
     "company": "三种G基因型VP7蛋",
