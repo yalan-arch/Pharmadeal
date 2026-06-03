@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-03",
+    "type": "BD/许可",
+    "company": "【JMC】唐金山/张",
+    "partner": "—",
+    "event": "【JMC】唐金山/张章/张有为等通过紫草素改造获得新型抗胃癌活性分子",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/562215288fe47a9f6eccfcee9faa66b2"
+  },
+  {
+    "date": "2026-06-03",
+    "type": "融资",
+    "company": "千寻智能再获15亿元",
+    "partner": "—",
+    "event": "千寻智能再获15亿元A+轮融资",
+    "area": "肿瘤",
+    "amount": 2.08,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/5edb1f762229b6033669f8ae584fa434"
+  },
+  {
     "date": "2026-06-02",
     "type": "BD/许可",
     "company": ".15亿美元！Av",
