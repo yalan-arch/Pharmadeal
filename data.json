@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-05",
+    "type": "并购",
+    "company": "科塞尔并购心至医疗，",
+    "partner": "—",
+    "event": "科塞尔并购心至医疗，落子药物球囊、卡位冠脉赛道！",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a7fb4d27cc01d4f98d479a2687bdef5b"
+  },
+  {
+    "date": "2026-06-05",
+    "type": "IPO",
+    "company": "天辰生物",
+    "partner": "—",
+    "event": "天辰生物正式登陆港交所：开盘上涨60%，启明创投尖端医疗创新布局再迎IPO",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/8728af5e2f2cfa6861ed4b98871dcd82"
+  },
+  {
+    "date": "2026-06-05",
+    "type": "BD/许可",
+    "company": "资本反差与BD真相：",
+    "partner": "—",
+    "event": "资本反差与BD真相：打破“见光死”与“出海神话”的幻象",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/1f26ed92da8a5be154b34121e2a13408"
+  },
+  {
     "date": "2026-06-04",
     "type": "BD/许可",
     "company": "博安生物",
