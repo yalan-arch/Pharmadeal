@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-08",
+    "type": "融资",
+    "company": "合成生物",
+    "partner": "—",
+    "event": "「最新融资」绿色康成：完成数千万元Pre-A轮融资，国资加持清华系AI+合成生物制造企业",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/2ab50aff494b3923fb2a9e2846fcf562"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "融资",
+    "company": "「最新融资」诺鼎先施",
+    "partner": "—",
+    "event": "「最新融资」诺鼎先施医疗：获数千万天使轮投资，加速打造中国首创全新AI能量诊疗平台",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/0520d9bfcfb9a5cdd12efc5167a1d5c1"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "融资",
+    "company": "君合盟生物",
+    "partner": "—",
+    "event": "「最新融资」君合盟生物：完成近2亿元C轮融资，专注于利用重组技术研发蛋白药物和医疗器械",
+    "area": "肿瘤",
+    "amount": 0.28,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ab1ac9ce95fb41d7a55789cc0dfa114a"
+  },
+  {
     "date": "2026-06-07",
     "type": "BD/许可",
     "company": "全球首个表观遗传沉默",
