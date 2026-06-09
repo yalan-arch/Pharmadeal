@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-09",
+    "type": "融资",
+    "company": "专访张少霆：商汤医疗",
+    "partner": "—",
+    "event": "专访张少霆：商汤医疗十年铸就大模型与5亿融资的下一程",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ff16bee64ae5882fe0a16ff54fdefd43"
+  },
+  {
+    "date": "2026-06-09",
+    "type": "BD/许可",
+    "company": "国产首款生物",
+    "partner": "—",
+    "event": "国产首款生物型人工血管LineMatrix耐迈通®完成注册临床试验入组",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ae92ade1e76acba25efa81764661f22a"
+  },
+  {
     "date": "2026-06-08",
     "type": "融资",
     "company": "合成生物",
