@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-12",
+    "type": "IPO",
+    "company": "亿，短剧独角兽",
+    "partner": "—",
+    "event": "120亿，短剧独角兽要IPO了",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ef36780b6f6a0620ff498951aff36780"
+  },
+  {
+    "date": "2026-06-12",
+    "type": "BD/许可",
+    "company": "拜耳与北京大学持续深",
+    "partner": "—",
+    "event": "拜耳与北京大学持续深化合作：加速科研成果转化，驱动药物发现与创新",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/492334d2bfe1aa9bd892f2df041ef1dd"
+  },
+  {
     "date": "2026-06-11",
     "type": "BD/许可",
     "company": "AI+下一代抗体设计",
