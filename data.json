@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-13",
+    "type": "融资",
+    "company": "央行发布5月金融数据",
+    "partner": "—",
+    "event": "央行发布5月金融数据，社融和M2均保持合理增长 债券融资占比提升 贷款投向结构优化",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "同花顺财经",
+    "sourceUrl": "http://news.10jqka.com.cn/20260613/c677436890.shtml"
+  },
+  {
+    "date": "2026-06-13",
+    "type": "IPO",
+    "company": "天博智能IPO过会：",
+    "partner": "—",
+    "event": "天博智能IPO过会：第一季营收4亿 扣非后净利降14% 拟募资21亿",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c72a3486a3922114c3b364a6bf2c10da"
+  },
+  {
+    "date": "2026-06-13",
+    "type": "IPO",
+    "company": "百灵生物",
+    "partner": "—",
+    "event": "百灵生物创业板IPO申报：深耕胆酸类原料药，筑牢高质量制造护城河",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/4a4853f23516dd1d05edfd2c84cce2e7"
+  },
+  {
     "date": "2026-06-12",
     "type": "IPO",
     "company": "亿，短剧独角兽",
@@ -26,6 +68,20 @@
     "geography": "中国",
     "source": "医药魔方 PharmCube",
     "sourceUrl": "https://bydrug.pharmcube.com/news/detail/492334d2bfe1aa9bd892f2df041ef1dd"
+  },
+  {
+    "date": "2026-06-12",
+    "type": "融资",
+    "company": "新增贷款5200",
+    "partner": "—",
+    "event": "5月新增贷款5200亿元重回正增长，票据融资放量托底",
+    "area": "肿瘤",
+    "amount": 722.22,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "同花顺财经",
+    "sourceUrl": "http://news.10jqka.com.cn/20260612/c677435016.shtml"
   },
   {
     "date": "2026-06-11",
