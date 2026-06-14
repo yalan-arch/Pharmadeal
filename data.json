@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-06-14",
+    "type": "融资",
+    "company": "精神诊疗非侵入式脑机",
+    "partner": "—",
+    "event": "精神诊疗非侵入式脑机神经调控平台完成A轮融资",
+    "area": "神经科学",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/83a935e466e188db621f8da054cbada4"
+  },
+  {
     "date": "2026-06-13",
     "type": "融资",
     "company": "央行发布5月金融数据",
@@ -40,6 +54,20 @@
     "geography": "中国",
     "source": "医药魔方 PharmCube",
     "sourceUrl": "https://bydrug.pharmcube.com/news/detail/4a4853f23516dd1d05edfd2c84cce2e7"
+  },
+  {
+    "date": "2026-06-13",
+    "type": "融资",
+    "company": "信贷和社会融资规",
+    "partner": "—",
+    "event": "5月信贷和社会融资规模增速收敛，M2增速仍在高位",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "同花顺财经",
+    "sourceUrl": "http://news.10jqka.com.cn/20260613/c677441659.shtml"
   },
   {
     "date": "2026-06-12",
