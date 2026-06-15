@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-15",
+    "type": "融资",
+    "company": "末社会融资规模存",
+    "partner": "—",
+    "event": "5月末社会融资规模存量为458.81万亿元 同比增长7.7%",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "同花顺财经",
+    "sourceUrl": "http://news.10jqka.com.cn/20260615/c677456969.shtml"
+  },
+  {
+    "date": "2026-06-15",
+    "type": "BD/许可",
+    "company": "联邦制药",
+    "partner": "—",
+    "event": "联邦制药1类新药TUL321胶囊获中国新药临床试验默示许可",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/44cd199c31bf235dd246a1d16bbd733b"
+  },
+  {
+    "date": "2026-06-15",
+    "type": "BD/许可",
+    "company": "一周8个重磅交易：2",
+    "partner": "—",
+    "event": "一周8个重磅交易：2款降解剂",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a909365790c41d294bffcd31c8f2dd57"
+  },
+  {
     "date": "2026-06-14",
     "type": "融资",
     "company": "精神诊疗非侵入式脑机",
