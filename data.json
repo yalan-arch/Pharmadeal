@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-18",
+    "type": "BD/许可",
+    "company": "药明生物",
+    "partner": "—",
+    "event": "药明生物苏州检测中心第四次获得EMA GMP认证 助力19个商业化产品进入欧洲市场",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/aab08241a92c7ef7d0900bdb1c0c0027"
+  },
+  {
+    "date": "2026-06-18",
+    "type": "BD/许可",
+    "company": "启函生物",
+    "partner": "—",
+    "event": "启函生物双靶向体内 CAR-T 产品完成 FDA 的 Pre-IND 沟通，预计 Q3 递交美国 IND",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/771ef37a70b049b5a439d414c13bb76f"
+  },
+  {
     "date": "2026-06-17",
     "type": "IPO",
     "company": "古瑞瓦特重启IPO：",
