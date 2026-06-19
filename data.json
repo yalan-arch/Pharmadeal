@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-19",
+    "type": "并购",
+    "company": "每日全球并购：渤健最",
+    "partner": "—",
+    "event": "每日全球并购：渤健最高10亿美元收购免疫学biotech RayThera | EQT 93亿英镑收购英国检测龙头天祥集团（6/19）",
+    "area": "免疫",
+    "amount": 10.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/888f48ee3a5a62625c04667db80366e3"
+  },
+  {
+    "date": "2026-06-19",
+    "type": "BD/许可",
+    "company": "跃赛生物",
+    "partner": "—",
+    "event": "跃赛生物UX-DA003获美国FDA临床试验许可  全球化布局再下一城",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/731bbf70d4dce0aae1135f234d9d8af6"
+  },
+  {
     "date": "2026-06-18",
     "type": "BD/许可",
     "company": "药明生物",
