@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-20",
+    "type": "并购",
+    "company": "Apogee Therapeutics",
+    "partner": "—",
+    "event": "110亿美元！艾伯维即将收购Apogee Therapeutics",
+    "area": "肿瘤",
+    "amount": 110.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/4b8898af7d6cbd2c5b8266837b2945de"
+  },
+  {
+    "date": "2026-06-20",
+    "type": "并购",
+    "company": "并购基金的“流行叙事",
+    "partner": "—",
+    "event": "并购基金的“流行叙事”：反内卷or退出接盘",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/cc4dfd63510997bfefed8131870d4fe2"
+  },
+  {
+    "date": "2026-06-20",
+    "type": "BD/许可",
+    "company": "夏瑜和康方生物",
+    "partner": "—",
+    "event": "50 亿美元授权、击败 300 亿销售额 \"药王\"：夏瑜和康方生物的 14 年",
+    "area": "肿瘤",
+    "amount": 50.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/609874b889bcbd7990b947670035eb2d"
+  },
+  {
     "date": "2026-06-19",
     "type": "并购",
     "company": "每日全球并购：渤健最",
