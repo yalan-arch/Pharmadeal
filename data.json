@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-21",
+    "type": "融资",
+    "company": "一细胞治疗公司完成超",
+    "partner": "—",
+    "event": "一细胞治疗公司完成超亿元新一轮融资",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/2248aaa587552a7ecccc5d3054722ab3"
+  },
+  {
+    "date": "2026-06-21",
+    "type": "BD/许可",
+    "company": "PNAS丨李宗金团队",
+    "partner": "—",
+    "event": "PNAS丨李宗金团队利用IL-4肽水凝胶重编程间充质干细胞，获得富集CD106⁺细胞群增强肾修复疗效",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6108d68f82f391434ed7f3ef345022fb"
+  },
+  {
+    "date": "2026-06-21",
+    "type": "BD/许可",
+    "company": "NAR丨孙博课题组合",
+    "partner": "—",
+    "event": "NAR丨孙博课题组合作报道复制蛋白A相分离在DNA同源重组中的分子机制及功能",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/f7b0531ed0ce157a736307dec2576a38"
+  },
+  {
     "date": "2026-06-20",
     "type": "并购",
     "company": "Apogee Therapeutics",
