@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-06-22",
+    "type": "BD/许可",
+    "company": "个月两笔、超30亿",
+    "partner": "—",
+    "event": "3个月两笔、超30亿美元交易！德琪的TCE平台到底有什么“魔力”？",
+    "area": "肿瘤",
+    "amount": 30.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c228a01f46004eee5abb2ebcb2651fe9"
+  },
+  {
+    "date": "2026-06-22",
+    "type": "融资",
+    "company": "西湖生物",
+    "partner": "—",
+    "event": "超亿元！开发first-in-class红细胞药物，西湖生物宣布最新融资",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/689ebddd191b49708d8c8c455ba25783"
+  },
+  {
+    "date": "2026-06-22",
+    "type": "BD/许可",
+    "company": "BIO前夕，中国创新",
+    "partner": "—",
+    "event": "BIO前夕，中国创新药资产开启合作浪潮",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/871ad4a0bc289a0fb5f3707664c48f34"
+  },
+  {
     "date": "2026-06-21",
     "type": "融资",
     "company": "一细胞治疗公司完成超",
