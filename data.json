@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-23",
+    "type": "并购",
+    "company": "斥资600亿美元收购",
+    "partner": "—",
+    "event": "斥资600亿美元收购AI编程独角兽Cursor，SpaceX有怎样的商业野心？｜亮马桥小纪严选",
+    "area": "肿瘤",
+    "amount": 600.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/85baa090533b5c35f4170cc635aab653"
+  },
+  {
+    "date": "2026-06-23",
+    "type": "融资",
+    "company": "Momenta通过上",
+    "partner": "—",
+    "event": "Momenta通过上市聆讯：年营收24亿 去年融资12亿美元 上汽奔驰通用是股东",
+    "area": "肿瘤",
+    "amount": 12.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/58b20884d84d131a1ae6127fae93aac7"
+  },
+  {
     "date": "2026-06-22",
     "type": "BD/许可",
     "company": "个月两笔、超30亿",
