@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-27",
+    "type": "并购",
+    "company": "万邦医药收购赛德盛医药",
+    "partner": "—",
+    "event": "估值4亿元！万邦医药收购赛德盛医药",
+    "area": "肿瘤",
+    "amount": 0.56,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/21b2c01b92128fb5463a96aa6acef484"
+  },
+  {
+    "date": "2026-06-27",
+    "type": "融资",
+    "company": "核心管线来自信达",
+    "partner": "—",
+    "event": "Ollin完成3.3亿美元B轮融资，核心管线来自信达",
+    "area": "肿瘤",
+    "amount": 3.3,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/84f1cf80be84acc8d566d826a90d7eb6"
+  },
+  {
     "date": "2026-06-26",
     "type": "IPO",
     "company": "亿！“果链女王",
