@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-06-30",
+    "type": "BD/许可",
+    "company": "公司动态丨艾科联生物科技",
+    "partner": "—",
+    "event": "公司动态丨艾科联生物科技宣布与罗氏达成临床试验合作，评估EXP011用于DLL3阳性实体瘤的联合治疗潜力",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/91bbb1c3220a3074b7ba16cd1530aed1"
+  },
+  {
+    "date": "2026-06-30",
+    "type": "融资",
+    "company": "元生创投Family",
+    "partner": "—",
+    "event": "元生创投Family | 博生吉完成新一轮融资，核心管线已步入临床Ⅱ期",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/bd7ffed135cf1923e766a3997273a867"
+  },
+  {
     "date": "2026-06-29",
     "type": "融资",
     "company": "万美元融资：",
