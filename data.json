@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-01",
+    "type": "融资",
+    "company": "MindOn宣布完成",
+    "partner": "—",
+    "event": "MindOn宣布完成Pre-A轮融资，致力于打造下一代机器人智能中枢",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/5b081bb9fab653ca8f3a72b8483f5959"
+  },
+  {
+    "date": "2026-07-01",
+    "type": "并购",
+    "company": ".5亿美元！一款",
+    "partner": "—",
+    "event": "17.5亿美元！一款骨髓纤维化口服抑制剂被收购",
+    "area": "肿瘤",
+    "amount": 17.5,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/9f3a71c5745fc0d4a923e3773aae4ccf"
+  },
+  {
+    "date": "2026-07-01",
+    "type": "BD/许可",
+    "company": "石墨烯脑机接口完成首",
+    "partner": "—",
+    "event": "石墨烯脑机接口完成首个人体研究入组，INBRAIN走到临床验证关键节点",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e5fdcfba27b3a5e052e1d0d4fdae3687"
+  },
+  {
     "date": "2026-06-30",
     "type": "BD/许可",
     "company": "公司动态丨艾科联生物科技",
