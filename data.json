@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-07-02",
+    "type": "BD/许可",
+    "company": "君实生物",
+    "partner": "—",
+    "event": "超13亿元！君实生物与复星万邦就一款单抗新药达成授权合作丨产业新闻",
+    "area": "肿瘤",
+    "amount": 1.81,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/953a556c86e3de3964c93af6fa8f32b5"
+  },
+  {
+    "date": "2026-07-02",
+    "type": "融资",
+    "company": "睿健医药",
+    "partner": "—",
+    "event": "睿健医药宣布完成2.6亿元人民币C+轮融资丨产业新闻",
+    "area": "肿瘤",
+    "amount": 0.36,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6586ecc080b3aa6812c4c404fc11a2e9"
+  },
+  {
     "date": "2026-07-01",
     "type": "融资",
     "company": "MindOn宣布完成",
