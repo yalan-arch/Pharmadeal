@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-07-06",
+    "type": "融资",
+    "company": "复百澳生物",
+    "partner": "—",
+    "event": "复百澳生物联合源兴基因，以“病毒载体改造 +CDMO” 双轮驱动打通基因治疗产业化链路",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/b642ec9afa441a68f56ebd1d34dc68fb"
+  },
+  {
+    "date": "2026-07-06",
+    "type": "BD/许可",
+    "company": "兽药原料信息资讯｜金",
+    "partner": "—",
+    "event": "兽药原料信息资讯｜金维多硫酸新霉素、酒石酸泰万菌素通过GMP验收,华润双鹤原料药获得CEP证书，默沙东动物保健森斯坦®将在中国境内上市",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/7ca524a254ca8c072d889bdf2ceaa733"
+  },
+  {
     "date": "2026-07-05",
     "type": "BD/许可",
     "company": "Biolevate与",
