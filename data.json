@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-08",
+    "type": "BD/许可",
+    "company": "中国生物制药",
+    "partner": "—",
+    "event": "超20亿美元！中国生物制药与阿斯利康就小分子新药达成授权合作丨产业新闻",
+    "area": "肿瘤",
+    "amount": 20.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c3a0b5bab8c3cedcd0be82d4a0fba689"
+  },
+  {
+    "date": "2026-07-08",
+    "type": "融资",
+    "company": "万美元B轮融",
+    "partner": "—",
+    "event": "5200万美元B轮融资落地！德睿智药AI引擎加速小分子创新药研发",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6ed59457d4e9ee1b1736c7b592cb1bfd"
+  },
+  {
+    "date": "2026-07-08",
+    "type": "BD/许可",
+    "company": "翱路医药",
+    "partner": "—",
+    "event": "重磅合作落地！翱路医药联合LG Chem加速全球肿瘤新药研发",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/8e70afba5784aae394cc9fc499ac3e31"
+  },
+  {
     "date": "2026-07-07",
     "type": "融资",
     "company": "打造生命",
