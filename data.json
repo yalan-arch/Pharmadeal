@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-11",
+    "type": "融资",
+    "company": "钱塘AI药企完成52",
+    "partner": "—",
+    "event": "钱塘AI药企完成5200万美元B轮融资！国内首款AI赋能一类新药迈入Ⅲ期临床",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/2ed7c07c009b5bd0ecce165bf80d72f5"
+  },
+  {
+    "date": "2026-07-11",
+    "type": "IPO",
+    "company": "亿，可口可乐要",
+    "partner": "—",
+    "event": "680亿，可口可乐要推亲儿子IPO",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/94eaa1ba2e714795c0b7cc25c0b65351"
+  },
+  {
+    "date": "2026-07-11",
+    "type": "融资",
+    "company": "海归医学博士AI制药",
+    "partner": "—",
+    "event": "海归医学博士AI制药，B轮融资超3.5亿元",
+    "area": "肿瘤",
+    "amount": 0.49,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/09de680937b679be98f6b2f424144257"
+  },
+  {
     "date": "2026-07-10",
     "type": "融资",
     "company": "【首发】子午激光获千",
