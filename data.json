@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-07-16",
+    "type": "BD/许可",
+    "company": "信达生物",
+    "partner": "—",
+    "event": "信达生物11亿美元出海！IBI355达成全球独家授权",
+    "area": "肿瘤",
+    "amount": 11.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/599e6e05717df9470c136a5fb083c801"
+  },
+  {
+    "date": "2026-07-16",
+    "type": "融资",
+    "company": ".15亿美元！Ad",
+    "partner": "—",
+    "event": "3.15亿美元！AdvanCell完成D轮融资，赛诺菲、礼来持续加注α粒子疗法",
+    "area": "肿瘤",
+    "amount": 3.15,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/dc1cef11520e47bb1b8b84c252b10bdd"
+  },
+  {
+    "date": "2026-07-16",
+    "type": "BD/许可",
+    "company": "杏泽资本伙伴企业劲方医药",
+    "partner": "—",
+    "event": "进展 I 杏泽资本伙伴企业劲方医药多项研究数据获得今年WCLC、ESMO口头报告或突破性研究摘要（LBA）资格",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/c4624a0f8b948d977ee0a582fc62d565"
+  },
+  {
     "date": "2026-07-15",
     "type": "BD/许可",
     "company": "国内小核酸赛道：5家",
