@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-07-22",
+    "type": "并购",
+    "company": "霍尼韦尔，完成收购！",
+    "partner": "—",
+    "event": "霍尼韦尔，完成收购！",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/1debb9c8467f5d9867c3ca9ba2aa187b"
+  },
+  {
     "date": "2026-07-21",
     "type": "IPO",
     "company": "泰诺麦博IPO大涨2",
