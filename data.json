@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-07-30",
+    "type": "融资",
+    "company": "必扬医药",
+    "partner": "—",
+    "event": "【首发】必扬医药超额完成近两亿元A轮融资，AI+分子设计与优化平台ExCEED价值加速兑现",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e096b161c8379b778c7edd833c337112"
+  },
+  {
+    "date": "2026-07-30",
+    "type": "融资",
+    "company": "【首发】健达九州完成",
+    "partner": "—",
+    "event": "【首发】健达九州完成数亿元人民币A轮融资，推进脑疾病的精准疗法加速上市",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/67f4bb2e2d6d1753b8595b0c31d75dbc"
+  },
+  {
     "date": "2026-07-29",
     "type": "BD/许可",
     "company": "万排他许可，华西",
