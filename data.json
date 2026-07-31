@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-07-31",
+    "type": "融资",
+    "company": "产业动态 | 新华医",
+    "partner": "—",
+    "event": "产业动态 | 新华医疗获5项注册证，励楷科技完成近5亿元D轮融资",
+    "area": "肿瘤",
+    "amount": 0.69,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/457d98b567e2cbf783fa7fbd779a378e"
+  },
+  {
     "date": "2026-07-30",
     "type": "融资",
     "company": "必扬医药",
@@ -26,6 +40,20 @@
     "geography": "中国",
     "source": "医药魔方 PharmCube",
     "sourceUrl": "https://bydrug.pharmcube.com/news/detail/67f4bb2e2d6d1753b8595b0c31d75dbc"
+  },
+  {
+    "date": "2026-07-30",
+    "type": "融资",
+    "company": "二季度末短期贷款及票",
+    "partner": "—",
+    "event": "二季度末短期贷款及票据融资余额同比增12.3%",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "同花顺财经",
+    "sourceUrl": "http://fe.10jqka.com.cn/20260730/c678564440.shtml"
   },
   {
     "date": "2026-07-29",
