@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-08-03",
+    "type": "BD/许可",
+    "company": "助力全生命",
+    "partner": "—",
+    "event": "【前沿】上海儿童医学中心研究登国际权威期刊，儿童肿瘤运动康复随访模式获得循证支撑，助力全生命周期健康管理",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/235bd6e78ab73861dd7f920546efd0b6"
+  },
+  {
+    "date": "2026-08-03",
+    "type": "并购",
+    "company": "医械风云 | 近2亿",
+    "partner": "—",
+    "event": "医械风云 | 近2亿元押注ECMO，但骨科机器人拟并购62%股权",
+    "area": "肿瘤",
+    "amount": 0.28,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/fdf1985c5c7842df76d90bb316cbf9b9"
+  },
+  {
+    "date": "2026-08-03",
+    "type": "BD/许可",
+    "company": "亿美元授权到账，泽",
+    "partner": "—",
+    "event": "1亿美元授权到账，泽璟上半年净赚6.4亿",
+    "area": "肿瘤",
+    "amount": 1.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/bb97121198646459567635422f69db11"
+  },
+  {
     "date": "2026-08-01",
     "type": "IPO",
     "company": "复购超80%，客单价",
