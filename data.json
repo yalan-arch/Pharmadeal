@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-08-06",
+    "type": "BD/许可",
+    "company": "龙启生物",
+    "partner": "—",
+    "event": "「龙启生物」龙启生物注射用IMW-1001获FDA/NMPA临床试验默示许可",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/bc902fd120e3d613623c0f5a86ca3397"
+  },
+  {
+    "date": "2026-08-06",
+    "type": "并购",
+    "company": "亿美元收购AD",
+    "partner": "—",
+    "event": "210亿美元收购ADC，业绩增长26%！",
+    "area": "肿瘤",
+    "amount": 210.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/44b4e297909db6c4c3a5772340ed8619"
+  },
+  {
+    "date": "2026-08-06",
+    "type": "融资",
+    "company": "核心资产来自复星医药",
+    "partner": "—",
+    "event": "Expedition完成1.15亿美元B轮融资，核心资产来自复星医药",
+    "area": "肿瘤",
+    "amount": 1.15,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/56961f3cfb5891f19980b416f0c4c2cb"
+  },
+  {
     "date": "2026-08-05",
     "type": "融资",
     "company": "NewPro完成数千",
