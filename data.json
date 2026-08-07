@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-08-07",
+    "type": "IPO",
+    "company": "刚刚！恒瑞NewCo",
+    "partner": "—",
+    "event": "刚刚！恒瑞NewCo企业IPO大涨65%",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6dab31260b692275001ad4851a03b732"
+  },
+  {
     "date": "2026-08-06",
     "type": "BD/许可",
     "company": "龙启生物",
