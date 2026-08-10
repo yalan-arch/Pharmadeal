@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-08-10",
+    "type": "融资",
+    "company": "DeepSeek第二",
+    "partner": "—",
+    "event": "DeepSeek第二轮融资今日首批签约，计划本月底实现交割",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/980d5f7ad226cb7f9d726eb06438840e"
+  },
+  {
+    "date": "2026-08-10",
+    "type": "融资",
+    "company": "家创新药公司完成新",
+    "partner": "—",
+    "event": "7家创新药公司完成新一轮融资！",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e584b7991e257faf0582c010d2ce7e56"
+  },
+  {
+    "date": "2026-08-10",
+    "type": "融资",
+    "company": "明澈科技再获数千万元",
+    "partner": "—",
+    "event": "明澈科技再获数千万元A+轮融资  ，国产MIGS与屈光晶体同时冲刺",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/dbc4590b5d991bb17f2f6b854fe83138"
+  },
+  {
     "date": "2026-08-08",
     "type": "IPO",
     "company": "北京Biotech三",
