@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-08-12",
+    "type": "融资",
+    "company": "【首发】菁良科技完成",
+    "partner": "—",
+    "event": "【首发】菁良科技完成数千万元B+轮融资，道远资本领投、松禾资本参与，临床业务加速增长",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/6c75a24a32880a652758a99b0075f9e3"
+  },
+  {
+    "date": "2026-08-12",
+    "type": "BD/许可",
+    "company": "【出海ING】创新药",
+    "partner": "—",
+    "event": "【出海ING】创新药出海超千亿美元后：对话同源康吴鸣，中国BD操盘手的十年出海路",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a055a2c5cec31fb9d89cb8d33c8b669f"
+  },
+  {
     "date": "2026-08-11",
     "type": "融资",
     "company": "寻明生科",
