@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-08-13",
+    "type": "融资",
+    "company": "领军企业虹信生物",
+    "partner": "—",
+    "event": "【首发】In vivo CAR T领军企业虹信生物宣布完成数亿元B轮融资，平台和管线获头部资本和国际学界持续认可",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/8e46318065a04101d6df8cd9ddcfc72f"
+  },
+  {
+    "date": "2026-08-13",
+    "type": "并购",
+    "company": "蚂蚁健康收购好大夫后",
+    "partner": "—",
+    "event": "蚂蚁健康收购好大夫后再一次落子！",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/0afa16aabc4527fdea911b87c25abfcb"
+  },
+  {
     "date": "2026-08-12",
     "type": "融资",
     "company": "【首发】菁良科技完成",
