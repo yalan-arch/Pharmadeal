@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-08-16",
+    "type": "并购",
+    "company": "Curium 收购",
+    "partner": "—",
+    "event": "Curium 收购 Abscint SA，拓展肿瘤学 PET 放射诊断管线",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e2d86f2e5a3c6bc551522e5e6522895d"
+  },
+  {
+    "date": "2026-08-16",
+    "type": "BD/许可",
+    "company": "捷报再传｜臻知医学肿",
+    "partner": "—",
+    "event": "捷报再传｜臻知医学肿瘤mRNA治疗型疫苗斩获肺鳞癌临床默示许可，实体瘤布局全面升级",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/72c17dd344eb9927fc0dab52f8c9c64f"
+  },
+  {
     "date": "2026-08-15",
     "type": "融资",
     "company": "央行数据显示，7月末",
