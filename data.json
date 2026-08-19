@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-08-19",
+    "type": "BD/许可",
+    "company": "鲁南制药",
+    "partner": "—",
+    "event": "鲁南制药海普益®盐酸沙丙蝶呤片获得西班牙上市批准",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/8bbac04486faf110e5def61059a46743"
+  },
+  {
+    "date": "2026-08-19",
+    "type": "BD/许可",
+    "company": "赛默飞世尔完成出售微生物",
+    "partner": "—",
+    "event": "10.75 亿美元！赛默飞世尔完成出售微生物业务",
+    "area": "肿瘤",
+    "amount": 10.75,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/552fc6feb4d035fde83623b65411a1ed"
+  },
+  {
     "date": "2026-08-18",
     "type": "融资",
     "company": "融资结构变化，折射经",
