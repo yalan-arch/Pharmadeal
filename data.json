@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-09-12",
+    "type": "IPO",
+    "company": "英伟达洽谈在Anth",
+    "partner": "—",
+    "event": "英伟达洽谈在Anthropic IPO中投资高达100亿美元",
+    "area": "肿瘤",
+    "amount": 100.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a26f00d69b060f7f0b80fe02e819541a"
+  },
+  {
+    "date": "2026-09-12",
+    "type": "BD/许可",
+    "company": "康美药业",
+    "partner": "—",
+    "event": "康美药业，17天完成换帅",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/496c834a82299867595985afcb98e6ee"
+  },
+  {
     "date": "2026-09-11",
     "type": "BD/许可",
     "company": "强强携手共创眼科新生",
