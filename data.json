@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-09-16",
+    "type": "IPO",
+    "company": "开盘大涨72%，拿下",
+    "partner": "—",
+    "event": "开盘大涨72%，拿下15亿美元BD的Biotech刚刚IPO",
+    "area": "肿瘤",
+    "amount": 15.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/1b615889203fcbb0b26d4e52f0939adc"
+  },
+  {
+    "date": "2026-09-16",
+    "type": "融资",
+    "company": "因子疗法领军企业复融生物",
+    "partner": "—",
+    "event": "【首发】IO 2.0 细胞因子疗法领军企业复融生物完成Pre-B轮融资二关过亿元, 全力加速核心产品临床开发进程，凯乘资本担任独家财务顾问",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/768c850b30fa7df883c17dd89fad0132"
+  },
+  {
+    "date": "2026-09-16",
+    "type": "融资",
+    "company": "【首发】完成数千万元",
+    "partner": "—",
+    "event": "【首发】完成数千万元融资，萨丽斐加速转化再生医学管线",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/e76e1d1821e93f9d9ec822e5cbc62577"
+  },
+  {
     "date": "2026-09-15",
     "type": "融资",
     "company": "主攻难成药靶点！一家",
