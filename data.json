@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-09-17",
+    "type": "并购",
+    "company": "百亿美金收购囊获！默",
+    "partner": "—",
+    "event": "百亿美金收购囊获！默沙东 first-in-class 新药拟突破性疗法",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/cab5ab8f1f568d70d9b4572f149a3325"
+  },
+  {
+    "date": "2026-09-17",
+    "type": "融资",
+    "company": "迈英诺医药",
+    "partner": "—",
+    "event": "迈英诺医药：完成超2亿元A轮融资，博行资本参与投资",
+    "area": "肿瘤",
+    "amount": 0.28,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/80192af2851981428a7ad9638f3e0ee7"
+  },
+  {
+    "date": "2026-09-17",
+    "type": "BD/许可",
+    "company": "诺和，终止重磅合作",
+    "partner": "—",
+    "event": "诺和，终止重磅合作",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/943e5d4b2d90f018f7f88e94988ec9aa"
+  },
+  {
     "date": "2026-09-16",
     "type": "IPO",
     "company": "开盘大涨72%，拿下",
