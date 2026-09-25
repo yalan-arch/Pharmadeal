@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-09-25",
+    "type": "IPO",
+    "company": "一位高中辍学的“矿工",
+    "partner": "—",
+    "event": "一位高中辍学的“矿工”冲刺IPO，估值超2300亿元",
+    "area": "肿瘤",
+    "amount": 319.44,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/9c11632ae5968aa849aa46c96b2a79f5"
+  },
+  {
+    "date": "2026-09-25",
+    "type": "融资",
+    "company": "全新干细胞项目获1.",
+    "partner": "—",
+    "event": "全新干细胞项目获1.12 亿元融资，新技术有望逆转人体衰老、延长健康寿命",
+    "area": "肿瘤",
+    "amount": 0.16,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/ba69d169f636ebd612987db3b1640f58"
+  },
+  {
     "date": "2026-09-24",
     "type": "融资",
     "company": "AI制药！3.11亿",
