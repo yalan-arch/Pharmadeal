@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-09-30",
+    "type": "IPO",
+    "company": "临界与良率：同创伟业",
+    "partner": "—",
+    "event": "临界与良率：同创伟业30家科创板IPO的投资辩证法",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/60e6355e36e889c8b1ee3ff855e6310b"
+  },
+  {
+    "date": "2026-09-30",
+    "type": "BD/许可",
+    "company": "口腔医用耗材集采接续",
+    "partner": "—",
+    "event": "口腔医用耗材集采接续启动，预计年底前完成",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/b0325a87cc3a931aaca58376f133c98d"
+  },
+  {
     "date": "2026-09-28",
     "type": "融资",
     "company": "【首发】利德健康完成",
