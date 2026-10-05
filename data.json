@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-10-05",
+    "type": "融资",
+    "company": "引航生物",
+    "partner": "—",
+    "event": "引航生物完成 4.5 亿元 Pre-IPO 融资： 合成生物学“全链条能力”的资本定价",
+    "area": "肿瘤",
+    "amount": 0.62,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/7509f4754af36f2dca20b196f8f7742f"
+  },
+  {
+    "date": "2026-10-05",
+    "type": "BD/许可",
+    "company": ".55亿美元！C",
+    "partner": "—",
+    "event": "15.55亿美元！CSL和Alentis合作开发全球首款Claudin-1单抗",
+    "area": "肿瘤",
+    "amount": 15.55,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/534aff037a846ee24eeb5d7654b29322"
+  },
+  {
+    "date": "2026-10-05",
+    "type": "BD/许可",
+    "company": "Science |",
+    "partner": "—",
+    "event": "Science | IBD研究出现新视角：保护性成纤维细胞减少，可能比促炎细胞增加更值得关注",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/a6749c6ebabf2ee2b05a7503b55a52d8"
+  },
+  {
     "date": "2026-10-04",
     "type": "融资",
     "company": "Nscale任命Me",
