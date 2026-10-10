@@ -1,5 +1,47 @@
 [
   {
+    "date": "2026-10-10",
+    "type": "IPO",
+    "company": "超1亿美元！礼来投资",
+    "partner": "—",
+    "event": "超1亿美元！礼来投资的Biotech完成美股IPO",
+    "area": "肿瘤",
+    "amount": 1.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/231f59afa955c2b5aaaa9feb16b89e1f"
+  },
+  {
+    "date": "2026-10-10",
+    "type": "并购",
+    "company": "重要进展！00202",
+    "partner": "—",
+    "event": "重要进展！002027收购案获反垄断审查通过",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/d8fe02a7403904237ba2885cb5f1cc74"
+  },
+  {
+    "date": "2026-10-10",
+    "type": "融资",
+    "company": "万！上海一家",
+    "partner": "—",
+    "event": "5000万！上海一家多肽企业完成融资",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/9b8d4bdb61c473942bfea2fefb6f6a25"
+  },
+  {
     "date": "2026-10-09",
     "type": "BD/许可",
     "company": "J Virol. |",
