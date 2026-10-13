@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-10-13",
+    "type": "并购",
+    "company": "，筹划重",
+    "partner": "—",
+    "event": "301314，筹划重要收购",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/563c46648ab475761ac4b24c3b96b1f5"
+  },
+  {
+    "date": "2026-10-13",
+    "type": "并购",
+    "company": "股价盘中跌停！国恩股",
+    "partner": "—",
+    "event": "股价盘中跌停！国恩股份15亿元收购背后的考验",
+    "area": "肿瘤",
+    "amount": 2.08,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/d727cdbee94dc749e099ec8e3eb2e227"
+  },
+  {
     "date": "2026-10-12",
     "type": "BD/许可",
     "company": "重磅！勃林格殷格翰中",
