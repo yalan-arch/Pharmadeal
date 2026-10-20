@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-10-20",
+    "type": "融资",
+    "company": "基因治疗下一轮竞争看",
+    "partner": "—",
+    "event": "基因治疗下一轮竞争看什么？全球前沿力量齐聚2026 CSGCT大会",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/d6f0dc0be66ebdae282983aa67e0f47c"
+  },
+  {
+    "date": "2026-10-20",
+    "type": "BD/许可",
+    "company": "翰森制药",
+    "partner": "—",
+    "event": "翰森制药与罗氏达成战略合作及授权协议，潜在里程碑付款超过150亿美元",
+    "area": "肿瘤",
+    "amount": 150.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/aaba63fc1f0c1783221ac84b895cd4cb"
+  },
+  {
     "date": "2026-10-19",
     "type": "融资",
     "company": "粒曼生物",
