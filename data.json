@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-24",
+    "type": "融资",
+    "company": "智能体云公司Dayt",
+    "partner": "—",
+    "event": "智能体云公司Daytona融资6000万美元 估值10亿美元",
+    "area": "肿瘤",
+    "amount": 10.0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/766a6a1b53c760ec8b08aed741d51b18"
+  },
+  {
     "date": "2026-10-23",
     "type": "BD/许可",
     "company": "君联资本被投企业瀚辰",
