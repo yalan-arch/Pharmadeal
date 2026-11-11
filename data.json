@@ -1,5 +1,33 @@
 [
   {
+    "date": "2026-11-11",
+    "type": "BD/许可",
+    "company": "沐曦股份曦云C系列G",
+    "partner": "—",
+    "event": "沐曦股份曦云C系列GPU 率先完成MiniMax H3-Image Day 0适配",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/63bce358a0e768fe44a72b8dd2fb8eed"
+  },
+  {
+    "date": "2026-11-11",
+    "type": "BD/许可",
+    "company": "国产替代完成了，老牌",
+    "partner": "—",
+    "event": "国产替代完成了，老牌IVD企业却破产了....",
+    "area": "肿瘤",
+    "amount": 0,
+    "stage": "—",
+    "region": "中国",
+    "geography": "中国",
+    "source": "医药魔方 PharmCube",
+    "sourceUrl": "https://bydrug.pharmcube.com/news/detail/7a996b19eadf07603ed47c77fc0825d9"
+  },
+  {
     "date": "2026-11-10",
     "type": "BD/许可",
     "company": "刚刚，第16 批生物",
